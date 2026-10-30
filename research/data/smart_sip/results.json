@@ -1,0 +1,445 @@
+{
+  "data_through": "2026-10-28",
+  "windows": {
+    "2016-11 onward": {
+      "price, cash 0%": {
+        "normal": {
+          "xirr_pct": 8.76,
+          "xirr_on_deployed_only_pct": 8.76,
+          "months": 120,
+          "months_bought": 120,
+          "paid": 1200000,
+          "final_value": 1885395,
+          "cash_left": 0,
+          "max_cash_waiting": 0
+        },
+        "pe": {
+          "xirr_pct": 8.47,
+          "xirr_on_deployed_only_pct": 8.8,
+          "months": 120,
+          "months_bought": 61,
+          "paid": 1200000,
+          "final_value": 1856963,
+          "cash_left": 0,
+          "max_cash_waiting": 150000
+        },
+        "dma": {
+          "xirr_pct": 8.29,
+          "xirr_on_deployed_only_pct": 9.01,
+          "months": 120,
+          "months_bought": 30,
+          "paid": 1200000,
+          "final_value": 1840100,
+          "cash_left": 0,
+          "max_cash_waiting": 200000
+        },
+        "w52": {
+          "xirr_pct": 7.79,
+          "xirr_on_deployed_only_pct": 9.09,
+          "months": 120,
+          "months_bought": 21,
+          "paid": 1200000,
+          "final_value": 1791834,
+          "cash_left": 0,
+          "max_cash_waiting": 290000
+        },
+        "all3": {
+          "xirr_pct": 7.79,
+          "xirr_on_deployed_only_pct": 9.09,
+          "months": 120,
+          "months_bought": 20,
+          "paid": 1200000,
+          "final_value": 1791897,
+          "cash_left": 0,
+          "max_cash_waiting": 290000
+        }
+      },
+      "price, cash 6%": {
+        "normal": {
+          "xirr_pct": 8.76,
+          "xirr_on_deployed_only_pct": 8.76,
+          "months": 120,
+          "months_bought": 120,
+          "paid": 1200000,
+          "final_value": 1885395,
+          "cash_left": 0,
+          "max_cash_waiting": 0
+        },
+        "pe": {
+          "xirr_pct": 8.7,
+          "xirr_on_deployed_only_pct": 8.81,
+          "months": 120,
+          "months_bought": 61,
+          "paid": 1200000,
+          "final_value": 1879919,
+          "cash_left": 0,
+          "max_cash_waiting": 155220
+        },
+        "dma": {
+          "xirr_pct": 8.75,
+          "xirr_on_deployed_only_pct": 8.98,
+          "months": 120,
+          "months_bought": 30,
+          "paid": 1200000,
+          "final_value": 1884611,
+          "cash_left": 0,
+          "max_cash_waiting": 209524
+        },
+        "w52": {
+          "xirr_pct": 8.62,
+          "xirr_on_deployed_only_pct": 9.05,
+          "months": 120,
+          "months_bought": 21,
+          "paid": 1200000,
+          "final_value": 1871774,
+          "cash_left": 0,
+          "max_cash_waiting": 310656
+        },
+        "all3": {
+          "xirr_pct": 8.62,
+          "xirr_on_deployed_only_pct": 9.05,
+          "months": 120,
+          "months_bought": 20,
+          "paid": 1200000,
+          "final_value": 1872040,
+          "cash_left": 0,
+          "max_cash_waiting": 310656
+        }
+      },
+      "tr, cash 0%": {
+        "normal": {
+          "xirr_pct": 10.19,
+          "xirr_on_deployed_only_pct": 10.19,
+          "months": 120,
+          "months_bought": 120,
+          "paid": 1200000,
+          "final_value": 2034063,
+          "cash_left": 0,
+          "max_cash_waiting": 0
+        },
+        "pe": {
+          "xirr_pct": 9.85,
+          "xirr_on_deployed_only_pct": 10.24,
+          "months": 120,
+          "months_bought": 61,
+          "paid": 1200000,
+          "final_value": 1997787,
+          "cash_left": 0,
+          "max_cash_waiting": 150000
+        },
+        "dma": {
+          "xirr_pct": 9.65,
+          "xirr_on_deployed_only_pct": 10.47,
+          "months": 120,
+          "months_bought": 30,
+          "paid": 1200000,
+          "final_value": 1976355,
+          "cash_left": 0,
+          "max_cash_waiting": 200000
+        },
+        "w52": {
+          "xirr_pct": 9.06,
+          "xirr_on_deployed_only_pct": 10.55,
+          "months": 120,
+          "months_bought": 21,
+          "paid": 1200000,
+          "final_value": 1915842,
+          "cash_left": 0,
+          "max_cash_waiting": 290000
+        },
+        "all3": {
+          "xirr_pct": 9.06,
+          "xirr_on_deployed_only_pct": 10.56,
+          "months": 120,
+          "months_bought": 20,
+          "paid": 1200000,
+          "final_value": 1915859,
+          "cash_left": 0,
+          "max_cash_waiting": 290000
+        }
+      },
+      "tr, cash 6%": {
+        "normal": {
+          "xirr_pct": 10.19,
+          "xirr_on_deployed_only_pct": 10.19,
+          "months": 120,
+          "months_bought": 120,
+          "paid": 1200000,
+          "final_value": 2034063,
+          "cash_left": 0,
+          "max_cash_waiting": 0
+        },
+        "pe": {
+          "xirr_pct": 10.09,
+          "xirr_on_deployed_only_pct": 10.25,
+          "months": 120,
+          "months_bought": 61,
+          "paid": 1200000,
+          "final_value": 2022912,
+          "cash_left": 0,
+          "max_cash_waiting": 155220
+        },
+        "dma": {
+          "xirr_pct": 10.1,
+          "xirr_on_deployed_only_pct": 10.44,
+          "months": 120,
+          "months_bought": 30,
+          "paid": 1200000,
+          "final_value": 2023881,
+          "cash_left": 0,
+          "max_cash_waiting": 209524
+        },
+        "w52": {
+          "xirr_pct": 9.89,
+          "xirr_on_deployed_only_pct": 10.52,
+          "months": 120,
+          "months_bought": 21,
+          "paid": 1200000,
+          "final_value": 2001215,
+          "cash_left": 0,
+          "max_cash_waiting": 310656
+        },
+        "all3": {
+          "xirr_pct": 9.89,
+          "xirr_on_deployed_only_pct": 10.52,
+          "months": 120,
+          "months_bought": 20,
+          "paid": 1200000,
+          "final_value": 2001456,
+          "cash_left": 0,
+          "max_cash_waiting": 310656
+        }
+      },
+      "normal SIP, end of month (tr)": {
+        "xirr_pct": 10.17,
+        "xirr_on_deployed_only_pct": 10.17,
+        "months": 120,
+        "months_bought": 120,
+        "paid": 1200000,
+        "final_value": 2016177,
+        "cash_left": 0,
+        "max_cash_waiting": 0
+      }
+    },
+    "2000-01 onward": {
+      "price, cash 0%": {
+        "normal": {
+          "xirr_pct": 11.59,
+          "xirr_on_deployed_only_pct": 11.59,
+          "months": 322,
+          "months_bought": 322,
+          "paid": 3220000,
+          "final_value": 19757174,
+          "cash_left": 0,
+          "max_cash_waiting": 0
+        },
+        "pe": {
+          "xirr_pct": 11.64,
+          "xirr_on_deployed_only_pct": 11.77,
+          "months": 322,
+          "months_bought": 163,
+          "paid": 3220000,
+          "final_value": 19934447,
+          "cash_left": 0,
+          "max_cash_waiting": 180000
+        },
+        "dma": {
+          "xirr_pct": 11.31,
+          "xirr_on_deployed_only_pct": 11.67,
+          "months": 322,
+          "months_bought": 99,
+          "paid": 3220000,
+          "final_value": 18812391,
+          "cash_left": 0,
+          "max_cash_waiting": 420000
+        },
+        "w52": {
+          "xirr_pct": 11.29,
+          "xirr_on_deployed_only_pct": 11.69,
+          "months": 322,
+          "months_bought": 90,
+          "paid": 3220000,
+          "final_value": 18766012,
+          "cash_left": 0,
+          "max_cash_waiting": 420000
+        },
+        "all3": {
+          "xirr_pct": 11.34,
+          "xirr_on_deployed_only_pct": 11.77,
+          "months": 322,
+          "months_bought": 79,
+          "paid": 3220000,
+          "final_value": 18930964,
+          "cash_left": 0,
+          "max_cash_waiting": 420000
+        }
+      },
+      "price, cash 6%": {
+        "normal": {
+          "xirr_pct": 11.59,
+          "xirr_on_deployed_only_pct": 11.59,
+          "months": 322,
+          "months_bought": 322,
+          "paid": 3220000,
+          "final_value": 19757174,
+          "cash_left": 0,
+          "max_cash_waiting": 0
+        },
+        "pe": {
+          "xirr_pct": 11.7,
+          "xirr_on_deployed_only_pct": 11.76,
+          "months": 322,
+          "months_bought": 163,
+          "paid": 3220000,
+          "final_value": 20128764,
+          "cash_left": 0,
+          "max_cash_waiting": 187644
+        },
+        "dma": {
+          "xirr_pct": 11.44,
+          "xirr_on_deployed_only_pct": 11.62,
+          "months": 322,
+          "months_bought": 99,
+          "paid": 3220000,
+          "final_value": 19261174,
+          "cash_left": 0,
+          "max_cash_waiting": 464764
+        },
+        "w52": {
+          "xirr_pct": 11.45,
+          "xirr_on_deployed_only_pct": 11.64,
+          "months": 322,
+          "months_bought": 90,
+          "paid": 3220000,
+          "final_value": 19276352,
+          "cash_left": 0,
+          "max_cash_waiting": 464764
+        },
+        "all3": {
+          "xirr_pct": 11.51,
+          "xirr_on_deployed_only_pct": 11.71,
+          "months": 322,
+          "months_bought": 79,
+          "paid": 3220000,
+          "final_value": 19477372,
+          "cash_left": 0,
+          "max_cash_waiting": 464764
+        }
+      },
+      "tr, cash 0%": {
+        "normal": {
+          "xirr_pct": 13.16,
+          "xirr_on_deployed_only_pct": 13.16,
+          "months": 322,
+          "months_bought": 322,
+          "paid": 3220000,
+          "final_value": 25942352,
+          "cash_left": 0,
+          "max_cash_waiting": 0
+        },
+        "pe": {
+          "xirr_pct": 13.2,
+          "xirr_on_deployed_only_pct": 13.34,
+          "months": 322,
+          "months_bought": 163,
+          "paid": 3220000,
+          "final_value": 26149752,
+          "cash_left": 0,
+          "max_cash_waiting": 180000
+        },
+        "dma": {
+          "xirr_pct": 12.86,
+          "xirr_on_deployed_only_pct": 13.26,
+          "months": 322,
+          "months_bought": 99,
+          "paid": 3220000,
+          "final_value": 24631649,
+          "cash_left": 0,
+          "max_cash_waiting": 420000
+        },
+        "w52": {
+          "xirr_pct": 12.85,
+          "xirr_on_deployed_only_pct": 13.28,
+          "months": 322,
+          "months_bought": 90,
+          "paid": 3220000,
+          "final_value": 24561164,
+          "cash_left": 0,
+          "max_cash_waiting": 420000
+        },
+        "all3": {
+          "xirr_pct": 12.9,
+          "xirr_on_deployed_only_pct": 13.35,
+          "months": 322,
+          "months_bought": 79,
+          "paid": 3220000,
+          "final_value": 24783327,
+          "cash_left": 0,
+          "max_cash_waiting": 420000
+        }
+      },
+      "tr, cash 6%": {
+        "normal": {
+          "xirr_pct": 13.16,
+          "xirr_on_deployed_only_pct": 13.16,
+          "months": 322,
+          "months_bought": 322,
+          "paid": 3220000,
+          "final_value": 25942352,
+          "cash_left": 0,
+          "max_cash_waiting": 0
+        },
+        "pe": {
+          "xirr_pct": 13.26,
+          "xirr_on_deployed_only_pct": 13.33,
+          "months": 322,
+          "months_bought": 163,
+          "paid": 3220000,
+          "final_value": 26394763,
+          "cash_left": 0,
+          "max_cash_waiting": 187644
+        },
+        "dma": {
+          "xirr_pct": 12.99,
+          "xirr_on_deployed_only_pct": 13.21,
+          "months": 322,
+          "months_bought": 99,
+          "paid": 3220000,
+          "final_value": 25193249,
+          "cash_left": 0,
+          "max_cash_waiting": 464764
+        },
+        "w52": {
+          "xirr_pct": 12.99,
+          "xirr_on_deployed_only_pct": 13.23,
+          "months": 322,
+          "months_bought": 90,
+          "paid": 3220000,
+          "final_value": 25189477,
+          "cash_left": 0,
+          "max_cash_waiting": 464764
+        },
+        "all3": {
+          "xirr_pct": 13.05,
+          "xirr_on_deployed_only_pct": 13.3,
+          "months": 322,
+          "months_bought": 79,
+          "paid": 3220000,
+          "final_value": 25461281,
+          "cash_left": 0,
+          "max_cash_waiting": 464764
+        }
+      },
+      "normal SIP, end of month (tr)": {
+        "xirr_pct": 13.19,
+        "xirr_on_deployed_only_pct": 13.19,
+        "months": 322,
+        "months_bought": 322,
+        "paid": 3220000,
+        "final_value": 25835994,
+        "cash_left": 0,
+        "max_cash_waiting": 0
+      }
+    }
+  }
+}

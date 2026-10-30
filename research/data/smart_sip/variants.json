@@ -1,0 +1,265 @@
+{
+  "data_through": "2026-10-28",
+  "variants": {
+    "Fixed SIP": {
+      "1996": {
+        "fund_xirr_pct": 12.76,
+        "price_xirr_pct": 11.45,
+        "fund_value_lakh": 397.5,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 12.93,
+        "price_xirr_pct": 11.59,
+        "fund_value_lakh": 249.1,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.03,
+        "price_xirr_pct": 9.82,
+        "fund_value_lakh": 71.1,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 9.89,
+        "price_xirr_pct": 8.67,
+        "fund_value_lakh": 19.5,
+        "paid_lakh": 11.8
+      }
+    },
+    "PE rule (all money waits)": {
+      "1996": {
+        "fund_xirr_pct": 12.81,
+        "price_xirr_pct": 11.51,
+        "fund_value_lakh": 401.9,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 13.03,
+        "price_xirr_pct": 11.7,
+        "fund_value_lakh": 253.5,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.13,
+        "price_xirr_pct": 9.94,
+        "fund_value_lakh": 71.9,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 9.77,
+        "price_xirr_pct": 8.6,
+        "fund_value_lakh": 19.4,
+        "paid_lakh": 11.8
+      }
+    },
+    "50% fixed + 50% PE pile": {
+      "1996": {
+        "fund_xirr_pct": 12.79,
+        "price_xirr_pct": 11.48,
+        "fund_value_lakh": 399.7,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 12.98,
+        "price_xirr_pct": 11.65,
+        "fund_value_lakh": 251.3,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.08,
+        "price_xirr_pct": 9.88,
+        "fund_value_lakh": 71.5,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 9.83,
+        "price_xirr_pct": 8.64,
+        "fund_value_lakh": 19.4,
+        "paid_lakh": 11.8
+      }
+    },
+    "PE below 20 (absolute)": {
+      "1996": {
+        "fund_xirr_pct": 12.92,
+        "price_xirr_pct": 11.63,
+        "fund_value_lakh": 410.6,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 13.2,
+        "price_xirr_pct": 11.9,
+        "fund_value_lakh": 261.2,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.8,
+        "price_xirr_pct": 10.7,
+        "fund_value_lakh": 77.5,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 12.98,
+        "price_xirr_pct": 11.99,
+        "fund_value_lakh": 22.9,
+        "paid_lakh": 11.8
+      }
+    },
+    "PE < avg by 5%+": {
+      "1996": {
+        "fund_xirr_pct": 12.82,
+        "price_xirr_pct": 11.51,
+        "fund_value_lakh": 402.2,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 13.04,
+        "price_xirr_pct": 11.71,
+        "fund_value_lakh": 253.9,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.1,
+        "price_xirr_pct": 9.95,
+        "fund_value_lakh": 71.6,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 9.8,
+        "price_xirr_pct": 8.7,
+        "fund_value_lakh": 19.4,
+        "paid_lakh": 11.8
+      }
+    },
+    "Dip 5% from 52w high": {
+      "1996": {
+        "fund_xirr_pct": 12.73,
+        "price_xirr_pct": 11.42,
+        "fund_value_lakh": 395.4,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 12.86,
+        "price_xirr_pct": 11.53,
+        "fund_value_lakh": 246.2,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 10.99,
+        "price_xirr_pct": 9.8,
+        "fund_value_lakh": 70.8,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 9.91,
+        "price_xirr_pct": 8.74,
+        "fund_value_lakh": 19.5,
+        "paid_lakh": 11.8
+      }
+    },
+    "Dip 10% from 52w high": {
+      "1996": {
+        "fund_xirr_pct": 12.76,
+        "price_xirr_pct": 11.46,
+        "fund_value_lakh": 397.4,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 12.9,
+        "price_xirr_pct": 11.59,
+        "fund_value_lakh": 247.9,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.22,
+        "price_xirr_pct": 10.08,
+        "fund_value_lakh": 72.6,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 11.11,
+        "price_xirr_pct": 10.04,
+        "fund_value_lakh": 20.8,
+        "paid_lakh": 11.8
+      }
+    },
+    "50% fixed + 50% dip-10% pile": {
+      "1996": {
+        "fund_xirr_pct": 12.76,
+        "price_xirr_pct": 11.45,
+        "fund_value_lakh": 397.4,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 12.91,
+        "price_xirr_pct": 11.59,
+        "fund_value_lakh": 248.5,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.12,
+        "price_xirr_pct": 9.95,
+        "fund_value_lakh": 71.8,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 10.51,
+        "price_xirr_pct": 9.37,
+        "fund_value_lakh": 20.1,
+        "paid_lakh": 11.8
+      }
+    },
+    "PE cheap OR dip 10%": {
+      "1996": {
+        "fund_xirr_pct": 12.77,
+        "price_xirr_pct": 11.46,
+        "fund_value_lakh": 398.4,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 12.95,
+        "price_xirr_pct": 11.62,
+        "fund_value_lakh": 250.1,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.14,
+        "price_xirr_pct": 9.96,
+        "fund_value_lakh": 72.0,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 9.88,
+        "price_xirr_pct": 8.71,
+        "fund_value_lakh": 19.5,
+        "paid_lakh": 11.8
+      }
+    },
+    "Dip 20% from 52w high": {
+      "1996": {
+        "fund_xirr_pct": 12.72,
+        "price_xirr_pct": 11.45,
+        "fund_value_lakh": 394.1,
+        "paid_lakh": 37.0
+      },
+      "2000": {
+        "fund_xirr_pct": 12.71,
+        "price_xirr_pct": 11.46,
+        "fund_value_lakh": 239.9,
+        "paid_lakh": 32.2
+      },
+      "2008 peak": {
+        "fund_xirr_pct": 11.7,
+        "price_xirr_pct": 10.68,
+        "fund_value_lakh": 76.6,
+        "paid_lakh": 22.6
+      },
+      "2017": {
+        "fund_xirr_pct": 12.78,
+        "price_xirr_pct": 11.99,
+        "fund_value_lakh": 22.7,
+        "paid_lakh": 11.8
+      }
+    }
+  }
+}

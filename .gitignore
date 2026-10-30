@@ -1,0 +1,162 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Packaging / distribution output (large binaries — not source)
+/dist/
+/installer/
+/installer_output/
+
+# Python backend (source is versioned; secrets/venv/runtime data are not)
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.env
+backend/.env.local
+backend/data/
+*.py[cod]
+
+# Downloaded market-data lake and generated coverage reports
+/research/data/intraday_lake/
+/research/data/intraday_lake_stage_kaggle/
+/research/data/intraday_downloads/
+/research/data/intraday_reports/
+/research/data/canonical_1m*.parquet
+
+# Large generated research binaries (universe panel, security master, caches) —
+# reproducible from research/scripts, not source. Machine-readable *.json
+# results (small) ARE versioned as deliverables.
+/research/data/*.parquet
+/research/data/bhavcopy_cache/
+/research/data/notebook_cache/
+/research/data/notebook_outputs/
+
+# Scanner universe cache — regenerated weekly from NSE index CSVs by
+# swing_trading.get_swing_universe(); a stale copy in git would only mislead.
+/backend/nse_universe_cache.json
+
+# Research run logs
+/research/logs/
+
+# Local audit screenshots may contain private financial information.
+/artifacts/dashboard/
+
+# Local scratch, logs and raw downloads
+/tmp/
+/artifacts/
+/research/data/v2_source_verification/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PUBLIC REPO SAFETY. This repository is public. Nothing personal, no
+# credentials and no third-party raw data may be committed. See SECURITY.md
+# and .claude/skills/privacy-guard. tools/git-hooks/pre-commit enforces it.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Personal workspace: broker exports, snapshots, private reports, denylist
+/private/
+
+# Credentials and local config
+.env
+.env.*
+!.env.example
+!**/.env.example
+backend/google_oauth.json
+*.pfx
+*.p12
+*.pem
+*.key
+*.cer
+*.crt
+*.jks
+*.keystore
+*.snk
+.claude/settings.local.json
+.codex/
+
+# Broker / bank exports wherever they land (Zerodha, CAMS, bank statements)
+*tradebook*.xlsx
+*tradebook*.csv
+*pnl-*.xlsx
+*ledger-*.xlsx
+*holdings*.xlsx
+*holdings*.csv
+*contract*note*
+*tax*pnl*
+*statement*.pdf
+/*.xlsx
+/*.xls
+/*.csv
+
+# Personal app content (real portfolio, expenses); the app runs without it
+/assets/private/*
+!/assets/private/README.md
+!/assets/private/docs/
+/assets/private/docs/*
+!/assets/private/docs/README.md
+/test/_real_*.json
+
+# Private research: the rebalancing basket overlaps the owner's holdings
+/docs/Rebalancing_*
+/docs/Masters_*
+/docs/S3_Band_*
+/research/data/rebalance_audit_2010_2026/
+/research/data/s4_fundamentals/
+/research/data/five_strategy_verified/
+/research/data/strategies_*/
+/research/data/rebalance_backtest*.json
+/research/data/v2_*.json
+
+# Third-party raw market data (NSE, vendors, scraped pages): reproducible from
+# the download scripts, not redistributable
+/dataset/store/
+/research/data/nse_universe_*
+/research/data/nifty50_daily_*.csv
+/research/data/nifty50_nse_daily_*.csv
+/research/data/gainers_daily_*.csv
+/research/data/signals_*.csv.gz
+
+# Generated working files
+/docs/**/*.xlsx

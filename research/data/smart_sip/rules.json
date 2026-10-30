@@ -1,0 +1,573 @@
+{
+  "data_through": "2026-10-28",
+  "basis": "price index only",
+  "rules": {
+    "1 Fixed SIP": {
+      "group": "A",
+      "1996": {
+        "xirr_pct": 11.45,
+        "paid_lakh": 37.0,
+        "value_lakh": 303.4,
+        "signal_count": 0
+      },
+      "2000": {
+        "xirr_pct": 11.59,
+        "paid_lakh": 32.2,
+        "value_lakh": 197.6,
+        "signal_count": 0
+      },
+      "2008": {
+        "xirr_pct": 9.82,
+        "paid_lakh": 22.6,
+        "value_lakh": 62.2,
+        "signal_count": 0
+      },
+      "2017": {
+        "xirr_pct": 8.67,
+        "paid_lakh": 11.8,
+        "value_lakh": 18.3,
+        "signal_count": 0
+      }
+    },
+    "2 Step-up 10%/yr": {
+      "group": "A",
+      "1996": {
+        "xirr_pct": 11.02,
+        "paid_lakh": 214.8,
+        "value_lakh": 774.5,
+        "signal_count": 0
+      },
+      "2000": {
+        "xirr_pct": 10.91,
+        "paid_lakh": 142.9,
+        "value_lakh": 445.4,
+        "signal_count": 0
+      },
+      "2008": {
+        "xirr_pct": 9.5,
+        "paid_lakh": 60.3,
+        "value_lakh": 124.8,
+        "signal_count": 0
+      },
+      "2017": {
+        "xirr_pct": 8.07,
+        "paid_lakh": 18.7,
+        "value_lakh": 26.5,
+        "signal_count": 0
+      }
+    },
+    "3 Step-up 5%/yr": {
+      "group": "A",
+      "1996": {
+        "xirr_pct": 11.3,
+        "paid_lakh": 84.0,
+        "value_lakh": 456.9,
+        "signal_count": 0
+      },
+      "2000": {
+        "xirr_pct": 11.3,
+        "paid_lakh": 64.9,
+        "value_lakh": 282.3,
+        "signal_count": 0
+      },
+      "2008": {
+        "xirr_pct": 9.69,
+        "paid_lakh": 36.2,
+        "value_lakh": 86.1,
+        "signal_count": 0
+      },
+      "2017": {
+        "xirr_pct": 8.39,
+        "paid_lakh": 14.8,
+        "value_lakh": 21.9,
+        "signal_count": 0
+      }
+    },
+    "4 Fixed + 10k when PE < 12m avg": {
+      "group": "B",
+      "1996": {
+        "xirr_pct": 11.64,
+        "paid_lakh": 53.3,
+        "value_lakh": 422.1,
+        "signal_count": 163
+      },
+      "2000": {
+        "xirr_pct": 11.84,
+        "paid_lakh": 48.5,
+        "value_lakh": 316.3,
+        "signal_count": 163
+      },
+      "2008": {
+        "xirr_pct": 9.99,
+        "paid_lakh": 33.9,
+        "value_lakh": 94.5,
+        "signal_count": 113
+      },
+      "2017": {
+        "xirr_pct": 8.57,
+        "paid_lakh": 17.8,
+        "value_lakh": 26.8,
+        "signal_count": 60
+      }
+    },
+    "5 Fixed + 10k when PE < 20": {
+      "group": "B",
+      "1996": {
+        "xirr_pct": 11.7,
+        "paid_lakh": 50.0,
+        "value_lakh": 450.2,
+        "signal_count": 130
+      },
+      "2000": {
+        "xirr_pct": 11.9,
+        "paid_lakh": 44.5,
+        "value_lakh": 329.5,
+        "signal_count": 123
+      },
+      "2008": {
+        "xirr_pct": 10.13,
+        "paid_lakh": 27.9,
+        "value_lakh": 85.4,
+        "signal_count": 53
+      },
+      "2017": {
+        "xirr_pct": 8.76,
+        "paid_lakh": 12.3,
+        "value_lakh": 19.0,
+        "signal_count": 5
+      }
+    },
+    "6 Fixed + 20k when PE < 18": {
+      "group": "B",
+      "1996": {
+        "xirr_pct": 11.9,
+        "paid_lakh": 54.2,
+        "value_lakh": 535.2,
+        "signal_count": 86
+      },
+      "2000": {
+        "xirr_pct": 12.16,
+        "paid_lakh": 48.4,
+        "value_lakh": 407.3,
+        "signal_count": 81
+      },
+      "2008": {
+        "xirr_pct": 10.32,
+        "paid_lakh": 27.8,
+        "value_lakh": 89.4,
+        "signal_count": 26
+      },
+      "2017": {
+        "xirr_pct": 8.67,
+        "paid_lakh": 11.8,
+        "value_lakh": 18.3,
+        "signal_count": 0
+      }
+    },
+    "7 Fixed + 10k when below 200 DMA": {
+      "group": "B",
+      "1996": {
+        "xirr_pct": 11.62,
+        "paid_lakh": 49.0,
+        "value_lakh": 439.7,
+        "signal_count": 120
+      },
+      "2000": {
+        "xirr_pct": 11.83,
+        "paid_lakh": 42.1,
+        "value_lakh": 282.6,
+        "signal_count": 99
+      },
+      "2008": {
+        "xirr_pct": 10.04,
+        "paid_lakh": 29.3,
+        "value_lakh": 84.0,
+        "signal_count": 67
+      },
+      "2017": {
+        "xirr_pct": 8.96,
+        "paid_lakh": 14.8,
+        "value_lakh": 23.0,
+        "signal_count": 30
+      }
+    },
+    "8 Fixed + 10k on 10% dip": {
+      "group": "B",
+      "1996": {
+        "xirr_pct": 11.6,
+        "paid_lakh": 50.4,
+        "value_lakh": 486.9,
+        "signal_count": 134
+      },
+      "2000": {
+        "xirr_pct": 11.82,
+        "paid_lakh": 42.2,
+        "value_lakh": 302.3,
+        "signal_count": 100
+      },
+      "2008": {
+        "xirr_pct": 10.01,
+        "paid_lakh": 27.9,
+        "value_lakh": 83.2,
+        "signal_count": 53
+      },
+      "2017": {
+        "xirr_pct": 8.95,
+        "paid_lakh": 13.2,
+        "value_lakh": 20.6,
+        "signal_count": 14
+      }
+    },
+    "9 Fixed + 20k on 20% dip": {
+      "group": "B",
+      "1996": {
+        "xirr_pct": 11.67,
+        "paid_lakh": 49.0,
+        "value_lakh": 496.3,
+        "signal_count": 60
+      },
+      "2000": {
+        "xirr_pct": 11.83,
+        "paid_lakh": 41.0,
+        "value_lakh": 309.3,
+        "signal_count": 44
+      },
+      "2008": {
+        "xirr_pct": 10.22,
+        "paid_lakh": 26.8,
+        "value_lakh": 85.1,
+        "signal_count": 21
+      },
+      "2017": {
+        "xirr_pct": 9.14,
+        "paid_lakh": 12.4,
+        "value_lakh": 19.8,
+        "signal_count": 3
+      }
+    },
+    "10 Fixed + 10k after 52w low": {
+      "group": "B",
+      "1996": {
+        "xirr_pct": 11.67,
+        "paid_lakh": 47.7,
+        "value_lakh": 449.6,
+        "signal_count": 107
+      },
+      "2000": {
+        "xirr_pct": 11.94,
+        "paid_lakh": 40.4,
+        "value_lakh": 285.2,
+        "signal_count": 82
+      },
+      "2008": {
+        "xirr_pct": 10.11,
+        "paid_lakh": 27.6,
+        "value_lakh": 82.4,
+        "signal_count": 50
+      },
+      "2017": {
+        "xirr_pct": 9.03,
+        "paid_lakh": 13.1,
+        "value_lakh": 20.7,
+        "signal_count": 13
+      }
+    },
+    "11 PE band 2x/1x/0.5x/0.25x": {
+      "group": "C",
+      "1996": {
+        "xirr_pct": 11.81,
+        "paid_lakh": 38.0,
+        "value_lakh": 397.5,
+        "signal_count": 0
+      },
+      "2000": {
+        "xirr_pct": 12.13,
+        "paid_lakh": 32.6,
+        "value_lakh": 280.6,
+        "signal_count": 0
+      },
+      "2008": {
+        "xirr_pct": 10.34,
+        "paid_lakh": 18.1,
+        "value_lakh": 60.7,
+        "signal_count": 0
+      },
+      "2017": {
+        "xirr_pct": 8.1,
+        "paid_lakh": 6.4,
+        "value_lakh": 8.9,
+        "signal_count": 0
+      }
+    },
+    "12 PE-scaled (avg/PE)^3": {
+      "group": "C",
+      "1996": {
+        "xirr_pct": 11.65,
+        "paid_lakh": 40.3,
+        "value_lakh": 345.0,
+        "signal_count": 0
+      },
+      "2000": {
+        "xirr_pct": 11.92,
+        "paid_lakh": 35.5,
+        "value_lakh": 239.1,
+        "signal_count": 0
+      },
+      "2008": {
+        "xirr_pct": 10.19,
+        "paid_lakh": 24.7,
+        "value_lakh": 72.1,
+        "signal_count": 0
+      },
+      "2017": {
+        "xirr_pct": 8.67,
+        "paid_lakh": 13.0,
+        "value_lakh": 19.8,
+        "signal_count": 0
+      }
+    },
+    "13 PE < 12m avg pile (video)": {
+      "group": "D",
+      "1996": {
+        "xirr_pct": 11.32,
+        "paid_lakh": 37.0,
+        "value_lakh": 295.3,
+        "signal_count": 163
+      },
+      "2000": {
+        "xirr_pct": 11.7,
+        "paid_lakh": 32.2,
+        "value_lakh": 201.3,
+        "signal_count": 163
+      },
+      "2008": {
+        "xirr_pct": 9.94,
+        "paid_lakh": 22.6,
+        "value_lakh": 63.0,
+        "signal_count": 113
+      },
+      "2017": {
+        "xirr_pct": 8.6,
+        "paid_lakh": 11.8,
+        "value_lakh": 18.2,
+        "signal_count": 60
+      }
+    },
+    "14 50% fixed + 50% PE pile": {
+      "group": "D",
+      "1996": {
+        "xirr_pct": 11.38,
+        "paid_lakh": 37.0,
+        "value_lakh": 299.4,
+        "signal_count": 163
+      },
+      "2000": {
+        "xirr_pct": 11.65,
+        "paid_lakh": 32.2,
+        "value_lakh": 199.4,
+        "signal_count": 163
+      },
+      "2008": {
+        "xirr_pct": 9.88,
+        "paid_lakh": 22.6,
+        "value_lakh": 62.6,
+        "signal_count": 113
+      },
+      "2017": {
+        "xirr_pct": 8.64,
+        "paid_lakh": 11.8,
+        "value_lakh": 18.3,
+        "signal_count": 60
+      }
+    },
+    "15 PE < 20 pile": {
+      "group": "D",
+      "1996": {
+        "xirr_pct": 11.84,
+        "paid_lakh": 37.0,
+        "value_lakh": 328.6,
+        "signal_count": 130
+      },
+      "2000": {
+        "xirr_pct": 11.9,
+        "paid_lakh": 32.2,
+        "value_lakh": 208.2,
+        "signal_count": 123
+      },
+      "2008": {
+        "xirr_pct": 10.7,
+        "paid_lakh": 22.6,
+        "value_lakh": 68.5,
+        "signal_count": 53
+      },
+      "2017": {
+        "xirr_pct": 11.99,
+        "paid_lakh": 11.8,
+        "value_lakh": 21.8,
+        "signal_count": 5
+      }
+    },
+    "16 80% fixed + 20% PE<20 pile": {
+      "group": "D",
+      "1996": {
+        "xirr_pct": 11.53,
+        "paid_lakh": 37.0,
+        "value_lakh": 308.4,
+        "signal_count": 130
+      },
+      "2000": {
+        "xirr_pct": 11.65,
+        "paid_lakh": 32.2,
+        "value_lakh": 199.7,
+        "signal_count": 123
+      },
+      "2008": {
+        "xirr_pct": 10.0,
+        "paid_lakh": 22.6,
+        "value_lakh": 63.4,
+        "signal_count": 53
+      },
+      "2017": {
+        "xirr_pct": 9.39,
+        "paid_lakh": 11.8,
+        "value_lakh": 19.0,
+        "signal_count": 5
+      }
+    },
+    "17 Below 200 DMA pile": {
+      "group": "D",
+      "1996": {
+        "xirr_pct": 11.4,
+        "paid_lakh": 37.0,
+        "value_lakh": 300.4,
+        "signal_count": 120
+      },
+      "2000": {
+        "xirr_pct": 11.44,
+        "paid_lakh": 32.2,
+        "value_lakh": 192.6,
+        "signal_count": 99
+      },
+      "2008": {
+        "xirr_pct": 9.84,
+        "paid_lakh": 22.6,
+        "value_lakh": 62.3,
+        "signal_count": 67
+      },
+      "2017": {
+        "xirr_pct": 8.65,
+        "paid_lakh": 11.8,
+        "value_lakh": 18.3,
+        "signal_count": 30
+      }
+    },
+    "18 52w low start pile": {
+      "group": "D",
+      "1996": {
+        "xirr_pct": 11.45,
+        "paid_lakh": 37.0,
+        "value_lakh": 303.8,
+        "signal_count": 107
+      },
+      "2000": {
+        "xirr_pct": 11.43,
+        "paid_lakh": 32.2,
+        "value_lakh": 192.1,
+        "signal_count": 82
+      },
+      "2008": {
+        "xirr_pct": 10.65,
+        "paid_lakh": 22.6,
+        "value_lakh": 68.1,
+        "signal_count": 50
+      },
+      "2017": {
+        "xirr_pct": 12.56,
+        "paid_lakh": 11.8,
+        "value_lakh": 22.4,
+        "signal_count": 13
+      }
+    },
+    "19 80% fixed + 20% dip-10% pile": {
+      "group": "D",
+      "1996": {
+        "xirr_pct": 11.45,
+        "paid_lakh": 37.0,
+        "value_lakh": 303.5,
+        "signal_count": 134
+      },
+      "2000": {
+        "xirr_pct": 11.59,
+        "paid_lakh": 32.2,
+        "value_lakh": 197.5,
+        "signal_count": 100
+      },
+      "2008": {
+        "xirr_pct": 9.87,
+        "paid_lakh": 22.6,
+        "value_lakh": 62.5,
+        "signal_count": 53
+      },
+      "2017": {
+        "xirr_pct": 8.96,
+        "paid_lakh": 11.8,
+        "value_lakh": 18.6,
+        "signal_count": 14
+      }
+    },
+    "20 Value averaging 1%/month": {
+      "group": "E",
+      "1996": {
+        "xirr_pct": 12.36,
+        "paid_lakh": 22.3,
+        "value_lakh": 328.8,
+        "signal_count": 0
+      },
+      "2000": {
+        "xirr_pct": 12.34,
+        "paid_lakh": 32.2,
+        "value_lakh": 194.4,
+        "signal_count": 0
+      },
+      "2008": {
+        "xirr_pct": 10.48,
+        "paid_lakh": 23.4,
+        "value_lakh": 70.9,
+        "signal_count": 0
+      },
+      "2017": {
+        "xirr_pct": 9.52,
+        "paid_lakh": 12.6,
+        "value_lakh": 19.6,
+        "signal_count": 0
+      }
+    },
+    "21 Fixed + 10k every 2% fall day": {
+      "group": "E",
+      "1996": {
+        "xirr_pct": 11.45,
+        "paid_lakh": 81.0,
+        "value_lakh": 805.7,
+        "signal_count": 440
+      },
+      "2000": {
+        "xirr_pct": 11.48,
+        "paid_lakh": 66.7,
+        "value_lakh": 482.9,
+        "signal_count": 345
+      },
+      "2008": {
+        "xirr_pct": 10.26,
+        "paid_lakh": 42.3,
+        "value_lakh": 146.5,
+        "signal_count": 197
+      },
+      "2017": {
+        "xirr_pct": 9.62,
+        "paid_lakh": 17.3,
+        "value_lakh": 28.3,
+        "signal_count": 55
+      }
+    }
+  }
+}

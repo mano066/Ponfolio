@@ -1,0 +1,15 @@
+fastapi>=0.104.0
+uvicorn>=0.24.0
+yfinance>=0.2.31
+aiohttp>=3.9.0
+pydantic>=2.5.0
+requests>=2.31.0
+duckduckgo_search>=4.0.0
+numpy>=1.24.0
+pandas>=2.0.0
+# mcp 2.x renamed and then removed `streamablehttp_client`, the streamable-HTTP
+# entry point the Kite client is built on. An unpinned `>=` picked 2.x up on a
+# clean install and every Kite connection attempt died on ImportError inside
+# the reconnect loop, which presents as Kite never connecting at all. Bounded
+# to the 1.x line until the transport is ported deliberately.
+mcp>=1.27.0,<2.0

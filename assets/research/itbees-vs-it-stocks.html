@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Computed from Yahoo Finance daily adjusted closes; fund and index facts from Value Research, Groww, Tickertape and Screener">
+<meta name="description" content="ITBEES vs its 10 Nifty IT constituents and 6 wider IT names over the fund's actual life, 30 Jun 2020 to 7 Aug 2026, identical dates and no index proxy.">
+<title>ITBEES vs IT Stocks &mdash; Since Listing (2020&ndash;2026)</title>
+<style>*,*::before,*::after{box-sizing:border-box}</style>
+</head>
+<body>
+
+<style>
+  :root{
+    --ground:#EFF1F4; --surface:#FBFCFD; --sunken:#E5E9EE;
+    --ink:#151C24; --ink-2:#4A5666; --ink-3:#76828F;
+    --rule:#D5DBE2; --rule-2:#C1C9D3;
+    --etf:#1D6FA3; --stock:#7A5BA6; --mkt:#1E7A55; --ew:#9A6B0E; --warn:#B34719;
+    --pos:30,122,85; --neg:179,71,25;
+    --etf-soft:rgba(29,111,163,.12); --warn-soft:rgba(179,71,25,.10);
+    --mkt-soft:rgba(30,122,85,.13); --ew-soft:rgba(154,107,14,.13);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0D1218; --surface:#141C24; --sunken:#101821;
+      --ink:#E3E9F0; --ink-2:#9CAAB8; --ink-3:#76828F;
+      --rule:#242F3A; --rule-2:#303D4A;
+      --etf:#4A9FD4; --stock:#A188CE; --mkt:#3FAE81; --ew:#D19A2E; --warn:#D3784A;
+      --pos:63,174,129; --neg:211,120,74;
+      --etf-soft:rgba(74,159,212,.15); --warn-soft:rgba(211,120,74,.14);
+      --mkt-soft:rgba(63,174,129,.15); --ew-soft:rgba(209,154,46,.15);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0D1218; --surface:#141C24; --sunken:#101821;
+    --ink:#E3E9F0; --ink-2:#9CAAB8; --ink-3:#76828F;
+    --rule:#242F3A; --rule-2:#303D4A;
+    --etf:#4A9FD4; --stock:#A188CE; --mkt:#3FAE81; --ew:#D19A2E; --warn:#D3784A;
+    --pos:63,174,129; --neg:211,120,74;
+    --etf-soft:rgba(74,159,212,.15); --warn-soft:rgba(211,120,74,.14);
+    --mkt-soft:rgba(63,174,129,.15); --ew-soft:rgba(209,154,46,.15);
+  }
+
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--ground); color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px; line-height:1.6; }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px 96px; }
+
+  .mast{ padding:56px 0 28px; border-bottom:2px solid var(--ink); }
+  .eyebrow{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-3); margin:0 0 18px; }
+  h1{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:clamp(26px,5.2vw,42px); font-weight:600; line-height:1.12;
+    letter-spacing:-.015em; margin:0 0 14px; text-wrap:balance; }
+  h1 .v{ color:var(--ink-3); font-weight:400; }
+  .standfirst{ font-size:17px; color:var(--ink-2); max-width:62ch; margin:0 0 24px; }
+  .meta{ display:flex; flex-wrap:wrap; gap:8px 26px; padding-top:6px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); }
+  .meta b{ color:var(--ink-2); font-weight:600; }
+
+  section{ padding-top:52px; }
+  h2{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:13px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--ink); margin:0 0 6px; display:flex; align-items:baseline; gap:12px; }
+  h2::before{ content:attr(data-s); color:var(--ink-3); font-weight:400; letter-spacing:.06em; flex:none; }
+  .sub{ font-size:14px; color:var(--ink-3); margin:0 0 22px; padding-bottom:14px; border-bottom:1px solid var(--rule); }
+  p{ max-width:66ch; } p+p{ margin-top:1em; } strong{ font-weight:650; }
+
+  .verdict{ background:var(--surface); border:1px solid var(--rule); border-left:3px solid var(--warn);
+    padding:22px 24px; margin:26px 0 0; display:grid; gap:18px; grid-template-columns:1fr; }
+  @media(min-width:660px){ .verdict{ grid-template-columns:1.45fr 1fr; } }
+  .verdict .lede{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:19px; font-weight:600; line-height:1.35; margin:0 0 8px; color:var(--warn); }
+  .verdict p{ margin:0; font-size:14.5px; color:var(--ink-2); }
+  .verdict p+p{ margin-top:.7em; }
+  .facts{ display:grid; gap:11px; align-content:start; }
+  .fact{ display:flex; justify-content:space-between; gap:16px; font-size:13px;
+    border-bottom:1px dotted var(--rule-2); padding-bottom:9px; }
+  .fact:last-child{ border-bottom:0; }
+  .fact span{ color:var(--ink-3); }
+  .fact b{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-variant-numeric:tabular-nums; font-weight:600; }
+  .fact b.bad{ color:var(--warn); } .fact b.good{ color:var(--mkt); }
+
+  .stats{ display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule);
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); margin:24px 0 0; }
+  .stat{ background:var(--surface); padding:18px 18px 16px; }
+  .stat .k{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3); }
+  .stat .n{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:28px; font-weight:600; font-variant-numeric:tabular-nums;
+    line-height:1.25; margin-top:7px; letter-spacing:-.02em; }
+  .stat .d{ font-size:12.5px; color:var(--ink-3); line-height:1.45; margin-top:2px; }
+  .n.good{ color:var(--mkt); } .n.bad{ color:var(--warn); } .n.neu{ color:var(--etf); }
+
+  .scroll{ overflow-x:auto; margin-top:22px; border:1px solid var(--rule); background:var(--surface); }
+  table{ border-collapse:collapse; width:100%; font-size:13px; font-variant-numeric:tabular-nums;
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,"Roboto Mono",Menlo,Consolas,monospace; }
+  caption{ text-align:left; font-size:12px; color:var(--ink-3); padding:12px 16px 0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  th,td{ padding:9px 13px; text-align:right; white-space:nowrap; border-bottom:1px solid var(--rule); }
+  th:first-child,td:first-child{ text-align:left; }
+  thead th{ font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:600; border-bottom:1px solid var(--rule-2); }
+  tbody tr:last-child td{ border-bottom:0; }
+  tr.hl td{ background:var(--etf-soft); font-weight:650; }
+  tr.hl td:first-child{ box-shadow:inset 3px 0 0 var(--etf); }
+  tr.mk td{ background:var(--mkt-soft); }
+  tr.mk td:first-child{ box-shadow:inset 3px 0 0 var(--mkt); }
+  tr.ewr td{ background:var(--ew-soft); }
+  tr.ewr td:first-child{ box-shadow:inset 3px 0 0 var(--ew); }
+  tr.mut td{ color:var(--ink-3); }
+
+  #hm th,#hm td{ padding:7px 9px; border-bottom:1px solid var(--ground); }
+  #hm th:first-child,#hm td:first-child{ padding-left:14px; padding-right:14px;
+    position:sticky; left:0; background:var(--surface); z-index:1; }
+  #hm tr.hl td:first-child,#hm tr.mk td:first-child,#hm tr.ewr td:first-child{ background:var(--surface); }
+  #hm td.c{ text-align:right; min-width:52px; }
+  #hm td.g{ font-weight:650; border-left:1px solid var(--rule-2); padding-left:13px; }
+  #hm td.w{ color:var(--ink-3); border-left:1px solid var(--rule-2); padding-left:13px; }
+  #hm td.w.big{ color:var(--warn); font-weight:650; }
+  #hm td.w.hv{ color:var(--ink-2); font-weight:650; }
+  .scale{ display:flex; align-items:center; gap:9px; font-size:11.5px; color:var(--ink-3);
+    margin:14px 0 0; padding:0 2px; flex-wrap:wrap;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  .scale i{ width:26px; height:12px; display:inline-block; }
+
+  figure{ margin:26px 0 0; border:1px solid var(--rule); background:var(--surface); padding:18px 16px 12px; }
+  figcaption{ font-size:12.5px; color:var(--ink-3); margin-top:12px; padding-top:11px;
+    border-top:1px solid var(--rule); max-width:72ch; }
+  .fig-h{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-2); margin:0 0 4px; }
+  .legend{ display:flex; flex-wrap:wrap; gap:16px; margin:10px 0 14px; font-size:12px; color:var(--ink-2); }
+  .legend i{ display:inline-block; width:11px; height:11px; border-radius:50%; margin-right:7px; vertical-align:-1px; }
+  .legend i.ln{ width:16px; height:3px; border-radius:0; vertical-align:3px; }
+  svg{ display:block; width:100%; height:auto; overflow:visible; }
+  .grid{ stroke:var(--rule); stroke-width:1; }
+  .axis{ stroke:var(--rule-2); stroke-width:1; }
+  .atxt{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px; fill:var(--ink-3); font-variant-numeric:tabular-nums; }
+  .dlab{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11px; fill:var(--ink-2); font-variant-numeric:tabular-nums; }
+  .dlab.on{ fill:var(--etf); font-weight:650; }
+  .dlab.mk{ fill:var(--mkt); font-weight:650; }
+  .dlab.ew{ fill:var(--ew); font-weight:650; }
+  .dot{ stroke:var(--surface); stroke-width:2; cursor:pointer; }
+  .hit{ fill:transparent; cursor:pointer; }
+  .zone{ fill:var(--mkt-soft); }
+  .ln{ fill:none; stroke-width:2; stroke-linejoin:round; }
+
+  #tip{ position:fixed; z-index:9; pointer-events:none; opacity:0; transition:opacity .12s;
+    background:var(--ink); color:var(--ground); padding:7px 10px; border-radius:3px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11.5px; line-height:1.5; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  #tip.on{ opacity:1; }
+  #tip b{ display:block; letter-spacing:.05em; }
+
+  .warnbox{ border:1px solid var(--warn); border-left:3px solid var(--warn);
+    background:var(--warn-soft); padding:20px 22px; margin-top:24px; }
+  .warnbox h3{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--warn); margin:0 0 10px; }
+  .warnbox p{ margin:0; font-size:14.5px; } .warnbox p+p{ margin-top:.8em; }
+  .okbox{ border:1px solid var(--mkt); border-left:3px solid var(--mkt);
+    background:var(--mkt-soft); padding:20px 22px; margin-top:24px; }
+  .okbox h3{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--mkt); margin:0 0 10px; }
+  .okbox p{ margin:0; font-size:14.5px; } .okbox p+p{ margin-top:.8em; }
+
+  .cols{ display:grid; gap:26px; margin-top:24px; }
+  @media(min-width:660px){ .cols{ grid-template-columns:1fr 1fr; } }
+  .cols h3{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; margin:0 0 12px; }
+  .cols ol{ margin:0; padding-left:1.2em; font-size:14px; color:var(--ink-2); }
+  .cols li{ margin-bottom:9px; padding-left:3px; }
+  .pro h3{ color:var(--mkt); } .con h3{ color:var(--warn); }
+
+  footer{ margin-top:60px; padding-top:22px; border-top:2px solid var(--ink);
+    font-size:12.5px; color:var(--ink-3); }
+  footer a{ color:var(--ink-2); text-decoration:underline; text-underline-offset:2px; text-decoration-thickness:1px; }
+  footer a:hover{ color:var(--etf); }
+  a:focus-visible,[tabindex]:focus-visible{ outline:2px solid var(--etf); outline-offset:2px; }
+  @media (prefers-reduced-motion:reduce){ *{ transition:none!important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">Like-for-like &middot; 30 Jun 2020 – 7 Aug 2026 &middot; no proxy</p>
+    <h1>ITBEES <span class="v">vs.</span><br>individual IT stocks</h1>
+    <p class="standfirst">Only the fund's real life. All ten Nifty IT constituents, six wider IT names,
+      and the plain market measured against the ETF itself over identical dates — every figure below is
+      the thing you could actually have bought.</p>
+    <div class="meta">
+      <span><b>Window</b> 6.1 years, 1,516 sessions</span>
+      <span><b>Basis</b> Total return, INR</span>
+      <span><b>Benchmark</b> ITBEES itself</span>
+      <span><b>Fund</b> ₹3,533 Cr &middot; 0.19% TER</span>
+    </div>
+  </header>
+
+  <section>
+    <h2 data-s="§1">Diagnosis</h2>
+    <p class="sub">The opposite result to the pharma study. Here the wrapper, not the sector, is the problem.</p>
+    <div class="verdict">
+      <div>
+        <p class="lede">The ETF lost to its own median stock — and to the plain Nifty.</p>
+        <p>Over its actual life ITBEES returned <strong>15.2%</strong> a year against a median
+          constituent's <strong>21.2%</strong>. <strong>7 of its 10 holdings beat it</strong>, and
+          13 of the 16 IT names on this page did. It took a <strong>−42.1%</strong> worst drawdown
+          to get there.</p>
+        <p>It also lost to the market on every axis at once: NIFTYBEES returned <strong>16.6%</strong>
+          with 13.1% volatility and a −16.1% drawdown, against the ETF's 21.5% and −42.1%. Higher
+          return, two-thirds less pain. On Sharpe the fund ranks <strong>14th of 19</strong>.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><span>ITBEES CAGR</span><b>15.2%</b></div>
+        <div class="fact"><span>Median constituent</span><b class="bad">21.2%</b></div>
+        <div class="fact"><span>Same 10, equal-weighted</span><b class="bad">25.7%</b></div>
+        <div class="fact"><span>NIFTYBEES</span><b class="good">16.6%</b></div>
+        <div class="fact"><span>ETF max drawdown</span><b>−42.1%</b></div>
+        <div class="fact"><span>Holdings that beat it</span><b class="bad">7 / 10</b></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">₹1 lakh &rarr; ITBEES</div><div class="n neu">₹2.37 L</div><div class="d">the cap-weighted fund</div></div>
+      <div class="stat"><div class="k">₹1 lakh &rarr; NIFTYBEES</div><div class="n good">₹2.56 L</div><div class="d">the plain market, calmer</div></div>
+      <div class="stat"><div class="k">₹1 lakh &rarr; same 10, equal-wt</div><div class="n bad">₹4.03 L</div><div class="d">identical names, no cap tilt</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-s="§2">The record — every period, every name</h2>
+    <p class="sub">2020 is a half-year, from listing on 30 June. Green is a gain, rust a loss.
+      The <em>weight</em> column is what the fund actually holds today.</p>
+    <div class="scroll">
+      <table id="hm">
+        <caption>10 constituents · 6 wider IT names · the fund · the market · an equal-weight twin — sorted by CAGR</caption>
+        <thead><tr id="hmh"></tr></thead>
+        <tbody id="hmb"></tbody>
+      </table>
+    </div>
+    <div class="scale">
+      <span>LOSS</span>
+      <i style="background:rgba(var(--neg),.55)"></i><i style="background:rgba(var(--neg),.33)"></i>
+      <i style="background:rgba(var(--neg),.14)"></i><i style="background:var(--sunken)"></i>
+      <i style="background:rgba(var(--pos),.14)"></i><i style="background:rgba(var(--pos),.33)"></i>
+      <i style="background:rgba(var(--pos),.55)"></i>
+      <span>GAIN</span><span style="margin-left:8px">· hover any cell for detail</span>
+    </div>
+    <p style="margin-top:22px"><strong>Read the weight column against the ranking.</strong> The two
+      largest holdings — Infosys at 30.4% and TCS at 20.5%, together <strong>50.8% of the fund</strong> —
+      sit second-last and last on return, at 10.8% and 5.4% a year. Persistent, the best constituent
+      at 60.7%, is 5.7% of the fund. The ETF's problem is not which stocks it owns. It is how much of
+      each.</p>
+    <p><strong>There was no shelter period either.</strong> The fund failed to beat the median
+      constituent in six of the seven periods, and in 2022 — the one genuinely bad year for the
+      sector — it fell 24.8% while the median stock fell 26.8%. A two-point cushion, for giving up
+      six points a year.</p>
+  </section>
+
+  <section>
+    <h2 data-s="§3">Return against pain</h2>
+    <p class="sub">The whole argument in one plot. Only three things land in the good corner — and two of them are not stocks.</p>
+    <figure>
+      <p class="fig-h">CAGR vs maximum drawdown · 30 Jun 2020 – 7 Aug 2026</p>
+      <div class="legend">
+        <span><i style="background:var(--etf)"></i>ITBEES</span>
+        <span><i style="background:var(--stock)"></i>Nifty IT constituent</span>
+        <span><i style="background:var(--ink-3)"></i>Wider IT, not in index</span>
+        <span><i style="background:var(--mkt)"></i>NIFTYBEES</span>
+        <span><i style="background:var(--ew)"></i>Equal-weight twin</span>
+      </div>
+      <svg viewBox="0 0 720 400" role="img" aria-label="Scatter of annualised return against maximum drawdown since listing. ITBEES returns 15.2 percent with a 42.1 percent drawdown. Only Persistent Systems, the equal-weight version of the same ten stocks, and NIFTYBEES sit in the better region of both higher return and shallower drawdown.">
+        <rect class="zone" x="64" y="32" width="351" height="243"></rect>
+        <text class="atxt" x="72" y="46" style="fill:var(--mkt)">BETTER THAN THE FUND ON BOTH — 3 of 18 lines</text>
+        <line class="grid" x1="64" y1="350" x2="690" y2="350"></line>
+        <line class="grid" x1="64" y1="275.7" x2="690" y2="275.7"></line>
+        <line class="grid" x1="64" y1="201.4" x2="690" y2="201.4"></line>
+        <line class="grid" x1="64" y1="127.1" x2="690" y2="127.1"></line>
+        <line class="grid" x1="64" y1="52.8" x2="690" y2="52.8"></line>
+        <line class="axis" x1="64" y1="32" x2="64" y2="350"></line>
+        <text class="atxt" x="56" y="354" text-anchor="end">0%</text>
+        <text class="atxt" x="56" y="279.7" text-anchor="end">15%</text>
+        <text class="atxt" x="56" y="205.4" text-anchor="end">30%</text>
+        <text class="atxt" x="56" y="131.1" text-anchor="end">45%</text>
+        <text class="atxt" x="56" y="56.8" text-anchor="end">60%</text>
+        <text class="atxt" x="64" y="370" text-anchor="middle">0%</text>
+        <text class="atxt" x="272.7" y="370" text-anchor="middle">−25%</text>
+        <text class="atxt" x="481.3" y="370" text-anchor="middle">−50%</text>
+        <text class="atxt" x="690" y="370" text-anchor="middle">−75%</text>
+        <text class="atxt" x="377" y="391" text-anchor="middle" style="letter-spacing:.12em">MAXIMUM DRAWDOWN →</text>
+        <text class="atxt" x="-191" y="14" transform="rotate(-90)" text-anchor="middle" style="letter-spacing:.12em">ANNUALISED RETURN →</text>
+        <g id="sc"></g>
+      </svg>
+      <figcaption>Three lines beat the fund on return <em>and</em> drawdown together:
+        <strong>Persistent Systems</strong>, the <strong>equal-weight twin of the fund's own ten
+        holdings</strong>, and <strong>NIFTYBEES</strong>. Everything else took more pain — but most of
+        it also earned more. The ETF is the lowest-volatility IT line at 21.5%, and that is the only
+        contest it wins.</figcaption>
+    </figure>
+    <div class="stats">
+      <div class="stat"><div class="k">ETF Sharpe</div><div class="n bad">0.40</div><div class="d">14th of 19 · beats 4 of 10 holdings</div></div>
+      <div class="stat"><div class="k">ETF volatility</div><div class="n neu">21.5%</div><div class="d">lowest of any IT line — its one win</div></div>
+      <div class="stat"><div class="k">Best–worst spread</div><div class="n bad">55.3 pp</div><div class="d">Persistent 60.7% vs TCS 5.4%</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-s="§4">Autopsy — where the six points went</h2>
+    <p class="sub">Not stock selection. Weighting. The index is 79% large-cap by construction, and large-cap IT is what broke.</p>
+    <figure>
+      <p class="fig-h">Growth of ₹1 lakh · month-end, 30 Jun 2020 = 1.00×</p>
+      <div class="legend">
+        <span><i class="ln" style="background:var(--ew)"></i>Same 10, equal-weighted &mdash; 4.03×</span>
+        <span><i class="ln" style="background:var(--mkt)"></i>NIFTYBEES &mdash; 2.56×</span>
+        <span><i class="ln" style="background:var(--etf)"></i>ITBEES &mdash; 2.37×</span>
+      </div>
+      <svg viewBox="0 0 720 372" role="img" aria-label="Growth of one lakh rupees from June 2020 to August 2026. An equal-weighted basket of the fund's own ten holdings reaches 4.03 times, NIFTYBEES 2.56 times, and ITBEES 2.37 times. The equal-weight line separates decisively from 2023 onward.">
+        <line class="grid" x1="60" y1="330" x2="636" y2="330"></line>
+        <line class="grid" x1="60" y1="255.5" x2="636" y2="255.5"></line>
+        <line class="grid" x1="60" y1="181" x2="636" y2="181"></line>
+        <line class="grid" x1="60" y1="106.5" x2="636" y2="106.5"></line>
+        <line class="grid" x1="60" y1="32" x2="636" y2="32"></line>
+        <line class="axis" x1="60" y1="32" x2="60" y2="330"></line>
+        <text class="atxt" x="52" y="334" text-anchor="end">1×</text>
+        <text class="atxt" x="52" y="259.5" text-anchor="end">2×</text>
+        <text class="atxt" x="52" y="185" text-anchor="end">3×</text>
+        <text class="atxt" x="52" y="110.5" text-anchor="end">4×</text>
+        <text class="atxt" x="52" y="36" text-anchor="end">5×</text>
+        <text class="atxt" x="60" y="348" text-anchor="middle">Jun 20</text>
+        <text class="atxt" x="200.1" y="348" text-anchor="middle">Dec 21</text>
+        <text class="atxt" x="293.5" y="348" text-anchor="middle">Dec 22</text>
+        <text class="atxt" x="386.9" y="348" text-anchor="middle">Dec 23</text>
+        <text class="atxt" x="480.3" y="348" text-anchor="middle">Dec 24</text>
+        <text class="atxt" x="573.7" y="348" text-anchor="middle">Dec 25</text>
+        <text class="atxt" x="636" y="348" text-anchor="middle">Aug 26</text>
+        <g id="ln"></g>
+      </svg>
+      <figcaption>The three lines are indistinguishable until late 2022. The gap opens in 2023–24,
+        when mid-cap IT re-rated and large-cap IT did not, and it never closes. Every line falls hard
+        in 2026 — this is a sector problem <em>and</em> a weighting problem, not one or the other.</figcaption>
+    </figure>
+    <figure>
+      <p class="fig-h">Fund weight vs return delivered · 10 Nifty IT constituents</p>
+      <svg viewBox="0 0 720 372" role="img" aria-label="Paired bars showing each constituent's weight in the fund against its annualised return. Infosys at 30.4 percent weight returned 10.8 percent and TCS at 20.5 percent weight returned 5.4 percent, while Persistent at 5.7 percent weight returned 60.7 percent.">
+        <text class="atxt" x="100" y="22" style="letter-spacing:.1em">FUND WEIGHT</text>
+        <text class="atxt" x="330" y="22" style="letter-spacing:.1em">CAGR SINCE LISTING</text>
+        <line class="axis" x1="100" y1="28" x2="100" y2="352"></line>
+        <line class="axis" x1="330" y1="28" x2="330" y2="352"></line>
+        <g id="bars"></g>
+      </svg>
+      <figcaption>Rust bars are constituents that returned <em>less</em> than the ETF; green bars
+        returned more. Read down the weight column and the pattern is unmissable: the fund's
+        conviction runs almost exactly opposite to the outcome. This is not hindsight about which
+        stock to pick — it is what free-float cap-weighting does when the biggest free floats are the
+        slowest compounders.</figcaption>
+    </figure>
+    <div class="stats">
+      <div class="stat"><div class="k">Infosys + TCS</div><div class="n bad">50.8%</div><div class="d">of the fund · 8.1% average CAGR</div></div>
+      <div class="stat"><div class="k">Big five, equal-weighted</div><div class="n bad">15.4%</div><div class="d">78.8% of the fund · ETF got 15.2%</div></div>
+      <div class="stat"><div class="k">Mid five, equal-weighted</div><div class="n good">36.0%</div><div class="d">only 21.2% of the fund</div></div>
+    </div>
+    <p style="margin-top:22px">Those three tiles are the entire explanation. An equal-weighted basket
+      of the five large caps returned <strong>15.4%</strong> — within a rounding error of the ETF's
+      15.2%. The five mid caps returned <strong>36.0%</strong>. The fund is 78.8% of the first group
+      and 21.2% of the second, so it delivered almost exactly the large-cap outcome. Strip out just
+      Infosys and TCS and the remaining eight, equal-weighted, returned <strong>30.0%</strong> a year.</p>
+    <p>Fees and drift add a little more. Holding the fund's <em>own current portfolio</em> at fixed
+      proportions and rebalancing would have returned <strong>18.6%</strong> versus the ETF's 15.2%:
+      cap-weighting mechanically carried more money in the leaders of the previous cycle, precisely
+      the names that then de-rated. Part of that 3.4-point gap is the rebalancing bonus any
+      fixed-weight scheme earns from volatile constituents, so do not bank all of it — but the
+      direction is not in doubt.</p>
+  </section>
+
+  <section>
+    <h2 data-s="§5">Persistence — can you pick?</h2>
+    <p class="sub">Almost no signal at all — with one very loud exception.</p>
+    <p>Rank correlation between consecutive periods averages <strong>+0.04</strong>, against +0.14
+      for pharma. It is essentially noise, and it flips sign repeatedly: +0.93 from 2020 into 2021,
+      then −0.58 into 2022, +0.59 into 2024, −0.48 into 2025. The leaderboard changed hands almost
+      every year — Persistent, KPIT, Zensar, Oracle Financial, LTIMindtree. Chasing last year's
+      winner was a treadmill.</p>
+    <p><strong>Persistent Systems beat the fund in all seven periods</strong> — 7/7, 60.7% a year,
+      a Sharpe of 1.49, and the only IT name on this page with a <em>shallower</em> drawdown than the
+      ETF at −36.0%. ₹1 lakh became ₹18.1 lakh. Unlike Torrent in the pharma study, it is not
+      impossibly priced either: a P/E of 43.4 and P/B of 11.0 against 29% sales and 36% profit growth
+      over five years, on a 27.2% ROE.</p>
+    <div class="scroll">
+      <table>
+        <caption>Periods beating ITBEES, out of seven · ★ marks a Nifty IT constituent</caption>
+        <thead><tr><th>Name</th><th>Record</th><th>CAGR</th><th>Max DD</th><th>Sharpe</th><th>Worst period</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>PERSISTENT ★</td><td>7 / 7</td><td>60.7%</td><td>−36.0%</td><td>1.49</td><td>−20%</td></tr>
+          <tr><td>TECHM ★</td><td>6 / 7</td><td>24.7%</td><td>−46.6%</td><td>0.65</td><td>−41%</td></tr>
+          <tr><td>COFORGE ★ · MPHASIS ★ · HCLTECH ★</td><td>5 / 7</td><td>20–37%</td><td>−45 to −52%</td><td>0.46–0.79</td><td>−17 to −41%</td></tr>
+          <tr><td>OFSS ★ · LTIM ★</td><td>4 / 7</td><td>16–32%</td><td>−49 to −50%</td><td>0.30–0.79</td><td>−37 to −40%</td></tr>
+          <tr class="mut"><td>KPITTECH · TATAELXSI · ZENSARTECH · CYIENT · LTTS</td><td>4 / 7</td><td>20–47%</td><td>−50 to −70%</td><td>0.39–0.92</td><td>−27 to −58%</td></tr>
+          <tr class="mut"><td>WIPRO ★</td><td>4 / 7</td><td>10.8%</td><td>−50.0%</td><td>0.16</td><td>−45%</td></tr>
+          <tr class="mut"><td>INFY ★ · BSOFT</td><td>3 / 7</td><td>11–25%</td><td>−48 to −67%</td><td>0.17–0.46</td><td>−26 to −44%</td></tr>
+          <tr class="mut"><td>TCS ★</td><td>1 / 7</td><td>5.4%</td><td>−53.4%</td><td>−0.05</td><td>−21%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:20px">Note what the ★ column does to the usual argument for an index fund.
+      Eight of the ten constituents beat the ETF in at least four of the seven periods. The fund's
+      diversification did not protect you from the sector's bad years — every line here fell in 2022
+      and again in 2026 — it mainly diluted you out of the good stocks.</p>
+  </section>
+
+  <section>
+    <h2 data-s="§6">The other side — what has actually changed</h2>
+    <p class="sub">This is where the IT case inverts the pharma case. The record is worse; the entry point is far better.</p>
+    <div class="okbox">
+      <h3>You would be buying near a five-year relative low</h3>
+      <p>The pharma fund was at 100% of its 52-week range and the 100th percentile of its five-year
+        ratio to the Nifty. ITBEES is the mirror image: <strong>29.3% below its December 2024 peak</strong>,
+        at 43% of its 52-week range, and its ratio to NIFTYBEES sits at the <strong>7th percentile</strong>
+        of the whole window — <strong>41.2% below</strong> its own peak relative level, reached in
+        December 2021.</p>
+      <p>Valuations follow. Nifty IT trades at a <strong>P/E of 18.05</strong> with a
+        <strong>3.53% dividend yield</strong> — and the two names that caused the damage are the
+        cheapest things in it: Infosys at 15.3× with a 4.08% yield, TCS at 16.5× with a 2.61% yield
+        on a 51.8% ROE. The drag stocks have already de-rated. The sector has also bounced
+        <strong>22.2%</strong> off its 1 July 2026 low.</p>
+    </div>
+    <div class="warnbox">
+      <h3>But the de-rating has a reason, and it is not cyclical</h3>
+      <p>IT is India's worst sector of 2026 because the market is pricing AI as a threat to the
+        billing model, not a tailwind. Nine major brokerages have flagged the same combination of
+        AI-driven pricing deflation, weak discretionary spend and tariff pressure; sell-side estimates
+        of AI-related revenue loss run to 9–12% of IT services revenue over three to four years.
+        Industry revenue is still growing — NASSCOM puts FY26 at +6.1% to $315 bn — but constant-currency
+        growth at the top firms has slowed to roughly 2.8%.</p>
+      <p>A P/E of 18 is only cheap if earnings hold. This is a genuine structural question, not a
+        washed-out cycle, and it falls hardest on exactly the commoditised large-cap headcount
+        businesses that make up 79% of this fund.</p>
+    </div>
+    <div class="warnbox">
+      <h3>The diversification argument does not survive the test</h3>
+      <p>ITBEES correlates <strong>0.56</strong> with NIFTYBEES — far above pharma's 0.26, because IT
+        is itself a large slice of the Nifty. Blending 12% ITBEES into a Nifty-50 core over this
+        window moved the CAGR from 16.62% to 16.75% and <em>deepened</em> the drawdown from −16.1% to
+        −17.5%. Sharpe went 0.77 to 0.78. That is a rounding error, not a diversifier.</p>
+      <p>The risk profile is also worse than the headline suggests. ITBEES was negative over
+        <strong>41% of all rolling twelve-month windows</strong>, against 9% for NIFTYBEES, and its
+        worst twelve months was <strong>−32.5%</strong> against the market's −5.5%. On rolling
+        three-year returns it beat NIFTYBEES in just <strong>8%</strong> of windows — and the
+        equal-weight twin beat it in <strong>100%</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-s="§7">If you want IT exposure anyway</h2>
+    <p class="sub">Ranked by what this window actually shows, best first.</p>
+    <div class="scroll">
+      <table>
+        <caption>Ways to own Indian IT, 30 Jun 2020 – 7 Aug 2026</caption>
+        <thead><tr><th>Route</th><th>CAGR</th><th>Vol</th><th>Max DD</th><th>Sharpe</th><th style="text-align:left">Verdict</th></tr></thead>
+        <tbody>
+          <tr class="ewr"><td>Equal-weight the same 10</td><td>25.7%</td><td>22.9%</td><td>−34.9%</td><td>0.84</td><td style="text-align:left">Best risk-adjusted IT basket here. Needs a Nifty IT equal-weight vehicle or manual rebalancing.</td></tr>
+          <tr><td>Mid-cap IT tilt (5 names)</td><td>36.0%</td><td>26.6%</td><td>−37.0%</td><td>1.11</td><td style="text-align:left">Highest return, and the drawdown was <em>shallower</em> than the cap-weighted ETF's.</td></tr>
+          <tr class="mk"><td>Just own NIFTYBEES</td><td>16.6%</td><td>13.1%</td><td>−16.1%</td><td>0.77</td><td style="text-align:left">Beat the sector ETF on all four measures. Already carries ~10% IT.</td></tr>
+          <tr><td>PERSISTENT as a satellite</td><td>60.7%</td><td>36.3%</td><td>−36.0%</td><td>1.49</td><td style="text-align:left">7/7 record, defensible multiple. Single-name risk — cap it at 3–4%.</td></tr>
+          <tr class="hl"><td>ITBEES (cap-weighted)</td><td>15.2%</td><td>21.5%</td><td>−42.1%</td><td>0.40</td><td style="text-align:left">Lowest volatility of any IT line, and that is all. Beaten by every route above.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cols">
+      <div class="pro">
+        <h3>Reasons to buy ITBEES now</h3>
+        <ol>
+          <li>Entry point: 29.3% below peak, 7th percentile against the Nifty, 41.2% below its peak relative level.</li>
+          <li>The two names that caused the drag are now the cheapest — Infosys 15.3×, TCS 16.5×.</li>
+          <li>Index P/E 18.05 with a 3.53% yield; the fund keeps and reinvests those dividends.</li>
+          <li>Lowest volatility of any IT line at 21.5%, and 0.19% TER on ₹3,533 Cr of AUM.</li>
+          <li>Mean reversion cuts the other way now: cap-weighting overweights whatever is cheapest by free float.</li>
+        </ol>
+      </div>
+      <div class="con">
+        <h3>Reasons not to</h3>
+        <ol>
+          <li>Lost to its own median holding by six points a year, and to NIFTYBEES on all four measures.</li>
+          <li>An equal-weight twin of the identical ten names returned 25.7% — it beat the ETF in 100% of rolling 3-year windows.</li>
+          <li>50.8% of the fund is two stocks that compounded at 8.1%.</li>
+          <li>Negative over 41% of rolling 12-month windows; worst 12 months −32.5%.</li>
+          <li>The AI de-rating targets large-cap headcount businesses — 79% of this fund.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-s="§8">Conclusion</h2>
+    <p class="sub">What the evidence supports, what it does not, and what would change it.</p>
+
+    <p><strong>On its own six-year record, ITBEES does not earn a place — and the reason is the
+      wrapper, not the sector.</strong> The fund returned 15.2% a year while the median stock it holds
+      returned 21.2% and an equal-weighted basket of the identical ten names returned 25.7%. It was
+      beaten by 7 of its 10 holdings, by 13 of the 16 IT names on this page, and by the plain Nifty on
+      every measure that matters at once: 16.6% versus 15.2% on return, 13.1% versus 21.5% on
+      volatility, −16.1% versus −42.1% on drawdown, 0.77 versus 0.40 on Sharpe. ₹1 lakh became
+      ₹2.37 lakh in the ETF, ₹2.56 lakh in NIFTYBEES, and ₹4.03 lakh in the equal-weight twin.
+      This is the mirror image of the pharma result, where the ETF beat its median constituent at half
+      the drawdown.</p>
+
+    <p><strong>The mechanism is arithmetic, not misfortune.</strong> Free-float cap-weighting put
+      50.8% of the fund into Infosys and TCS, which compounded at 10.8% and 5.4%, and 5.7% into
+      Persistent, which compounded at 60.7%. The five large caps equal-weighted returned 15.4% —
+      indistinguishable from the ETF's 15.2% — while the five mid caps returned 36.0%. Since the fund
+      is 78.8% large-cap by construction, it delivered the large-cap outcome almost exactly. It did
+      not pick badly; it sized badly, and the sizing rule is the index, so it will keep doing so
+      whenever the largest free floats are the slowest compounders. That is the same cap-weighting
+      drag the ten-year pharma proxy showed, except here it happened inside the live window.</p>
+
+    <p><strong>The honest case for buying is the entry point, and it is a real one.</strong> Everything
+      above is backward-looking, and the setup today is the opposite of pharma's. ITBEES sits 29.3%
+      below its December 2024 peak, at the 7th percentile of its ratio to the Nifty and 41.2% below
+      its own peak relative level. Nifty IT trades at 18.05× earnings with a 3.53% yield, and the two
+      stocks that did the damage are now the cheapest in it — Infosys at 15.3× on a 4.08% yield, TCS
+      at 16.5× on a 51.8% ROE. Cap-weighting is a drag when your biggest holdings are expensive; it is
+      a smaller drag when they are the cheapest things in the basket. If large-cap IT mean-reverts,
+      this fund is the most direct way to own that, and it has already bounced 22.2% off the 1 July
+      low.</p>
+
+    <p><strong>What the study cannot settle is whether the de-rating is a cycle or a repricing.</strong>
+      A P/E of 18 is cheap only if earnings hold. The market is not pricing a soft patch — it is
+      pricing AI as a threat to per-seat billing, with sell-side estimates of 9–12% revenue loss over
+      three to four years, against industry revenue still growing 6.1%. That question falls hardest on
+      commoditised large-cap headcount businesses, which are 79% of this fund. The one thing this
+      window says clearly is that if you are wrong about it, the cap-weighted vehicle is where you
+      will feel it most.</p>
+
+    <p><strong>So: if you want Indian IT, do not buy it cap-weighted.</strong> Prefer an equal-weight
+      or mid-cap-tilted route — 25.7% and 36.0% respectively, both with <em>shallower</em> drawdowns
+      than the ETF's −42.1%. If no such vehicle is available to you, the defensible fallback is to
+      hold NIFTYBEES, which already carries roughly 10% IT and beat the sector fund outright, and to
+      express any IT conviction through a capped satellite — Persistent is the only name here the
+      evidence supports, at 7/7 periods and a P/E of 43.4 against 36% profit growth, sized at no more
+      than 3–4%. If you buy ITBEES anyway, buy it as a valuation trade on large-cap IT rather than as
+      a diversifier, size it small, stage the entry, and know that its 0.56 correlation to the Nifty
+      means it will do almost nothing for portfolio risk.</p>
+
+    <p><strong>What would change this.</strong> Toward the fund: NSE loosening the cap-weight rule, or
+      large-cap IT earnings holding through FY27 while the multiple re-rates from 18×. Toward
+      equal-weight: nothing — the case is already made in 100% of rolling three-year windows. Away
+      from IT entirely: constant-currency growth at the top five turning negative, or AI-linked
+      pricing deflation showing up in reported realisations rather than only in commentary. Review at
+      90 days against the Nifty IT TRI, not the price index.</p>
+
+    <p><strong>The one-line version:</strong> the pharma ETF was a shallower hole than its own stocks,
+      so it earned its place; the IT ETF is a shallower hole that also gave up six points a year to its
+      own median holding and lost to the plain Nifty outright — the sector may well be cheap, but this
+      is the wrong instrument for it.</p>
+  </section>
+
+  <footer>
+    <p><strong>Method:</strong> total returns from daily adjusted closes (dividends and splits
+      reinvested), 30 June 2020 to 7 August 2026, identical dates for every line — no index proxy and
+      no spliced history. 2020 is a half-period from listing; 2026 is year-to-date. Sharpe uses a
+      6.5% risk-free rate. Volatility is annualised daily standard deviation. Drawdowns are
+      peak-to-trough on daily closes within the window. Persistence is Spearman rank correlation
+      across consecutive periods. The equal-weight twin holds the fund's ten constituents at equal
+      weight, rebalanced daily; the mid-five and big-five baskets are built the same way. LTIMindtree
+      uses its continuous BSE listing (L&amp;T Infotech, renamed after the 2022 Mindtree merger).
+      Fund weights are the current published portfolio, not historical weights.</p>
+    <p style="margin-top:12px"><strong>Unresolved:</strong> published tracking error and live bid-ask
+      spread. Sources disagree on the expense ratio — 0.19% (Value Research), 0.23% and 0.29%
+      (aggregators); the fund's own factsheet governs. Historical index weights were not obtained, so
+      the fixed-weight comparison in §4 uses today's proportions.</p>
+    <p style="margin-top:12px">Sources — prices from
+      <a href="https://finance.yahoo.com/quote/ITBEES.NS/">Yahoo Finance</a> ·
+      fund facts from <a href="https://www.valueresearchonline.com/funds/41024/nippon-india-etf-nifty-it/">Value Research</a> and
+      <a href="https://groww.in/etfs/nippon-india-etf-nifty-it">Groww</a> ·
+      index valuation from <a href="https://www.tickertape.in/indices/nifty-it-index-.NIFTYIT">Tickertape</a> ·
+      company multiples from <a href="https://www.screener.in/company/PERSISTENT/consolidated/">Screener</a> ·
+      sector commentary from <a href="https://www.icicidirect.com/research/equity/finace/indian-it-sector-analysis-2026-valuation-growth-ai-risks-and-top-picks">ICICI Direct</a> and
+      <a href="https://www.bajajbroking.in/share-market-news/Why-Is-Nifty-IT-Falling-AI-Fears-and-Global-Tech-Selloff-Weigh">Bajaj Broking</a>.</p>
+    <p style="margin-top:14px">General research, not individualised financial or tax advice. Past
+      returns do not predict future ones.</p>
+  </footer>
+</div>
+
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var P=["2020 H2","2021","2022","2023","2024","2025","2026 YTD"];
+  // name, [7 period returns], CAGR, vol, maxDD, sharpe, kind, periods-beating-ETF, fund weight
+  var D=[
+    ["PERSISTENT", [139,227,-20, 93, 76, -2,-12],60.7,36.3,36.0, 1.49,"s",7, 5.71],
+    ["KPITTECH",   [125,334, 16,116, -3,-19,-46],46.5,43.5,70.3, 0.92,"w",4, 0],
+    ["COFORGE",    [ 92,120,-33, 64, 56,-13,  8],36.7,38.3,46.7, 0.79,"s",5, 4.88],
+    ["OFSS",       [ 12, 30,-19, 48,213,-37, 58],32.1,32.2,49.0, 0.79,"s",4, 3.12],
+    ["TATAELXSI",  [108,224,  8, 40,-22,-22,-27],28.3,35.3,66.8, 0.62,"w",4, 0],
+    ["ZENSARTECH", [ 92,122,-58,191, 25, -5,-27],27.7,42.0,64.4, 0.50,"w",4, 0],
+    ["EQUAL-WT 10",[ 76, 88,-28, 42, 42, -9, -7],25.7,22.9,34.9, 0.84,"x",6,-1],
+    ["BSOFT",      [179,123,-44,144,-21,-21,-25],24.9,40.1,67.3, 0.46,"w",3, 0],
+    ["TECHM",      [ 88, 91,-41, 30, 38, -4,  5],24.7,27.9,46.6, 0.65,"s",6,10.84],
+    ["CYIENT",     [ 86,106,-18,188,-19,-38,-23],22.8,37.6,67.2, 0.44,"w",4, 0],
+    ["MPHASIS",    [ 82,125,-41, 43,  6,  0, -9],22.0,33.6,51.9, 0.46,"s",5, 3.48],
+    ["HCLTECH",    [ 72, 44,-17, 47, 35,-12,-13],20.5,25.9,44.8, 0.54,"s",5,11.15],
+    ["LTTS",       [ 85,141,-33, 44, -9, -5,-18],20.0,34.6,49.9, 0.39,"w",4, 0],
+    ["NIFTYBEES",  [ 36, 26,  5, 21, 10, 12, -5],16.6,13.1,16.1, 0.77,"m",3,-1],
+    ["LTIM",       [ 89,102,-40, 47,-10, 10,-24],16.4,32.7,50.0, 0.30,"s",4, 3.99],
+    ["ITBEES",     [ 66, 62,-25, 25, 25,-11,-16],15.2,21.5,42.1, 0.40,"e",0,-1],
+    ["WIPRO",      [ 76, 86,-45, 20, 28, -9,-26],10.8,27.3,50.0, 0.16,"s",4, 5.94],
+    ["INFY",       [ 72, 53,-18,  5, 26,-12,-26],10.8,25.7,48.2, 0.17,"s",3,30.38],
+    ["TCS",        [ 38, 32,-12, 21, 10,-19,-21], 5.4,22.7,53.4,-0.05,"s",1,20.46]
+  ];
+  var KIND={e:"the fund",s:"Nifty IT constituent",w:"wider IT, not in index",
+            m:"broad market",x:"equal-weight twin"};
+  var tip=document.getElementById("tip");
+  function show(ev,h){ tip.innerHTML=h; tip.classList.add("on");
+    var x=ev.clientX+14,y=ev.clientY-10;
+    if(x+tip.offsetWidth>innerWidth-8) x=ev.clientX-tip.offsetWidth-14;
+    tip.style.left=x+"px"; tip.style.top=y+"px"; }
+  function hide(){ tip.classList.remove("on"); }
+
+  /* ---------- heatmap ---------- */
+  var hh=document.getElementById("hmh"), hb=document.getElementById("hmb");
+  hh.innerHTML="<th>Name</th>"+P.map(function(p){ return "<th>"+p+"</th>"; }).join("")+
+               "<th>Weight</th><th>CAGR</th><th>Max DD</th><th>Sharpe</th>";
+  D.forEach(function(r){
+    var tr=document.createElement("tr");
+    if(r[6]==="e") tr.className="hl";
+    else if(r[6]==="m") tr.className="mk";
+    else if(r[6]==="x") tr.className="ewr";
+    else if(r[6]==="w") tr.className="mut";
+    var html="<td>"+r[0]+(r[6]==="s"?" ★":"")+"</td>";
+    r[1].forEach(function(v,i){
+      var a = Math.abs(v)<=2 ? 0.04 : Math.min(0.55, 0.08+Math.sqrt(Math.abs(v))/22);
+      html+='<td class="c" data-n="'+r[0]+'" data-p="'+P[i]+'" data-v="'+v+'" tabindex="0"'+
+            ' style="background:rgba('+(v>=0?"var(--pos)":"var(--neg)")+','+a.toFixed(3)+')">'+
+            (v>0?"+":"")+v+"</td>";
+    });
+    var w = r[8]<0 ? (r[6]==="x" ? "10 × 10%" : "—") : (r[8]===0 ? "—" : r[8].toFixed(2)+"%");
+    // rust only where a heavy weight was paired with a below-ETF return; plain bold otherwise
+    var wc = r[8]>=10 ? (r[2]<15.2 ? " big" : " hv") : "";
+    html+='<td class="w'+wc+'">'+w+"</td>"+
+          '<td class="g">'+r[2].toFixed(1)+'%</td><td>−'+r[4].toFixed(1)+'%</td><td>'+r[5].toFixed(2)+'</td>';
+    tr.innerHTML=html; hb.appendChild(tr);
+  });
+  function cellTip(t){ return "<b>"+t.dataset.n+"</b>"+t.dataset.p+"  "+(t.dataset.v>0?"+":"")+t.dataset.v+"%"; }
+  hb.addEventListener("mousemove",function(e){
+    var t=e.target.closest("td.c"); if(!t){ hide(); return; } show(e,cellTip(t)); });
+  hb.addEventListener("mouseleave",hide);
+  hb.addEventListener("focusin",function(e){
+    var t=e.target.closest("td.c"); if(!t) return;
+    var b=t.getBoundingClientRect(); show({clientX:b.left+b.width/2,clientY:b.top},cellTip(t)); });
+  hb.addEventListener("focusout",hide);
+
+  /* ---------- svg helper ---------- */
+  var NS="http://www.w3.org/2000/svg";
+  function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); return e; }
+  function attach(node,html){
+    node.addEventListener("mousemove",function(e){ show(e,html); });
+    node.addEventListener("mouseleave",hide);
+    node.addEventListener("focus",function(){ var b=node.getBoundingClientRect();
+      show({clientX:b.left+b.width/2,clientY:b.top},html); });
+    node.addEventListener("blur",hide);
+  }
+
+  /* ---------- scatter: CAGR vs maxDD ---------- */
+  var g=document.getElementById("sc");
+  var col={e:"var(--etf)",s:"var(--stock)",m:"var(--mkt)",w:"var(--ink-3)",x:"var(--ew)"};
+  var LAB={"ITBEES":"on","NIFTYBEES":"mk","EQUAL-WT 10":"ew","PERSISTENT":"","TCS":"","INFY":"","KPITTECH":""};
+  D.forEach(function(p){
+    var x=64+p[4]/75*626, y=350-p[2]/65*318, r=(p[6]==="e"||p[6]==="x"||p[6]==="m")?8:6;
+    g.appendChild(el("circle",{cx:x,cy:y,r:r,fill:col[p[6]],class:"dot"}));
+    var hit=el("circle",{cx:x,cy:y,r:16,class:"hit",tabindex:"0",role:"img",
+      "aria-label":p[0]+", "+p[2]+"% CAGR, "+p[4]+"% drawdown, Sharpe "+p[5]});
+    attach(hit,"<b>"+p[0]+"</b>"+KIND[p[6]]+"<br>CAGR "+p[2].toFixed(1)+
+      "%<br>Max DD −"+p[4].toFixed(1)+"%<br>Vol "+p[3].toFixed(1)+"%<br>Sharpe "+p[5].toFixed(2));
+    g.appendChild(hit);
+    if(p[0] in LAB){
+      var right=p[4]>52;
+      g.appendChild(el("text",{x:x+(right?-(r+7):(r+7)), y:y+4,
+        "text-anchor":right?"end":"start", class:"dlab "+LAB[p[0]]})).textContent=p[0];
+    }
+  });
+
+  /* ---------- growth of 1 lakh ---------- */
+  var IT=[1,1.2261,1.2163,1.3551,1.4337,1.4906,1.6627,1.6905,1.664,1.7731,1.7582,1.8558,2.0069,2.1044,2.3741,2.4188,2.3876,2.4358,2.6864,2.4188,2.3517,2.5232,2.1986,2.0746,1.9411,2.0421,1.9926,1.893,2.0197,2.1431,2.0211,2.1004,2.0963,2.0218,1.9554,2.0739,2.0963,2.1322,2.2169,2.2691,2.1864,2.3307,2.5313,2.6275,2.7081,2.5103,2.3883,2.3511,2.6153,2.9595,3.0943,3.0442,2.9507,3.1478,3.16,3.114,2.7257,2.6946,2.6153,2.7461,2.8734,2.6139,2.6031,2.49,2.6593,2.7806,2.8233,2.8416,2.2914,2.1674,2.1979,2.1864,1.9784,2.3118,2.37];
+  var N5=[1,1.0776,1.1051,1.0951,1.1374,1.2635,1.3611,1.334,1.4258,1.435,1.4335,1.5229,1.5443,1.5494,1.6851,1.7358,1.7454,1.6773,1.7147,1.7132,1.6603,1.7245,1.6931,1.6423,1.5668,1.7033,1.7706,1.7059,1.7921,1.8691,1.8083,1.7663,1.7321,1.7336,1.8014,1.8596,1.923,1.9867,1.9428,1.9791,1.9264,2.0282,2.1882,2.1938,2.2211,2.2549,2.2832,2.2932,2.4423,2.5361,2.5665,2.6331,2.4711,2.4642,2.4148,2.4014,2.2685,2.4033,2.4835,2.5381,2.6161,2.5499,2.5206,2.534,2.6578,2.7072,2.6964,2.6181,2.6049,2.3141,2.4837,2.445,2.4819,2.5331,2.5551];
+  var EW=[1,1.2682,1.2742,1.4638,1.5133,1.5541,1.7639,1.7798,1.7725,1.9388,1.9605,2.1481,2.328,2.5798,2.8691,2.948,2.9644,3.0063,3.3218,2.9127,2.8059,3.0075,2.6714,2.498,2.2928,2.4242,2.3555,2.2418,2.3719,2.5104,2.3782,2.5176,2.5397,2.4498,2.451,2.6373,2.6745,2.725,2.9037,2.9361,2.8431,3.059,3.3704,3.598,3.7486,3.5264,3.3007,3.2615,3.7529,4.2222,4.4222,4.459,4.3822,4.6994,4.7949,4.5629,3.9384,3.9776,3.9276,4.1503,4.4195,4.0602,4.0604,3.8902,4.1881,4.3717,4.3497,4.3605,3.5104,3.3383,3.558,3.6295,3.3491,3.9214,4.0291];
+  var lg=document.getElementById("ln"), N=IT.length-1;
+  function lx(i){ return 60+i/N*576; }
+  function ly(v){ return 330-(v-1)*74.5; }
+  [[EW,"var(--ew)","EQUAL-WT 10"],[N5,"var(--mkt)","NIFTYBEES"],[IT,"var(--etf)","ITBEES"]]
+  .forEach(function(s){
+    lg.appendChild(el("polyline",{class:"ln",stroke:s[1],
+      points:s[0].map(function(v,i){ return lx(i).toFixed(1)+","+ly(v).toFixed(1); }).join(" ")}));
+    var last=s[0][s[0].length-1];
+    lg.appendChild(el("circle",{cx:lx(N),cy:ly(last),r:3.5,fill:s[1]}));
+  });
+  // end labels, nudged so ITBEES and NIFTYBEES do not collide
+  [[EW,"var(--ew)","EQUAL-WT 10",0],[N5,"var(--mkt)","NIFTYBEES",-7],[IT,"var(--etf)","ITBEES",11]]
+  .forEach(function(s){
+    var last=s[0][s[0].length-1];
+    lg.appendChild(el("text",{x:644,y:ly(last)+4+s[3],class:"dlab",
+      style:"fill:"+s[1]+";font-weight:650"})).textContent=last.toFixed(2)+"×";
+  });
+  // hover columns
+  for(var i=0;i<=N;i++){
+    (function(i){
+      var hit=el("rect",{x:lx(i)-3.9,y:32,width:7.8,height:298,class:"hit"});
+      attach(hit,"<b>month "+(i+1)+" of "+(N+1)+"</b>Equal-wt "+EW[i].toFixed(2)+
+        "×<br>NIFTYBEES "+N5[i].toFixed(2)+"×<br>ITBEES "+IT[i].toFixed(2)+"×");
+      lg.appendChild(hit);
+    })(i);
+  }
+
+  /* ---------- weight vs return bars ---------- */
+  var bg=document.getElementById("bars");
+  var WT=D.filter(function(r){ return r[6]==="s"; })
+          .sort(function(a,b){ return b[8]-a[8]; });
+  var ETFC=15.2;
+  WT.forEach(function(r,i){
+    var y=36+i*31, h=15;
+    bg.appendChild(el("text",{x:92,y:y+12,"text-anchor":"end",class:"dlab"})).textContent=r[0];
+    // weight bar
+    var wpx=r[8]/32*150;
+    bg.appendChild(el("rect",{x:100,y:y,width:wpx.toFixed(1),height:h,fill:"var(--etf)",
+      opacity:r[8]>=10?0.95:0.5}));
+    bg.appendChild(el("text",{x:100+wpx+7,y:y+12,class:"atxt"})).textContent=r[8].toFixed(1)+"%";
+    // cagr bar
+    var good=r[2]>ETFC, cpx=r[2]/62*300;
+    bg.appendChild(el("rect",{x:330,y:y,width:cpx.toFixed(1),height:h,
+      fill:good?"var(--mkt)":"var(--warn)",opacity:0.85}));
+    bg.appendChild(el("text",{x:330+cpx+7,y:y+12,class:"dlab",
+      style:"fill:"+(good?"var(--mkt)":"var(--warn)")+";font-weight:650"}))
+      .textContent=r[2].toFixed(1)+"%";
+    var hit=el("rect",{x:0,y:y-6,width:720,height:h+12,class:"hit",tabindex:"0",role:"img",
+      "aria-label":r[0]+" is "+r[8]+" percent of the fund and returned "+r[2]+" percent a year"});
+    attach(hit,"<b>"+r[0]+"</b>Fund weight "+r[8].toFixed(2)+"%<br>CAGR "+r[2].toFixed(1)+
+      "%<br>vs ITBEES "+(r[2]-ETFC>0?"+":"")+(r[2]-ETFC).toFixed(1)+" pp");
+    bg.appendChild(hit);
+  });
+  // ETF reference line on the CAGR axis
+  var rx=330+ETFC/62*300;
+  bg.appendChild(el("line",{x1:rx,y1:28,x2:rx,y2:352,stroke:"var(--etf)",
+    "stroke-width":1.5,"stroke-dasharray":"4 3"}));
+  bg.appendChild(el("text",{x:rx+5,y:366,class:"atxt",style:"fill:var(--etf)"}))
+    .textContent="ITBEES 15.2%";
+
+  window.addEventListener("scroll",hide,{passive:true});
+})();
+</script>
+
+</body>
+</html>

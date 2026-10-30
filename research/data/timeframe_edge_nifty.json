@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "instrument": "NIFTY index (1-min source)",
+    "period": "2008-01-01..2020-11-27",
+    "cost_pct": 0.3,
+    "holds_days": [
+      5,
+      10
+    ],
+    "volume": "absent (index)",
+    "scope": "INDEX-ONLY methodology demo; NOT a stock-pick backtest; no per-stock intraday exists"
+  },
+  "by_timeframe": {
+    "15m": {
+      "signal_days": 1942,
+      "hold_5d": {
+        "n": 1941,
+        "win": 46.47,
+        "exp": -0.306,
+        "med": -0.1986,
+        "pf": 0.75
+      },
+      "hold_10d": {
+        "n": 1941,
+        "win": 51.26,
+        "exp": -0.0825,
+        "med": 0.1101,
+        "pf": 0.946
+      }
+    },
+    "30m": {
+      "signal_days": 1653,
+      "hold_5d": {
+        "n": 1652,
+        "win": 44.92,
+        "exp": -0.3761,
+        "med": -0.2632,
+        "pf": 0.695
+      },
+      "hold_10d": {
+        "n": 1652,
+        "win": 49.94,
+        "exp": -0.1466,
+        "med": -0.0015,
+        "pf": 0.904
+      }
+    },
+    "60m": {
+      "signal_days": 1431,
+      "hold_5d": {
+        "n": 1430,
+        "win": 44.27,
+        "exp": -0.3618,
+        "med": -0.278,
+        "pf": 0.702
+      },
+      "hold_10d": {
+        "n": 1430,
+        "win": 49.58,
+        "exp": -0.1475,
+        "med": -0.0195,
+        "pf": 0.902
+      }
+    },
+    "2h": {
+      "signal_days": 1271,
+      "hold_5d": {
+        "n": 1270,
+        "win": 45.28,
+        "exp": -0.2662,
+        "med": -0.2374,
+        "pf": 0.763
+      },
+      "hold_10d": {
+        "n": 1270,
+        "win": 49.84,
+        "exp": -0.0784,
+        "med": -0.0139,
+        "pf": 0.944
+      }
+    },
+    "5h": {
+      "signal_days": 1098,
+      "hold_5d": {
+        "n": 1097,
+        "win": 44.94,
+        "exp": -0.3129,
+        "med": -0.2371,
+        "pf": 0.735
+      },
+      "hold_10d": {
+        "n": 1097,
+        "win": 49.68,
+        "exp": -0.2181,
+        "med": -0.0184,
+        "pf": 0.85
+      }
+    },
+    "1d": {
+      "signal_days": 937,
+      "hold_5d": {
+        "n": 937,
+        "win": 46.32,
+        "exp": -0.2047,
+        "med": -0.1986,
+        "pf": 0.808
+      },
+      "hold_10d": {
+        "n": 937,
+        "win": 51.01,
+        "exp": -0.0691,
+        "med": 0.0728,
+        "pf": 0.947
+      }
+    }
+  },
+  "reference_always_in": {
+    "hold_5d": {
+      "n": 3166,
+      "win": 48.45,
+      "exp": -0.2088,
+      "pf": 0.837
+    },
+    "hold_10d": {
+      "n": 3161,
+      "win": 52.04,
+      "exp": -0.0409,
+      "pf": 0.975
+    }
+  }
+}

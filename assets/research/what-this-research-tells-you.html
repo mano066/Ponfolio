@@ -1,0 +1,294 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>What This Research Actually Tells You To Do</title>
+<style>
+:root{
+  --ground:#F7F8F6; --surface:#FFFFFF; --surface-2:#F0F3F1; --line:#DCE3E0;
+  --ink:#10221F; --ink-2:#42544F; --ink-3:#6E807B;
+  --accent:#0B6E62; --accent-soft:#E2F0ED; --brass:#8A6A22;
+  --pos:#1B7F5A; --neg:#B03A2E; --warn:#B4762A;
+  --shadow:0 1px 2px rgba(16,34,31,.06),0 4px 14px rgba(16,34,31,.05);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  --mono:"Cascadia Mono",Consolas,"SF Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#0E1614; --surface:#16211F; --surface-2:#1D2A27; --line:#2B3A36;
+  --ink:#E4EAE7; --ink-2:#A9B8B3; --ink-3:#7E8F8A;
+  --accent:#4FC2B0; --accent-soft:#16302C; --brass:#C9A24E;
+  --pos:#4FBE8E; --neg:#E1705C; --warn:#D69A4B;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.3);
+}}
+:root[data-theme="dark"]{
+  --ground:#0E1614; --surface:#16211F; --surface-2:#1D2A27; --line:#2B3A36;
+  --ink:#E4EAE7; --ink-2:#A9B8B3; --ink-3:#7E8F8A;
+  --accent:#4FC2B0; --accent-soft:#16302C; --brass:#C9A24E;
+  --pos:#4FBE8E; --neg:#E1705C; --warn:#D69A4B;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.3);
+}
+:root[data-theme="light"]{
+  --ground:#F7F8F6; --surface:#FFFFFF; --surface-2:#F0F3F1; --line:#DCE3E0;
+  --ink:#10221F; --ink-2:#42544F; --ink-3:#6E807B;
+  --accent:#0B6E62; --accent-soft:#E2F0ED; --brass:#8A6A22;
+  --pos:#1B7F5A; --neg:#B03A2E; --warn:#B4762A;
+  --shadow:0 1px 2px rgba(16,34,31,.06),0 4px 14px rgba(16,34,31,.05);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 96px}
+h1,h2,h3{text-wrap:balance;margin:0}
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.top-in{max-width:1080px;margin:0 auto;padding:46px 24px 32px}
+.eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:var(--serif);font-size:clamp(32px,4.6vw,50px);line-height:1.06;
+  letter-spacing:-.015em;font-weight:600;margin:10px 0 12px}
+.sub{color:var(--ink-2);max-width:62ch;font-size:15px;margin:0}
+section h2{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.01em;margin:52px 0 6px}
+.lede{color:var(--ink-2);font-size:14px;margin:0 0 18px;max-width:72ch}
+.num,.ret{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+/* verdict cards */
+.verdicts{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px;margin:32px 0 8px}
+.vc{border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  padding:18px 20px;box-shadow:var(--shadow);border-top:3px solid var(--accent)}
+.vc.warn{border-top-color:var(--neg)}
+.vc .n{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.1em}
+.vc h3{font-family:var(--serif);font-size:19px;font-weight:600;margin:6px 0 8px;line-height:1.25}
+.vc p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.vc .big{font-family:var(--mono);font-size:27px;font-weight:700;color:var(--accent);
+  display:block;margin:10px 0 2px;letter-spacing:-.02em}
+.vc.warn .big{color:var(--neg)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;
+  background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--surface-2);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--surface-2)}
+th.r,td.r{text-align:right}
+.mix{display:flex;gap:4px;flex-wrap:wrap}
+.sl{font-family:var(--mono);font-size:11px;padding:2px 6px;border-radius:4px;
+  background:var(--accent-soft);color:var(--accent);white-space:nowrap;font-weight:600}
+.you{outline:2px solid var(--brass);outline-offset:-2px}
+.you td:first-child::after{content:"YOURS";font-family:var(--mono);font-size:9px;
+  color:var(--brass);margin-left:7px;letter-spacing:.08em;vertical-align:middle}
+/* trade-off bars */
+.tradeoff{display:grid;gap:9px;margin-top:6px}
+.tr{display:grid;grid-template-columns:190px 1fr 78px;gap:12px;align-items:center;font-size:13px}
+.tr .lab{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tr .track{position:relative;height:22px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.tr .zero{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.tr i{position:absolute;top:4px;bottom:4px;border-radius:2px}
+.tr i.up{background:var(--pos)} .tr i.dn{background:var(--neg)}
+.tr .cap{font-family:var(--mono);font-size:12px;text-align:right;font-weight:600}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink-3);margin-top:12px}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.caveat{border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:8px;
+  background:var(--surface);padding:16px 20px;margin:30px 0 0}
+.caveat h3{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--brass);margin-bottom:8px}
+.caveat ul{margin:0;padding-left:19px;color:var(--ink-2);font-size:13.5px}
+.caveat li{margin:6px 0}.caveat b{color:var(--ink);font-weight:600}
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:22px 0;
+  font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink)}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink-3);font-size:12.5px}
+footer code{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+@media (max-width:640px){.hide-s{display:none}.wrap{padding:0 15px 64px}
+  .tr{grid-template-columns:120px 1fr 66px}}
+</style>
+
+<header class="top"><div class="top-in">
+  <div class="eyebrow">Conclusions &middot; 10,000 a month &middot; 2013 to 2026</div>
+  <h1>What this research actually<br>tells you to do</h1>
+  <p class="sub">You asked whether a fixed split across three to five categories can match or beat
+  the top three of each year. I tested every possible fixed blend &mdash; 1.8&nbsp;million of them
+  &mdash; against fourteen years of measured NAV data. Here is what the numbers say.</p>
+</div></header>
+
+<div class="wrap">
+  <div class="verdicts" id="verdicts"></div>
+
+  <section>
+    <h2>1. Nobody can pick next year's top three</h2>
+    <p class="lede">This is the finding everything else rests on. Each January, take the three
+    categories that won last year and buy them. Here is what you actually got.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th>You bought last year's winners</th>
+        <th class="r">You got</th><th class="r">That year's top 3</th><th class="r">Shortfall</th>
+        <th class="r hide-s">Still top 3?</th></tr></thead>
+      <tbody id="chase"></tbody>
+    </table></div>
+    <p class="pull" id="pull1"></p>
+  </section>
+
+  <section>
+    <h2>2. What a fixed blend actually delivers</h2>
+    <p class="lede">Six fixed splits of 10,000 a month, never changed once, run over the same
+    164&nbsp;months. Each sleeve is its own SIP, so these corpus figures are exact arithmetic on the
+    category index &mdash; not a simulation. <b>Total put in: 16,40,000.</b></p>
+    <div class="scroll"><table>
+      <thead><tr><th>Blend</th><th class="hide-s">Split</th><th class="r">Return p.a.</th>
+        <th class="r">Worst year</th><th class="r hide-s">Swing</th>
+        <th class="r hide-s">Beat Nifty</th><th class="r">Corpus</th></tr></thead>
+      <tbody id="arch"></tbody>
+    </table></div>
+    <p class="lede" style="margin-top:16px">The same six, drawn to scale &mdash; return earned
+    against the worst single year you had to sit through to earn it.</p>
+    <div class="tradeoff" id="bars"></div>
+    <div class="legend"><span><b style="background:var(--pos)"></b>Average return per year</span>
+      <span><b style="background:var(--neg)"></b>Worst calendar year</span></div>
+  </section>
+
+  <section>
+    <h2>3. Your example, scored</h2>
+    <div id="yours"></div>
+  </section>
+
+  <section>
+    <h2>4. Year by year</h2>
+    <p class="lede">Every blend against the hindsight top-three and the Nifty, for all fourteen
+    years. Green means the blend beat the Nifty that year.</p>
+    <div class="scroll" id="grid"></div>
+  </section>
+
+  <section>
+    <h2>The honest caveats</h2>
+    <div class="caveat">
+      <h3>Read these before acting on any number above</h3>
+      <ul>
+        <li><b>Fourteen years is one regime, not a law.</b> Every blend I tested did
+        <em>better</em> in 2020&ndash;26 than in 2013&ndash;19. That is not proof small and mid caps
+        are robust &mdash; it means the whole period favoured them. A 1994&ndash;2003 style decade
+        would invert this entire table.</li>
+        <li><b>These are category medians, and you cannot buy a median.</b> Every figure assumes you
+        held the middle fund of the category. Pick a bottom-quartile fund and you lose several points
+        a year to the numbers shown.</li>
+        <li><b>Survivorship bias inflates all of it.</b> Only funds still reporting NAV today are in
+        the data. Schemes that died along the way are invisible, so every return here is flattered.</li>
+        <li><b>The "top 3" benchmark is unbuyable by construction</b> &mdash; it is chosen after the
+        year has finished. No fixed blend beats it on average; the best possible falls
+        <span id="bestgap"></span> short. Treat it as a ceiling, not a target.</li>
+        <li><b>Small-cap returns come with real pain.</b> The max-return blend lost 14.5% in 2018 and
+        finished last of all categories in both 2018 and 2025. A calendar year understates it &mdash;
+        intra-year drawdowns were far deeper.</li>
+        <li><b>Not advice.</b> Educational analysis of public NAV data, and past calendar years carry
+        no promise about the next one.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Method.</b> 841 Direct-plan Growth funds with usable month-end NAV history, grouped into
+    19 SEBI categories having complete 2013&ndash;2026 coverage. A category's monthly index is the
+    median month-on-month NAV move of its funds; a category-year return is the median fund's
+    calendar-year return. A blend's yearly return is the contribution-weighted average of its
+    sleeves; its corpus is the exact sum of independent monthly SIPs, since a never-rebalanced split
+    makes each sleeve independent. All 1,832,616 blends of three to five categories in 1,000 steps
+    were enumerated. Nifty 50 calendar-year price returns from Yahoo Finance
+    (<code>^NSEI</code>). Data through 7 August 2026; 2026 is a part year.</p>
+  </footer>
+</div>
+
+<script>
+const D = {"years":[2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"top3":[7.35,73.01,9.36,9.54,45.74,4.36,12.62,26.1,51.07,6.79,39.7,27.43,11.94,9.41],"nifty":[6.76,31.39,-4.06,3.01,28.65,3.15,12.02,14.9,24.12,4.33,20.03,8.8,10.51,-5.92],"arch":[{"name":"Max-return (optimiser's pick)","mix":[{"cat":"Small Cap","k":8},{"cat":"Mid Cap","k":1},{"cat":"Contra","k":1}],"by_year":[3.96,81.72,9.77,6.78,49.71,-14.49,1.17,29.07,60.33,3.19,41.99,26.79,-1.26,11.82],"mean_ret":22.18,"vol":26.39,"mean_gap":-1.7,"worst_ret":-14.49,"worst_year":2018,"neg_years":2,"within3":9,"beat_top3":7,"beat_nifty":9,"corpus":6900316},{"name":"Aggressive growth","mix":[{"cat":"Small Cap","k":4},{"cat":"Mid Cap","k":4},{"cat":"Flexi Cap","k":2}],"by_year":[4.6,76.3,8.08,5.83,46.08,-11.94,4.22,25.56,51.55,2.68,38.78,26.76,0.97,9.2],"mean_ret":20.62,"vol":23.75,"mean_gap":-3.27,"worst_ret":-11.94,"worst_year":2018,"neg_years":1,"within3":9,"beat_top3":3,"beat_nifty":9,"corpus":6305043},{"name":"Growth core","mix":[{"cat":"Small Cap","k":3},{"cat":"Mid Cap","k":3},{"cat":"Flexi Cap","k":3},{"cat":"Large Cap","k":1}],"by_year":[4.67,69.72,6.43,5.65,43.51,-9.71,6.28,23.15,46.56,2.43,35.96,24.61,2.33,7.27],"mean_ret":19.2,"vol":21.52,"mean_gap":-4.68,"worst_ret":-9.71,"worst_year":2018,"neg_years":1,"within3":6,"beat_top3":0,"beat_nifty":9,"corpus":5852099},{"name":"Balanced core-satellite","mix":[{"cat":"Flexi Cap","k":5},{"cat":"Mid Cap","k":2},{"cat":"Small Cap","k":2},{"cat":"Large Cap","k":1}],"by_year":[4.64,64.48,4.74,5.56,41.63,-7.74,8.25,20.88,42.22,1.95,33.63,22.79,3.27,5.8],"mean_ret":18.01,"vol":19.77,"mean_gap":-5.88,"worst_ret":-7.74,"worst_year":2018,"neg_years":1,"within3":1,"beat_top3":0,"beat_nifty":9,"corpus":5446676},{"name":"Your example","mix":[{"cat":"Flexi Cap","k":5},{"cat":"Multi Cap","k":2},{"cat":"Small Cap","k":2},{"cat":"Arbitrage","k":1}],"by_year":[4.92,56.07,4.17,5.46,37.84,-6.18,7.88,17.56,38.93,2.38,30.82,20.69,3.36,6.17],"mean_ret":16.43,"vol":17.37,"mean_gap":-7.45,"worst_ret":-6.18,"worst_year":2018,"neg_years":1,"within3":1,"beat_top3":0,"beat_nifty":9,"corpus":5087951},{"name":"Defensive","mix":[{"cat":"Flexi Cap","k":3},{"cat":"Large Cap","k":3},{"cat":"Balanced Advantage / Dynamic AA","k":2},{"cat":"Arbitrage","k":2}],"by_year":[6.03,37.45,3.41,5.59,26.21,0.22,10.77,13.18,22.37,3.03,21.66,15.23,6.92,1.84],"mean_ret":12.42,"vol":10.56,"mean_gap":-11.46,"worst_ret":0.22,"worst_year":2018,"neg_years":0,"within3":2,"beat_top3":0,"beat_nifty":6,"corpus":3903800}],"chase":[{"year":2014,"bought":["Arbitrage","ELSS (tax saver)","Aggressive Hybrid"],"got":35.36,"top3":73.01},{"year":2015,"bought":["Small Cap","Mid Cap","Sectoral / Thematic"],"got":7.46,"top3":9.36},{"year":2016,"bought":["Small Cap","Retirement","Mid Cap"],"got":6.66,"top3":9.54},{"year":2017,"bought":["Conservative Hybrid","Multi Asset Allocation","Contra"],"got":21.47,"top3":45.74},{"year":2018,"bought":["Small Cap","Mid Cap","Sectoral / Thematic"],"got":-11.79,"top3":4.36},{"year":2019,"bought":["Arbitrage","Conservative Hybrid","Balanced Advantage / Dynamic AA"],"got":8.34,"top3":12.62},{"year":2020,"bought":["Large Cap","Focused","Flexi Cap"],"got":16.15,"top3":26.1},{"year":2021,"bought":["Small Cap","Mid Cap","Contra"],"got":47.9,"top3":51.07},{"year":2022,"bought":["Small Cap","Mid Cap","Multi Cap"],"got":3.87,"top3":6.79},{"year":2023,"bought":["Contra","Multi Asset Allocation","Value"],"got":31.81,"top3":39.7},{"year":2024,"bought":["Small Cap","Mid Cap","Contra"],"got":26.97,"top3":27.43},{"year":2025,"bought":["Mid Cap","Small Cap","Large & Mid Cap"],"got":1.99,"top3":11.94},{"year":2026,"bought":["Multi Asset Allocation","Large Cap","Equity Savings"],"got":1.82,"top3":9.41}],"chase_mean":15.23,"persist":[0,2,0,0,0,0,0,2,0,1,2,0,0],"oos":{"mix":[{"cat":"Mid Cap","k":1},{"cat":"Small Cap","k":8},{"cat":"Large & Mid Cap","k":1}],"in_gap":-3.23,"out_gap":-0.18},"months":164,"refs":{"Small Cap":{"mix":[{"cat":"Small Cap","k":10}],"by_year":[3.73,86.52,11.09,6.77,51.44,-16.45,0.01,30.34,65.66,2.38,42.98,26.72,-2.81,13.82],"gap":[-3.62,13.51,1.73,-2.77,5.7,-20.81,-12.61,4.24,14.59,-4.41,3.28,-0.71,-14.75,4.41],"mean_ret":23.01,"mean_gap":-0.87,"worst_gap":-20.81,"worst_year":2018,"worst_ret":-16.45,"beat_top3":7,"within3":9,"beat_nifty":9,"corpus":7169353},"Mid Cap":{"mix":[{"cat":"Mid Cap","k":10}],"by_year":[5.53,76.56,8.43,5.08,44.48,-11.38,4.51,25.32,46.11,3.95,39.25,30.45,2.89,7.53],"gap":[-1.82,3.55,-0.93,-4.46,-1.26,-15.74,-8.11,-0.78,-4.96,-2.84,-0.45,3.02,-9.05,-1.88],"mean_ret":20.62,"mean_gap":-3.26,"worst_gap":-15.74,"worst_year":2018,"worst_ret":-11.38,"beat_top3":2,"within3":9,"beat_nifty":9,"corpus":6251580},"Flexi Cap":{"mix":[{"cat":"Flexi Cap","k":10}],"by_year":[4.5,55.36,1.34,5.47,38.57,-4.03,12.08,16.49,34.19,0.74,29.46,19.44,4.71,3.3],"gap":[-2.85,-17.65,-8.02,-4.07,-7.17,-8.39,-0.54,-9.61,-16.88,-6.05,-10.24,-7.99,-7.23,-6.11],"mean_ret":15.83,"mean_gap":-8.06,"worst_gap":-17.65,"worst_year":2018,"worst_ret":-4.03,"beat_top3":0,"within3":2,"beat_nifty":10,"corpus":4683348},"Large Cap":{"mix":[{"cat":"Large Cap","k":10}],"by_year":[5.4,41.83,1.68,4.56,31.62,-1.57,13.04,15.03,27.71,3.13,24.57,16.31,8.97,-1.23],"gap":[-1.95,-31.18,-7.68,-4.98,-14.12,-5.93,0.42,-11.07,-23.36,-3.66,-15.13,-11.12,-2.97,-10.64],"mean_ret":13.65,"mean_gap":-10.24,"worst_gap":-31.18,"worst_year":2018,"worst_ret":-1.57,"beat_top3":1,"within3":3,"beat_nifty":10,"corpus":4208150},"Arbitrage":{"mix":[{"cat":"Arbitrage","k":10}],"by_year":[9.4,8.91,8.16,7.18,6.17,6.66,6.59,4.71,4.18,4.76,7.78,8.22,6.99,3.86],"gap":[2.05,-64.1,-1.2,-2.36,-39.57,2.3,-6.03,-21.39,-46.89,-2.03,-31.92,-19.21,-4.95,-5.55],"mean_ret":6.68,"mean_gap":-17.2,"worst_gap":-64.1,"worst_year":2026,"worst_ret":3.86,"beat_top3":2,"within3":5,"beat_nifty":6,"corpus":2570876}},"best":{"mix":[{"cat":"Mid Cap","k":1},{"cat":"Small Cap","k":8},{"cat":"Contra","k":1}],"by_year":[3.96,81.72,9.77,6.78,49.71,-14.49,1.17,29.07,60.33,3.19,41.99,26.8,-1.26,11.82],"gap":[-3.39,8.71,0.41,-2.76,3.97,-18.86,-11.45,2.97,9.26,-3.6,2.3,-0.63,-13.2,2.42],"mean_ret":22.18,"mean_gap":-1.7,"worst_gap":-18.86,"worst_year":2018,"worst_ret":-14.49,"beat_top3":7,"within3":9,"beat_nifty":9,"corpus":6900316}};
+const {years:YEARS, top3:TOP3, nifty:NIF, arch:ARCH, chase:CHASE, persist:PERSIST, refs:REFS} = D;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pc = v => (v>=0?'+':'') + Number(v).toFixed(2) + '%';
+const sgn = v => v>=0 ? 'pos':'neg';
+const inr = n => { n = Math.round(n); const s = String(n), l = s.length;
+  return l>3 ? s.slice(0,l-3).replace(/\B(?=(\d{2})+(?!\d))/g,',') + ',' + s.slice(l-3) : s; };
+const lakh = n => (n/100000).toFixed(1) + 'L';
+
+const zero = PERSIST.filter(p=>p===0).length;
+document.getElementById('verdicts').innerHTML = [
+  ['01', 'Last year\'s winners almost never repeat', `<span class="big">${zero} of ${PERSIST.length}</span>
+    years saw <b>none</b> of the previous year's top three stay in the top three. The average
+    carry-over is ${(PERSIST.reduce((a,b)=>a+b,0)/PERSIST.length).toFixed(2)} of 3.`, 'warn'],
+  ['02', 'Chasing them costs you real money', `<span class="big">${D.chase_mean}%</span>
+    a year from buying last year's top three every January &mdash; against
+    <b>${ARCH[0].mean_ret}%</b> from simply holding one fixed aggressive blend and never touching it.`, 'warn'],
+  ['03', 'A fixed blend gets you most of the way', `<span class="big">${lakh(ARCH[0].corpus)}</span>
+    from 16.4L invested, on the best fixed split &mdash; versus ${lakh(REFS['Flexi Cap'].corpus)}
+    on flexi cap alone and ${lakh(REFS['Arbitrage'].corpus)} on arbitrage.`, ''],
+].map(([n,h,p,cls]) => `<div class="vc ${cls}"><div class="n">${n}</div><h3>${h}</h3><p>${p}</p></div>`).join('');
+
+document.getElementById('chase').innerHTML = CHASE.map((c,i) => {
+  const sh = c.got - c.top3;
+  return `<tr><td class="num" style="font-weight:600">${c.year}</td>
+    <td style="font-size:12.5px">${c.bought.map(esc).join(' &middot; ')}</td>
+    <td class="ret ${sgn(c.got)}">${pc(c.got)}</td>
+    <td class="ret" style="color:var(--ink-3)">${pc(c.top3)}</td>
+    <td class="ret neg">${sh.toFixed(2)}pp</td>
+    <td class="r hide-s num" style="color:${PERSIST[i]?'var(--ink-2)':'var(--neg)'}">${PERSIST[i]} of 3</td></tr>`;
+}).join('');
+document.getElementById('pull1').textContent =
+  `Chasing winners handed you ${D.chase_mean}% a year. Buying one fixed blend in 2013 and never ` +
+  `looking again handed you ${ARCH[0].mean_ret}%.`;
+
+const MAXR = Math.max(...ARCH.map(a=>a.mean_ret)), MAXD = Math.max(...ARCH.map(a=>Math.abs(Math.min(0,a.worst_ret))));
+const SPAN = MAXR + MAXD, Z = MAXD/SPAN*100;
+document.getElementById('bars').innerHTML = ARCH.map(a => {
+  const up = a.mean_ret/SPAN*100, dn = Math.abs(Math.min(0,a.worst_ret))/SPAN*100;
+  return `<div class="tr"><div class="lab">${esc(a.name)}</div>
+    <div class="track"><span class="zero" style="left:${Z}%"></span>
+      <i class="up" style="left:${Z}%;width:${up}%"></i>
+      <i class="dn" style="left:${Z-dn}%;width:${dn}%"></i></div>
+    <div class="cap ${sgn(a.mean_ret)}">${a.mean_ret.toFixed(1)}%</div></div>`;
+}).join('');
+
+const isYou = a => a.name === 'Your example';
+document.getElementById('arch').innerHTML = ARCH.map(a => `
+  <tr class="${isYou(a)?'you':''}">
+    <td style="font-weight:600">${esc(a.name)}</td>
+    <td class="hide-s"><div class="mix">${a.mix.map(m=>`<span class="sl">${m.k}k ${esc(m.cat)}</span>`).join('')}</div></td>
+    <td class="ret pos">${a.mean_ret.toFixed(2)}%</td>
+    <td class="ret ${sgn(a.worst_ret)}">${a.worst_ret.toFixed(2)}%<span style="color:var(--ink-3);font-weight:400;font-size:11px"> ${a.worst_year}</span></td>
+    <td class="ret hide-s" style="color:var(--ink-3)">${a.vol.toFixed(1)}</td>
+    <td class="ret hide-s">${a.beat_nifty}/14</td>
+    <td class="ret" style="font-weight:700">${inr(a.corpus)}</td></tr>`).join('');
+
+const you = ARCH.find(isYou), best = ARCH[0], core = ARCH[2];
+document.getElementById('yours').innerHTML = `
+  <p class="lede">You proposed <b>5k flexi cap, 2k multi cap, 2k small cap, 1k arbitrage</b>.
+  It is a coherent, genuinely low-drama portfolio &mdash; it lost money in only one of fourteen years
+  and its worst year was just ${you.worst_ret.toFixed(2)}%. But measured against your own stated goal
+  of matching the top three, it never got there in fourteen attempts.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Metric</th><th class="r">Your blend</th><th class="r">Growth core</th>
+      <th class="r">Max return</th></tr></thead>
+    <tbody>
+      ${[['Return a year', a=>a.mean_ret.toFixed(2)+'%'],
+         ['Worst calendar year', a=>a.worst_ret.toFixed(2)+'% ('+a.worst_year+')'],
+         ['Years within 3pp of top 3', a=>a.within3+' of 14'],
+         ['Years beating the Nifty', a=>a.beat_nifty+' of 14'],
+         ['Final corpus on 16.4L in', a=>inr(a.corpus)]
+        ].map(([k,f]) => `<tr><td>${k}</td>
+          <td class="ret" style="font-weight:700">${f(you)}</td>
+          <td class="ret">${f(core)}</td><td class="ret">${f(best)}</td></tr>`).join('')}
+    </tbody></table></div>
+  <p class="lede" style="margin-top:16px"><b>The one change worth making:</b> the 1k arbitrage sleeve
+  earned ${REFS['Arbitrage'].mean_ret}% a year over this period. Arbitrage is a place to park money you
+  need soon, not a sleeve in a fourteen-year SIP &mdash; in a monthly SIP you are never exposed long
+  enough for its downside protection to matter. Moving that 1k into mid cap, and shifting 1k of flexi
+  to small, gets you the <b>Growth core</b> row: ${core.mean_ret.toFixed(2)}% a year and
+  ${inr(core.corpus)} instead of ${inr(you.corpus)} &mdash; while your worst year only moves from
+  ${you.worst_ret.toFixed(2)}% to ${core.worst_ret.toFixed(2)}%.</p>`;
+
+const cell = (v, ref) => {
+  const good = v > ref;
+  return `<td class="ret" style="color:${good?'var(--pos)':'var(--ink-2)'};
+    background:${good?'var(--accent-soft)':'transparent'}">${v.toFixed(1)}</td>`;
+};
+document.getElementById('grid').innerHTML = `<table>
+  <thead><tr><th>Blend</th>${YEARS.map(y=>`<th class="r">${y===2026?"26*":String(y).slice(2)}</th>`).join('')}</tr></thead>
+  <tbody>
+    <tr><td style="color:var(--ink-3)">Hindsight top 3</td>${TOP3.map(v=>`<td class="ret" style="color:var(--ink-3)">${v.toFixed(1)}</td>`).join('')}</tr>
+    <tr><td style="color:var(--accent);font-weight:600">Nifty 50</td>${NIF.map(v=>`<td class="ret" style="color:var(--accent)">${v.toFixed(1)}</td>`).join('')}</tr>
+    ${ARCH.map(a=>`<tr class="${isYou(a)?'you':''}"><td style="font-weight:600">${esc(a.name)}</td>
+      ${a.by_year.map((v,i)=>cell(v, NIF[i])).join('')}</tr>`).join('')}
+  </tbody></table>`;
+
+document.getElementById('bestgap').textContent = Math.abs(D.best.mean_gap).toFixed(2) + 'pp';
+</script>
+
+</body></html>

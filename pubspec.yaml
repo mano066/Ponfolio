@@ -1,0 +1,75 @@
+﻿name: aiei_wealth
+description: "Ponfolio - local-first wealth terminal for Indian markets"
+publish_to: 'none'
+version: 1.7.0+44
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # â”€â”€ State Management â”€â”€
+  flutter_riverpod: any
+  riverpod_annotation: any
+
+  # â”€â”€ Routing â”€â”€
+  go_router: any
+
+  # â”€â”€ Networking â”€â”€
+  dio: any
+
+  # â”€â”€ Local Storage â”€â”€
+  hive: any
+  shared_preferences: any
+  path_provider: any
+
+  # â”€â”€ Window Management â”€â”€
+  window_manager: ^0.5.1
+
+  # â”€â”€ Charts â”€â”€
+  fl_chart: any
+
+  # â”€â”€ Animations â”€â”€
+  flutter_animate: any
+
+  # â”€â”€ Fonts & Icons â”€â”€
+  google_fonts: any
+  # lucide_icons (0.257.0, last published 2023) declares sdk <3.0.0 and its
+  # LucideIconData extends IconData, which is now a final class — it cannot
+  # compile on Dart 3. lucide_icons_flutter is the maintained fork and is a
+  # drop-in: same LucideIcons class, same camelCase names (all 131 icons
+  # this app uses are present), only the import path differs.
+  lucide_icons_flutter: ^3.1.17
+
+  # â”€â”€ Utilities â”€â”€
+  url_launcher: any
+  intl: any
+  freezed_annotation: any
+  json_annotation: any
+  logger: any
+  tray_manager: any
+  local_notifier: any
+  csv: ^8.0.0
+  pdf: ^3.12.0
+  printing: ^5.14.3
+  file_picker: ^11.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: any
+  build_runner: any
+  freezed: any
+  json_serializable: any
+
+flutter:
+  uses-material-design: true
+  assets:
+    # Offline copies of the research library's built-in reports
+    - assets/research/
+    # Owner-only pages and local config. Git-ignored except their READMEs, so
+    # public clones bundle nothing here and the app hides those entries.
+    - assets/private/
+    - assets/private/docs/

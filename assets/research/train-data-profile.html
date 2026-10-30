@@ -1,0 +1,644 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>TRAIN data profile — NSE bias-free panel</title>
+
+<style>
+:root {
+  color-scheme: light;
+  --plane:      #f5f5f1;
+  --surface:    #fcfcfb;
+  --surface-2:  #f0efec;
+  --ink:        #0b0b0b;
+  --ink-2:      #52514e;
+  --ink-3:      #898781;
+  --rule:       #e1e0d9;
+  --axis:       #c3c2b7;
+  --s1:         #2a78d6;
+  --s1-soft:    rgba(42,120,214,0.13);
+  --s2:         #eb6834;
+  --good:       #0ca30c;
+  --warn:       #b07800;
+  --crit:       #d03b3b;
+  --shadow:     0 1px 2px rgba(11,11,11,.05), 0 0 0 1px rgba(11,11,11,.07);
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Consolas", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --plane:     #0d0d0d;
+    --surface:   #1a1a19;
+    --surface-2: #232322;
+    --ink:       #ffffff;
+    --ink-2:     #c3c2b7;
+    --ink-3:     #898781;
+    --rule:      #2c2c2a;
+    --axis:      #383835;
+    --s1:        #3987e5;
+    --s1-soft:   rgba(57,135,229,0.18);
+    --s2:        #d95926;
+    --warn:      #fab219;
+    --shadow:    0 1px 2px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.08);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --plane:     #0d0d0d;
+  --surface:   #1a1a19;
+  --surface-2: #232322;
+  --ink:       #ffffff;
+  --ink-2:     #c3c2b7;
+  --ink-3:     #898781;
+  --rule:      #2c2c2a;
+  --axis:      #383835;
+  --s1:        #3987e5;
+  --s1-soft:   rgba(57,135,229,0.18);
+  --s2:        #d95926;
+  --warn:      #fab219;
+  --shadow:    0 1px 2px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.08);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--plane);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 24px 96px; }
+
+/* ---------- type ---------- */
+.eyebrow {
+  font-size: 11px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0;
+}
+h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.1; letter-spacing: -.02em;
+     font-weight: 680; margin: 10px 0 0; text-wrap: balance; }
+h2 { font-size: 18px; font-weight: 650; letter-spacing: -.01em; margin: 0; }
+.sub { color: var(--ink-2); max-width: 66ch; margin: 12px 0 0; }
+.note { font-size: 13px; color: var(--ink-3); margin: 8px 0 0; max-width: 74ch; }
+.mono { font-family: var(--mono); font-size: .92em; }
+.num { font-variant-numeric: tabular-nums; }
+header { border-bottom: 1px solid var(--rule); padding-bottom: 28px; }
+
+/* ---------- sections ---------- */
+section { margin-top: 44px; }
+.sec-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+            margin-bottom: 16px; }
+.sec-head .eyebrow { margin-left: auto; }
+.card { background: var(--surface); border-radius: 10px; padding: 20px 22px;
+        box-shadow: var(--shadow); }
+
+/* ---------- split timeline ---------- */
+.timeline { display: flex; gap: 2px; margin-top: 24px; height: 46px; }
+.tl { border-radius: 5px; padding: 7px 11px; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center; }
+.tl-train { background: var(--s1-soft); flex: 2400; }
+.tl-embargo { background: var(--surface-2); flex: 60; min-width: 8px; }
+.tl-val { background: var(--s1-soft); opacity: .62; flex: 740; }
+.tl-test { background: var(--surface-2); flex: 880; }
+.tl b { font-size: 11px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+.tl b.on { color: var(--s1); }
+.tl span { font-size: 11px; color: var(--ink-2); font-variant-numeric: tabular-nums;
+           white-space: nowrap; }
+.tl-legend { display: flex; gap: 18px; margin-top: 10px; font-size: 12px;
+             color: var(--ink-3); flex-wrap: wrap; }
+
+/* ---------- kpis ---------- */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+        gap: 2px; margin: 0; }
+.kpi { background: var(--surface); padding: 16px 18px; box-shadow: var(--shadow); }
+.kpi dt { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+          color: var(--ink-3); margin: 0; }
+.kpi dd { margin: 6px 0 0; font-size: 27px; font-weight: 620; letter-spacing: -.025em;
+          line-height: 1; }
+.kpi small { display: block; margin-top: 6px; font-size: 12px; color: var(--ink-2); }
+
+/* ---------- tables ---------- */
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: right; padding: 9px 10px; border-bottom: 1px solid var(--rule);
+         font-variant-numeric: tabular-nums; white-space: nowrap; }
+th { font-size: 11px; font-weight: 620; letter-spacing: .05em; text-transform: uppercase;
+     color: var(--ink-3); border-bottom: 1px solid var(--axis); }
+th:first-child, td:first-child { text-align: left; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--surface-2); }
+td.name { font-family: var(--mono); font-size: 12.5px; font-weight: 600; }
+td.gap { color: var(--warn); }
+td.dim { color: var(--ink-3); }
+.tag { display: inline-block; font-size: 10px; font-weight: 650; letter-spacing: .05em;
+       text-transform: uppercase; padding: 2px 6px; border-radius: 4px;
+       background: var(--surface-2); color: var(--ink-2); }
+.strip { min-width: 200px; padding-right: 4px; }
+
+/* ---------- charts ---------- */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 16px; }
+.chart-title { font-size: 14px; font-weight: 620; margin: 0 0 2px; }
+.chart-sub { font-size: 12px; color: var(--ink-3); margin: 0 0 12px; }
+svg { display: block; width: 100%; overflow: visible; }
+.legend { display: flex; gap: 16px; align-items: center; font-size: 12.5px;
+          color: var(--ink-2); margin-bottom: 12px; flex-wrap: wrap; }
+.swatch { width: 11px; height: 11px; border-radius: 3px; display: inline-block;
+          margin-right: 6px; vertical-align: -1px; }
+.sw1 { background: var(--s1); }
+.sw2 { background: var(--s2); }
+
+/* SVG paint, as classes rather than var() inside presentation attributes --
+   presentation attributes resolve custom properties inconsistently, and a chart
+   that silently loses its fill is indistinguishable from a chart that failed. */
+.v-grid   { stroke: var(--rule); stroke-width: 1; }
+.v-axis   { stroke: var(--axis); stroke-width: 1; }
+.v-tick   { fill: var(--ink-3); font-size: 10px; font-family: var(--sans); }
+.v-bar    { fill: var(--s1); }
+.v-body   { fill: var(--s1); opacity: .32; }
+.v-med    { stroke: var(--s1); stroke-width: 2; }
+.v-halo   { stroke: var(--surface); stroke-width: 4; }
+.v-l1     { stroke: var(--s1); stroke-width: 2; fill: none;
+            stroke-linejoin: round; stroke-linecap: round; }
+.v-l2     { stroke: var(--s2); stroke-width: 2; fill: none;
+            stroke-linejoin: round; stroke-linecap: round; }
+.v-d1     { fill: var(--s1); stroke: var(--surface); stroke-width: 2; }
+.v-d2     { fill: var(--s2); stroke: var(--surface); stroke-width: 2; }
+.v-lab1   { fill: var(--s1); font-size: 11px; font-weight: 650; font-family: var(--sans); }
+.v-lab2   { fill: var(--s2); font-size: 11px; font-weight: 650; font-family: var(--sans); }
+.v-hit    { fill: transparent; }
+.v-hide   { opacity: 0; }
+
+/* ---------- flags ---------- */
+.flags { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.flag { background: var(--surface); border-radius: 8px; padding: 14px 16px;
+        box-shadow: var(--shadow); border-left: 3px solid var(--axis); }
+.flag.masks { border-left-color: var(--crit); }
+.flag.keeps { border-left-color: var(--good); }
+.flag h3 { font-family: var(--mono); font-size: 12.5px; font-weight: 650; margin: 0;
+           letter-spacing: -.01em; }
+.flag .v { font-size: 21px; font-weight: 620; margin-top: 6px; letter-spacing: -.02em;
+           font-variant-numeric: tabular-nums; }
+.flag .v i { font-size: 12px; font-weight: 500; color: var(--ink-3); font-style: normal; }
+.flag p { font-size: 12px; color: var(--ink-2); margin: 6px 0 0; line-height: 1.45; }
+.flag .verdict { font-size: 10px; font-weight: 650; letter-spacing: .06em;
+                 text-transform: uppercase; margin-top: 8px; display: block; }
+.masks .verdict { color: var(--crit); }
+.keeps .verdict { color: var(--good); }
+
+/* ---------- tooltip ---------- */
+.tip { position: fixed; pointer-events: none; opacity: 0; transition: opacity .1s;
+  background: var(--ink); color: var(--plane); font-size: 12px; line-height: 1.45;
+  padding: 7px 10px; border-radius: 6px; z-index: 50; white-space: nowrap;
+  font-variant-numeric: tabular-nums; box-shadow: 0 3px 12px rgba(0,0,0,.25); left: 0; top: 0; }
+.tip b { font-weight: 650; }
+
+summary { font-size: 12.5px; color: var(--ink-2); cursor: pointer; padding: 4px 0;
+          font-weight: 550; }
+summary:focus-visible { outline: 2px solid var(--s1); outline-offset: 3px; }
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule);
+         font-size: 12.5px; color: var(--ink-3); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Phase&nbsp;0 · Track&nbsp;A · <span class="mono">daily_pit_adj.parquet</span></p>
+  <h1>TRAIN data profile</h1>
+  <p class="sub">The training slice of the survivorship-free, corporate-action-adjusted NSE
+  daily panel: <b>3,537,261 rows</b> across <b>2,023 companies</b> and <b>2,400 sessions</b>,
+  2010-01-04 → 2019-12-02. Ten columns profiled below.</p>
+
+  <div class="timeline" role="img" aria-label="Walk-forward windows: TRAIN 2010 to 2019, a 20-session embargo, then VAL 2020 to 2022, then TEST 2023 onward.">
+    <div class="tl tl-train"><b class="on">Train</b><span>2010-01-04 → 2019-12-02</span></div>
+    <div class="tl tl-embargo"></div>
+    <div class="tl tl-val"><b class="on">Val</b><span>2020 → 2022</span></div>
+    <div class="tl tl-test"><b>Test</b><span>2023 → now</span></div>
+  </div>
+  <div class="tl-legend">
+    <span>Windows frozen in <span class="mono">dataset/splits.py</span></span>
+    <span>Embargo 20 sessions · 31,588 TRAIN rows purged at the right edge</span>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><h2>Scale of the slice</h2></div>
+  <dl class="kpis">
+    <div class="kpi"><dt>Rows</dt><dd class="num">3.54 M</dd><small>after embargo</small></div>
+    <div class="kpi"><dt>Companies</dt><dd class="num">2,023</dd><small>374 stop trading inside TRAIN</small></div>
+    <div class="kpi"><dt>Sessions</dt><dd class="num">2,400</dd><small>~240 per year</small></div>
+    <div class="kpi"><dt>CA-adjusted</dt><dd class="num">28.2%</dd><small>998,541 rows · 756 companies</small></div>
+    <div class="kpi"><dt>Eligible rows</dt><dd class="num">695.9 K</dd><small>19.7% clear the liquidity floor</small></div>
+  </dl>
+  <p class="note"><b>374 companies stop trading inside the training window.</b> That is the point
+  of this panel — a universe built from today's index would have deleted every one of them and
+  measured only the survivors.</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>The ten columns</h2>
+    <p class="eyebrow">p1 – p99 spread, median marked</p>
+  </div>
+  <div class="card scroll">
+    <table id="cols">
+      <thead><tr>
+        <th>Column</th><th>Scale</th><th>Missing</th><th>p1</th><th>Median</th>
+        <th>p99</th><th>Max</th><th class="strip">Distribution&nbsp;(p1→p99)</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="note">Six of the ten span several orders of magnitude and are drawn on a
+  <b>log</b> strip; each strip is scaled to its own column's p1–p99, so read it for
+  <em>shape</em> and where the median sits, not for cross-column comparison. The
+  <span class="mono">trades</span> column is 14.34% missing by construction — the legacy
+  bhavcopy layout carries no trade count before 2011-06-22.</p>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Distributions</h2></div>
+  <div class="grid2">
+    <div class="card">
+      <p class="chart-title">Daily return</p>
+      <p class="chart-sub">Clipped to ±20%; the end bars hold everything beyond</p>
+      <div id="c-ret"></div>
+    </div>
+    <div class="card">
+      <p class="chart-title">Close price</p>
+      <p class="chart-sub">log₁₀ ₹ — median ₹62.85, max ₹80,860</p>
+      <div id="c-close"></div>
+    </div>
+    <div class="card">
+      <p class="chart-title">20-session average turnover</p>
+      <p class="chart-sub">log₁₀ ₹ — the liquidity floor sits at ₹5 cr</p>
+      <div id="c-adv"></div>
+    </div>
+    <div class="card">
+      <p class="chart-title">Corporate-action factor</p>
+      <p class="chart-sub">log₁₀, adjusted rows only — the divisor applied to pre-ex-date prices</p>
+      <div id="c-cf"></div>
+    </div>
+  </div>
+  <p class="note">The return distribution is sharply peaked with fat tails and a slightly
+  negative median (−0.09%): most stock-days in a 2,000-name universe drift down while a thin
+  tail carries the gains. The ±20% end bars are India's circuit limit doing its job. The factor
+  chart's tall cluster at 10<sup>0.3</sup> is the 2:1 split — the most common Indian corporate
+  action.</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>Universe breadth over time</h2>
+    <p class="eyebrow">distinct companies per month</p>
+  </div>
+  <div class="card">
+    <div class="legend">
+      <span><i class="swatch sw1"></i>In panel</span>
+      <span><i class="swatch sw2"></i>Eligible to trade</span>
+      <span class="dim" style="color:var(--ink-3)">Eligibility needs 200 sessions of history, so it begins 2010-10</span>
+    </div>
+    <div id="c-breadth"></div>
+  </div>
+  <p class="note">The panel grows steadily from 1,320 to ~1,600 names. The tradeable subset is
+  far smaller and <b>far more volatile</b> — 196 names in 2013-08 against 691 in 2018-01, a 3.5×
+  swing driven by turnover, not by listings. Any strategy taking a fixed top-5 per day is
+  selecting from a pool whose size moves by that much.</p>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Year by year</h2></div>
+  <div class="card scroll">
+    <table id="years">
+      <thead><tr>
+        <th>Year</th><th>Rows</th><th>Companies</th><th>Sessions</th>
+        <th>Median close ₹</th><th>Median ADV ₹cr</th><th>Return vol %/day</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="note">Median price falls from ₹64 (2010) to ₹37 (2013) then triples to ₹104 by 2018 —
+  the smallcap cycle. Daily return volatility runs 2.9–4.1%, peaking in 2016. A model trained
+  across this window sees several genuinely different regimes, which is the argument for
+  walk-forward validation rather than a random split.</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>Masking flags</h2>
+    <p class="eyebrow">what is excluded, and what is deliberately kept</p>
+  </div>
+  <div class="flags" id="flags"></div>
+  <p class="note"><b>0.28% of returns are NaN</b> (9,869 rows) — the sum of the masking flags.
+  <span class="mono">big_move</span> is the deliberate exception: 1,873 unexplained large steps
+  stay in as real returns, because masking them would delete YESBANK's 2020 collapse and
+  ADANIENT's 2023 drop and flatter every strategy measured here.</p>
+</section>
+
+<footer>
+  Built from <span class="mono">E:\nse\panel\daily_pit_adj.parquet</span> ·
+  windows from <span class="mono">dataset/splits.py</span> ·
+  32/32 integrity gates passing (<span class="mono">validate_panel.py</span>).
+  Every figure is measured, not estimated.
+</footer>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<script>
+const D = {
+ cols: [
+  {col:"close",       scale:"log", missing:0.00, min:0.025, p1:0.55,  p25:19.82,  median:62.85,   p75:184.45,  p99:2870.19,    max:80860.45,     unit:"₹"},
+  {col:"ret",         scale:"lin", missing:0.28, min:-0.708,p1:-0.0782,p25:-0.0159,median:-0.00089,p75:0.0133, p99:0.1035,     max:1.0,          unit:"", pct:true},
+  {col:"volume",      scale:"log", missing:0.00, min:1,     p1:41,     p25:8592,   median:53036,   p75:351840,  p99:19324396,   max:2350716880,   unit:"sh"},
+  {col:"turnover_raw",scale:"log", missing:0.00, min:0.05,  p1:518,    p25:347374, median:3510886, p75:29940328,p99:2440773314, max:253008482110, unit:"₹"},
+  {col:"adv20",       scale:"log", missing:1.09, min:35.09, p1:4405,   p25:597494, median:5580106, p75:38309557,p99:2370558492, max:20576549610,  unit:"₹"},
+  {col:"cum_factor",  scale:"log", missing:0.00, min:0.796, p1:1,      p25:1,      median:1,       p75:1.5,     p99:20,         max:800,          unit:"×"},
+  {col:"gap_days",    scale:"lin", missing:0.06, min:1,     p1:1,      p25:1,      median:1,       p75:2,       p99:4,          max:2705,         unit:"d"},
+  {col:"n_hist",      scale:"lin", missing:0.00, min:0,     p1:17,     p25:463,    median:985,     p75:1608,    p99:2353,       max:2399,         unit:""},
+  {col:"trades",      scale:"log", missing:14.34,min:1,     p1:1,      p25:87,     median:505,     p75:2846,    p99:79439,      max:1788274,      unit:""},
+  {col:"high",        scale:"log", missing:0.00, min:0.025, p1:0.60,   p25:20.40,  median:64.50,   p75:188.80,  p99:2918.14,    max:81425.95,     unit:"₹"}
+ ],
+ years: [
+  [2010,340307,1468,251,64.15,0.82,2.90],[2011,356140,1535,247,51.48,0.26,3.08],
+  [2012,333687,1557,225,43.05,0.19,3.09],[2013,341596,1560,248,37.40,0.16,3.54],
+  [2014,355777,1553,243,49.30,0.44,3.63],[2015,356908,1593,247,65.10,0.69,3.99],
+  [2016,331429,1599,221,72.95,0.89,4.11],[2017,382178,1650,248,102.23,1.50,3.27],
+  [2018,387317,1651,246,104.45,1.14,3.36],[2019,351922,1670,224,76.71,0.50,3.94]
+ ],
+ flags: [
+  {f:"stale",        n:9168, pct:0.2592, masks:true,  d:"Previous session is more than 7 days old — a suspension, so the gap is not a tradeable return."},
+  {f:"big_move",     n:1873, pct:0.0530, masks:false, d:"Unexplained step ≥18% with no corporate action on record. Kept: these are real crashes."},
+  {f:"big_dividend", n:686,  pct:0.0194, masks:true,  d:"A dividend worth over 10% of the price — a cash distribution, not a loss."},
+  {f:"ca_event",     n:16,   pct:0.0005, masks:true,  d:"A printed corporate action that could not be priced against the tape."},
+  {f:"ca_suspect",   n:4,    pct:0.0001, masks:true,  d:"A one-session move beyond −90%: mechanically an unrecorded corporate action."},
+  {f:"is_rights",    n:0,    pct:0.0,    masks:true,  d:"Rights entitlements. None reaches the liquidity floor in this window."}
+ ],
+ hist_ret:{counts:[2922,159,185,158,209,1031,276,321,1250,503,704,1636,1039,2165,1852,6461,5439,6970,9144,13109,17254,25811,75601,83766,103518,145898,205677,289392,381418,424270,530866,306764,217858,155649,112481,85782,75102,85166,28408,20527,17145,12606,10316,8988,11897,6241,4181,2813,3185,2073,1665,2290,1271,1125,871,1673,791,876,1136,9508],lo:-0.2,hi:0.2},
+ hist_close:{counts:[14,30,743,361,2299,2206,3417,4416,8799,11019,9747,15549,17711,25586,31657,46569,64566,75430,93396,113396,139139,169942,189516,217841,244313,249984,266820,249748,241275,214582,185459,159972,137170,106683,72579,49394,40101,26660,15774,11757,6049,4639,3284,1820,1732,2462,449,416,276,514],lo:-1.602,hi:4.908},
+ hist_adv:{counts:[1,13,47,81,198,383,783,1614,3558,5971,9271,13585,18773,24779,31020,39886,49283,61404,73874,85685,95069,105505,114388,122799,133989,141856,152493,164614,176222,185438,186449,190400,188198,175803,158353,138992,113947,96762,85024,78009,67608,63242,53392,38293,24479,15583,7537,3001,993,212],lo:1.545,hi:10.313},
+ hist_cf:{counts:[163,13085,66928,69938,41760,227092,34626,39099,9962,58939,166031,28745,14444,12104,124482,15178,15209,8350,27482,3771,0,9592,1394,3794,0,0,890,4261,512,0,30,0,484,0,0,0,0,0,0,196],lo:-0.099,hi:2.903},
+ breadth:[["2010-01",1320,0],["2010-02",1328,0],["2010-03",1342,0],["2010-04",1346,0],["2010-05",1349,0],["2010-06",1362,0],["2010-07",1372,0],["2010-08",1386,0],["2010-09",1392,0],["2010-10",1411,382],["2010-11",1416,378],["2010-12",1429,338],["2011-01",1438,305],["2011-02",1440,284],["2011-03",1447,282],["2011-04",1451,301],["2011-05",1459,294],["2011-06",1471,277],["2011-07",1475,291],["2011-08",1484,299],["2011-09",1491,269],["2011-10",1504,255],["2011-11",1505,242],["2011-12",1516,234],["2012-01",1516,251],["2012-02",1517,298],["2012-03",1524,307],["2012-04",1522,260],["2012-05",1518,239],["2012-06",1516,216],["2012-07",1525,255],["2012-08",1528,260],["2012-09",1530,270],["2012-10",1532,301],["2012-11",1532,285],["2012-12",1535,300],["2013-01",1535,294],["2013-02",1532,256],["2013-03",1532,238],["2013-04",1525,223],["2013-05",1509,233],["2013-06",1498,227],["2013-07",1504,208],["2013-08",1504,196],["2013-09",1500,196],["2013-10",1509,220],["2013-11",1512,236],["2013-12",1523,250],["2014-01",1522,266],["2014-02",1515,246],["2014-03",1520,276],["2014-04",1530,303],["2014-05",1533,362],["2014-06",1534,412],["2014-07",1536,413],["2014-08",1530,376],["2014-09",1531,423],["2014-10",1525,403],["2014-11",1522,398],["2014-12",1520,407],["2015-01",1515,393],["2015-02",1468,407],["2015-03",1479,395],["2015-04",1482,376],["2015-05",1487,355],["2015-06",1486,324],["2015-07",1487,391],["2015-08",1491,437],["2015-09",1497,381],["2015-10",1494,358],["2015-11",1498,375],["2015-12",1509,381],["2016-01",1509,372],["2016-02",1510,329],["2016-03",1520,301],["2016-04",1517,344],["2016-05",1521,347],["2016-06",1530,371],["2016-07",1552,408],["2016-08",1556,433],["2016-09",1555,453],["2016-10",1555,502],["2016-11",1561,473],["2016-12",1567,382],["2017-01",1570,393],["2017-02",1572,444],["2017-03",1577,492],["2017-04",1576,552],["2017-05",1576,543],["2017-06",1570,495],["2017-07",1581,508],["2017-08",1581,487],["2017-09",1573,512],["2017-10",1576,556],["2017-11",1584,628],["2017-12",1589,655],["2018-01",1599,691],["2018-02",1599,641],["2018-03",1595,506],["2018-04",1600,518],["2018-05",1609,503],["2018-06",1609,462],["2018-07",1618,432],["2018-08",1613,479],["2018-09",1608,484],["2018-10",1597,455],["2018-11",1596,393],["2018-12",1600,379],["2019-01",1597,384],["2019-02",1597,370],["2019-03",1591,423],["2019-04",1590,423],["2019-05",1596,389],["2019-06",1596,374],["2019-07",1608,346],["2019-08",1619,325],["2019-09",1619,350],["2019-10",1607,357],["2019-11",1613,389],["2019-12",1596,358]]
+};
+
+const NS = "http://www.w3.org/2000/svg";
+const tip = document.getElementById("tip");
+function el(name, attrs, cls) {
+  const e = document.createElementNS(NS, name);
+  if (attrs) for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (cls) e.setAttribute("class", cls);
+  return e;
+}
+function text(x, y, str, cls, anchor) {
+  const t = el("text", {x: x, y: y}, cls);
+  if (anchor) t.setAttribute("text-anchor", anchor);
+  t.textContent = str;
+  return t;
+}
+function showTip(evt, html) {
+  tip.innerHTML = html; tip.style.opacity = 1;
+  const r = tip.getBoundingClientRect();
+  let x = evt.clientX + 14, y = evt.clientY - r.height - 10;
+  if (x + r.width > innerWidth - 8) x = evt.clientX - r.width - 14;
+  if (x < 8) x = 8;
+  if (y < 8) y = evt.clientY + 18;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+const hideTip = () => { tip.style.opacity = 0; };
+
+function fmt(v, unit) {
+  if (v === null || v === undefined || Number.isNaN(v)) return "—";
+  const a = Math.abs(v);
+  if (unit === "₹") {
+    if (a >= 1e7) return "₹" + (v / 1e7).toLocaleString("en-IN", {maximumFractionDigits: a >= 1e9 ? 0 : 1}) + " cr";
+    if (a >= 1e5) return "₹" + (v / 1e5).toFixed(1) + " L";
+    return "₹" + v.toLocaleString("en-IN", {maximumFractionDigits: a < 10 ? 2 : 0});
+  }
+  if (a >= 1e9) return (v / 1e9).toFixed(2) + "B";
+  if (a >= 1e6) return (v / 1e6).toFixed(2) + "M";
+  if (a >= 1e4) return (v / 1e3).toFixed(0) + "k";
+  if (a === 0) return "0";
+  if (a < 1) return v.toFixed(4).replace(/0+$/, "");
+  return v.toLocaleString("en-US", {maximumFractionDigits: a < 10 ? 2 : 0});
+}
+const pctf = v => (v * 100).toFixed(2) + "%";
+
+/* ---------- 1. the ten columns, with an inline spread strip ---------- */
+(function () {
+  const tb = document.querySelector("#cols tbody");
+  const W = 200, H = 20, MID = H / 2;
+  D.cols.forEach(c => {
+    const show = v => c.pct ? pctf(v) : fmt(v, c.unit);
+    const isLog = c.scale === "log";
+    const lo = isLog ? Math.log10(Math.max(c.p1, 1e-3)) : c.p1;
+    const hi = isLog ? Math.log10(c.p99) : c.p99;
+    const t = v => {
+      const raw = isLog ? Math.log10(Math.max(v, 1e-3)) : v;
+      const f = hi === lo ? 0.5 : (raw - lo) / (hi - lo);
+      return Math.max(0, Math.min(1, f)) * W;
+    };
+    const svg = el("svg", {viewBox: "0 0 " + W + " " + H, width: W, height: H,
+      role: "img", "aria-label": c.col + ": p1 " + show(c.p1) + ", median " +
+      show(c.median) + ", p99 " + show(c.p99)});
+    svg.appendChild(el("line", {x1: 0, x2: W, y1: MID, y2: MID}, "v-axis"));
+    const x25 = t(c.p25), x75 = t(c.p75), bw = Math.max(x75 - x25, 2.5);
+    svg.appendChild(el("rect", {x: x25, y: MID - 5, width: bw, height: 10,
+      rx: Math.min(4, bw / 2)}, "v-body"));
+    const xm = t(c.median);
+    svg.appendChild(el("line", {x1: xm, x2: xm, y1: MID - 8, y2: MID + 8}, "v-halo"));
+    svg.appendChild(el("line", {x1: xm, x2: xm, y1: MID - 7, y2: MID + 7}, "v-med"));
+
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      '<td class="name">' + c.col + '</td>' +
+      '<td><span class="tag">' + c.scale + '</span></td>' +
+      '<td class="' + (c.missing > 5 ? "gap" : "") + '">' + c.missing.toFixed(2) + '%</td>' +
+      '<td>' + show(c.p1) + '</td><td><b>' + show(c.median) + '</b></td>' +
+      '<td>' + show(c.p99) + '</td><td class="dim">' + show(c.max) + '</td>';
+    const td = document.createElement("td");
+    td.className = "strip"; td.appendChild(svg); tr.appendChild(td);
+    tr.addEventListener("pointermove", e => showTip(e,
+      "<b>" + c.col + "</b><br>p1 " + show(c.p1) + " · p25 " + show(c.p25) +
+      "<br>median " + show(c.median) + "<br>p75 " + show(c.p75) + " · p99 " +
+      show(c.p99) + "<br>min " + show(c.min) + " · max " + show(c.max)));
+    tr.addEventListener("pointerleave", hideTip);
+    tb.appendChild(tr);
+  });
+})();
+
+/* ---------- 2. histograms ---------- */
+function histogram(mount, h, opts) {
+  const W = 480, H = 172, m = {t: 8, r: 8, b: 34, l: 46};
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const n = h.counts.length, max = Math.max.apply(null, h.counts);
+  const svg = el("svg", {viewBox: "0 0 " + W + " " + H, role: "img",
+    "aria-label": opts.aria});
+  const g = el("g", {transform: "translate(" + m.l + "," + m.t + ")"});
+  svg.appendChild(g);
+
+  [0, max / 2, max].forEach(v => {
+    const y = ih - (max ? (v / max) * ih : 0);
+    g.appendChild(el("line", {x1: 0, x2: iw, y1: y, y2: y}, "v-grid"));
+    const s = v >= 1e6 ? (v / 1e6).toFixed(1) + "M"
+            : v >= 1e3 ? Math.round(v / 1e3) + "k" : String(Math.round(v));
+    g.appendChild(text(-8, y + 4, s, "v-tick", "end"));
+  });
+  (opts.ticks || []).forEach(tk => {
+    const x = ((tk.v - h.lo) / (h.hi - h.lo)) * iw;
+    if (x < -2 || x > iw + 2) return;
+    g.appendChild(text(x, ih + 16, tk.l, "v-tick", "middle"));
+  });
+  if (opts.xlabel) g.appendChild(text(iw / 2, ih + 31, opts.xlabel, "v-tick", "middle"));
+
+  const bw = iw / n;
+  h.counts.forEach((c, i) => {
+    const bh = max ? (c / max) * ih : 0;
+    const w = Math.max(bw - 2, 0.8);
+    if (bh > 0) g.appendChild(el("rect", {x: i * bw + 1, y: ih - bh,
+      width: w, height: bh, rx: Math.min(4, w / 2)}, "v-bar"));
+    const hit = el("rect", {x: i * bw, y: 0, width: bw, height: ih}, "v-hit");
+    const a = h.lo + (i / n) * (h.hi - h.lo), b = h.lo + ((i + 1) / n) * (h.hi - h.lo);
+    hit.addEventListener("pointermove", e => showTip(e, "<b>" + opts.fmtRange(a, b) +
+      "</b><br>" + c.toLocaleString("en-US") + " rows"));
+    hit.addEventListener("pointerleave", hideTip);
+    g.appendChild(hit);
+  });
+  mount.appendChild(svg);
+}
+
+const pow = v => {
+  const p = Math.pow(10, v);
+  return p >= 1e7 ? "₹" + (p / 1e7).toPrecision(2) + "cr"
+       : p >= 1e5 ? "₹" + (p / 1e5).toPrecision(2) + "L"
+       : p >= 1    ? "₹" + p.toPrecision(2) : "₹" + p.toFixed(2);
+};
+
+histogram(document.getElementById("c-ret"), D.hist_ret, {
+  aria: "Histogram of daily returns clipped to plus or minus 20 percent, sharply peaked at zero with fat tails.",
+  xlabel: "daily return",
+  ticks: [{v: -0.2, l: "−20%"}, {v: -0.1, l: "−10%"}, {v: 0, l: "0"},
+          {v: 0.1, l: "+10%"}, {v: 0.2, l: "+20%"}],
+  fmtRange: (a, b) => (a * 100).toFixed(1) + "% to " + (b * 100).toFixed(1) + "%"
+});
+histogram(document.getElementById("c-close"), D.hist_close, {
+  aria: "Histogram of close price on a log scale, peaking near 60 rupees.",
+  xlabel: "close price (log₁₀)",
+  ticks: [{v: -1, l: "₹0.1"}, {v: 0, l: "₹1"}, {v: 1, l: "₹10"},
+          {v: 2, l: "₹100"}, {v: 3, l: "₹1k"}, {v: 4, l: "₹10k"}],
+  fmtRange: (a, b) => pow(a) + " to " + pow(b)
+});
+histogram(document.getElementById("c-adv"), D.hist_adv, {
+  aria: "Histogram of 20-session average turnover on a log scale.",
+  xlabel: "20-session average turnover (log₁₀)",
+  ticks: [{v: 3, l: "₹1k"}, {v: 5, l: "₹1L"}, {v: 7, l: "₹1cr"},
+          {v: 9, l: "₹100cr"}, {v: 10, l: "₹1000cr"}],
+  fmtRange: (a, b) => pow(a) + " to " + pow(b)
+});
+histogram(document.getElementById("c-cf"), D.hist_cf, {
+  aria: "Histogram of corporate-action adjustment factors on a log scale, with a large cluster at two times.",
+  xlabel: "adjustment factor (log₁₀)",
+  ticks: [{v: 0, l: "1×"}, {v: 0.301, l: "2×"}, {v: 0.699, l: "5×"},
+          {v: 1, l: "10×"}, {v: 2, l: "100×"}, {v: 2.903, l: "800×"}],
+  fmtRange: (a, b) => Math.pow(10, a).toPrecision(2) + "× to " +
+                      Math.pow(10, b).toPrecision(2) + "×"
+});
+
+/* ---------- 3. breadth: two series, crosshair tooltip ---------- */
+(function () {
+  const data = D.breadth, WARM = 9;
+  const W = 1040, H = 264, m = {t: 10, r: 54, b: 34, l: 46};
+  const iw = W - m.l - m.r, ih = H - m.t - m.b, maxY = 1750;
+  const x = i => (i / (data.length - 1)) * iw;
+  const y = v => ih - (v / maxY) * ih;
+
+  const svg = el("svg", {viewBox: "0 0 " + W + " " + H, role: "img", "aria-label":
+    "Companies per month in the panel, rising from 1320 to about 1600, against the smaller and more volatile eligible-to-trade count ranging from 196 to 691."});
+  const g = el("g", {transform: "translate(" + m.l + "," + m.t + ")"});
+  svg.appendChild(g);
+
+  [0, 500, 1000, 1500].forEach(v => {
+    g.appendChild(el("line", {x1: 0, x2: iw, y1: y(v), y2: y(v)}, "v-grid"));
+    g.appendChild(text(-8, y(v) + 4, String(v), "v-tick", "end"));
+  });
+  data.forEach((d, i) => {
+    if (d[0].slice(5) !== "01") return;
+    g.appendChild(text(x(i), ih + 18, d[0].slice(0, 4), "v-tick", "middle"));
+  });
+
+  const line = (idx, cls, from) => {
+    let p = "";
+    for (let i = from; i < data.length; i++) {
+      p += (p ? "L" : "M") + x(i).toFixed(1) + " " + y(data[i][idx]).toFixed(1);
+    }
+    g.appendChild(el("path", {d: p}, cls));
+  };
+  line(1, "v-l1", 0);
+  line(2, "v-l2", WARM);
+
+  const last = data.length - 1;
+  g.appendChild(text(iw + 8, y(data[last][1]) + 4, String(data[last][1]), "v-lab1"));
+  g.appendChild(text(iw + 8, y(data[last][2]) + 4, String(data[last][2]), "v-lab2"));
+
+  const cross = el("line", {y1: 0, y2: ih}, "v-axis v-hide");
+  g.appendChild(cross);
+  const d1 = el("circle", {r: 4.5}, "v-d1 v-hide");
+  const d2 = el("circle", {r: 4.5}, "v-d2 v-hide");
+  g.appendChild(d1); g.appendChild(d2);
+
+  const hit = el("rect", {x: 0, y: 0, width: iw, height: ih}, "v-hit");
+  g.appendChild(hit);
+  hit.addEventListener("pointermove", ev => {
+    const bb = svg.getBoundingClientRect();
+    const px = (ev.clientX - bb.left) * (W / bb.width) - m.l;
+    let i = Math.round((px / iw) * (data.length - 1));
+    i = Math.max(0, Math.min(data.length - 1, i));
+    const d = data[i];
+    cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i));
+    cross.setAttribute("class", "v-axis");
+    d1.setAttribute("cx", x(i)); d1.setAttribute("cy", y(d[1]));
+    d1.setAttribute("class", "v-d1");
+    if (i >= WARM) {
+      d2.setAttribute("cx", x(i)); d2.setAttribute("cy", y(d[2]));
+      d2.setAttribute("class", "v-d2");
+    } else d2.setAttribute("class", "v-d2 v-hide");
+    showTip(ev, "<b>" + d[0] + "</b><br>In panel " + d[1] + "<br>" +
+      (i >= WARM ? "Eligible " + d[2] + " (" + (100 * d[2] / d[1]).toFixed(0) + "%)"
+                 : "Eligible — warmup"));
+  });
+  hit.addEventListener("pointerleave", () => {
+    hideTip();
+    cross.setAttribute("class", "v-axis v-hide");
+    d1.setAttribute("class", "v-d1 v-hide");
+    d2.setAttribute("class", "v-d2 v-hide");
+  });
+  document.getElementById("c-breadth").appendChild(svg);
+})();
+
+/* ---------- 4. per-year table ---------- */
+(function () {
+  const tb = document.querySelector("#years tbody");
+  D.years.forEach(r => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = '<td class="name">' + r[0] + '</td><td>' +
+      r[1].toLocaleString("en-US") + '</td><td>' + r[2].toLocaleString("en-US") +
+      '</td><td>' + r[3] + '</td><td>' + r[4].toFixed(2) + '</td><td>' +
+      r[5].toFixed(2) + '</td><td>' + r[6].toFixed(2) + '</td>';
+    tb.appendChild(tr);
+  });
+})();
+
+/* ---------- 5. flags ---------- */
+(function () {
+  const mount = document.getElementById("flags");
+  D.flags.forEach(f => {
+    const d = document.createElement("div");
+    d.className = "flag " + (f.masks ? "masks" : "keeps");
+    d.innerHTML = "<h3>" + f.f + "</h3><div class=\"v\">" +
+      f.n.toLocaleString("en-US") + "<i> · " + f.pct.toFixed(4) + "%</i></div><p>" +
+      f.d + "</p><span class=\"verdict\">" +
+      (f.masks ? "▪ return masked" : "▪ return kept") + "</span>";
+    mount.appendChild(d);
+  });
+})();
+</script>
+
+</body></html>

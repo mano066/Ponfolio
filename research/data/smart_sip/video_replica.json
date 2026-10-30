@@ -1,0 +1,297 @@
+{
+  "data": "nifty50_nse_daily_1999.csv",
+  "data_through": "2026-10-28",
+  "windows": {
+    "Jan 1996 onward": {
+      "fixed": {
+        "months_invested": 370,
+        "months": 370,
+        "round1_xirr_pct": 11.45,
+        "round2_paid_lakh": 37.0,
+        "round2_value_cr": 3.03,
+        "fair_value_cr": 3.03,
+        "fair_xirr_pct": 11.45
+      },
+      "stepup": {
+        "months_invested": 370,
+        "months": 370,
+        "round1_xirr_pct": 11.02,
+        "round2_paid_lakh": 214.8,
+        "round2_value_cr": 7.74,
+        "fair_value_cr": 7.74,
+        "fair_xirr_pct": 11.02
+      },
+      "below200": {
+        "months_invested": 120,
+        "months": 370,
+        "round1_xirr_pct": 12.01,
+        "round2_paid_lakh": 12.0,
+        "round2_value_cr": 1.36,
+        "fair_value_cr": 3.0,
+        "fair_xirr_pct": 11.4
+      },
+      "above200": {
+        "months_invested": 250,
+        "months": 370,
+        "round1_xirr_pct": 10.98,
+        "round2_paid_lakh": 25.0,
+        "round2_value_cr": 1.67,
+        "fair_value_cr": 2.96,
+        "fair_xirr_pct": 11.33
+      },
+      "low_start": {
+        "months_invested": 107,
+        "months": 370,
+        "round1_xirr_pct": 12.14,
+        "round2_paid_lakh": 10.7,
+        "round2_value_cr": 1.46,
+        "fair_value_cr": 3.04,
+        "fair_xirr_pct": 11.45
+      },
+      "high_start": {
+        "months_invested": 262,
+        "months": 370,
+        "round1_xirr_pct": 10.79,
+        "round2_paid_lakh": 26.2,
+        "round2_value_cr": 1.55,
+        "fair_value_cr": 2.95,
+        "fair_xirr_pct": 11.31
+      },
+      "pe": {
+        "months_invested": 211,
+        "months": 370,
+        "round1_xirr_pct": 11.68,
+        "round2_paid_lakh": 21.1,
+        "round2_value_cr": 2.25,
+        "fair_value_cr": 3.07,
+        "fair_xirr_pct": 11.51
+      },
+      "combos": {
+        "fixed 100%": {
+          "paid_lakh": 37.0,
+          "value_cr": 3.03,
+          "xirr_pct": 11.45
+        },
+        "fixed 75% + PE pile 25%": {
+          "paid_lakh": 37.0,
+          "value_cr": 3.04,
+          "xirr_pct": 11.46
+        },
+        "fixed 50% + PE pile 50%": {
+          "paid_lakh": 37.0,
+          "value_cr": 3.05,
+          "xirr_pct": 11.48
+        },
+        "fixed 25% + PE pile 75%": {
+          "paid_lakh": 37.0,
+          "value_cr": 3.06,
+          "xirr_pct": 11.49
+        },
+        "PE pile 100%": {
+          "paid_lakh": 37.0,
+          "value_cr": 3.07,
+          "xirr_pct": 11.51
+        },
+        "fixed 10k + extra 10k when PE cheap": {
+          "paid_lakh": 58.1,
+          "value_cr": 5.28,
+          "xirr_pct": 11.55
+        }
+      }
+    },
+    "Jan 2000 onward": {
+      "fixed": {
+        "months_invested": 322,
+        "months": 322,
+        "round1_xirr_pct": 11.59,
+        "round2_paid_lakh": 32.2,
+        "round2_value_cr": 1.98,
+        "fair_value_cr": 1.98,
+        "fair_xirr_pct": 11.59
+      },
+      "stepup": {
+        "months_invested": 322,
+        "months": 322,
+        "round1_xirr_pct": 10.91,
+        "round2_paid_lakh": 142.9,
+        "round2_value_cr": 4.45,
+        "fair_value_cr": 4.45,
+        "fair_xirr_pct": 10.91
+      },
+      "below200": {
+        "months_invested": 99,
+        "months": 322,
+        "round1_xirr_pct": 12.37,
+        "round2_paid_lakh": 9.9,
+        "round2_value_cr": 0.85,
+        "fair_value_cr": 1.93,
+        "fair_xirr_pct": 11.44
+      },
+      "above200": {
+        "months_invested": 223,
+        "months": 322,
+        "round1_xirr_pct": 10.98,
+        "round2_paid_lakh": 22.3,
+        "round2_value_cr": 1.13,
+        "fair_value_cr": 1.95,
+        "fair_xirr_pct": 11.51
+      },
+      "low_start": {
+        "months_invested": 82,
+        "months": 322,
+        "round1_xirr_pct": 12.73,
+        "round2_paid_lakh": 8.2,
+        "round2_value_cr": 0.88,
+        "fair_value_cr": 1.92,
+        "fair_xirr_pct": 11.43
+      },
+      "high_start": {
+        "months_invested": 240,
+        "months": 322,
+        "round1_xirr_pct": 10.68,
+        "round2_paid_lakh": 24.0,
+        "round2_value_cr": 1.1,
+        "fair_value_cr": 1.97,
+        "fair_xirr_pct": 11.57
+      },
+      "pe": {
+        "months_invested": 163,
+        "months": 322,
+        "round1_xirr_pct": 12.26,
+        "round2_paid_lakh": 16.3,
+        "round2_value_cr": 1.19,
+        "fair_value_cr": 2.01,
+        "fair_xirr_pct": 11.7
+      },
+      "combos": {
+        "fixed 100%": {
+          "paid_lakh": 32.2,
+          "value_cr": 1.98,
+          "xirr_pct": 11.59
+        },
+        "fixed 75% + PE pile 25%": {
+          "paid_lakh": 32.2,
+          "value_cr": 1.99,
+          "xirr_pct": 11.62
+        },
+        "fixed 50% + PE pile 50%": {
+          "paid_lakh": 32.2,
+          "value_cr": 1.99,
+          "xirr_pct": 11.65
+        },
+        "fixed 25% + PE pile 75%": {
+          "paid_lakh": 32.2,
+          "value_cr": 2.0,
+          "xirr_pct": 11.67
+        },
+        "PE pile 100%": {
+          "paid_lakh": 32.2,
+          "value_cr": 2.01,
+          "xirr_pct": 11.7
+        },
+        "fixed 10k + extra 10k when PE cheap": {
+          "paid_lakh": 48.5,
+          "value_cr": 3.16,
+          "xirr_pct": 11.84
+        }
+      }
+    },
+    "Jan 2017 onward": {
+      "fixed": {
+        "months_invested": 118,
+        "months": 118,
+        "round1_xirr_pct": 8.67,
+        "round2_paid_lakh": 11.8,
+        "round2_value_cr": 0.18,
+        "fair_value_cr": 0.18,
+        "fair_xirr_pct": 8.67
+      },
+      "stepup": {
+        "months_invested": 118,
+        "months": 118,
+        "round1_xirr_pct": 8.07,
+        "round2_paid_lakh": 18.7,
+        "round2_value_cr": 0.26,
+        "fair_value_cr": 0.26,
+        "fair_xirr_pct": 8.07
+      },
+      "below200": {
+        "months_invested": 30,
+        "months": 118,
+        "round1_xirr_pct": 10.29,
+        "round2_paid_lakh": 3.0,
+        "round2_value_cr": 0.05,
+        "fair_value_cr": 0.18,
+        "fair_xirr_pct": 8.65
+      },
+      "above200": {
+        "months_invested": 88,
+        "months": 118,
+        "round1_xirr_pct": 8.23,
+        "round2_paid_lakh": 8.8,
+        "round2_value_cr": 0.14,
+        "fair_value_cr": 0.18,
+        "fair_xirr_pct": 8.47
+      },
+      "low_start": {
+        "months_invested": 13,
+        "months": 118,
+        "round1_xirr_pct": 11.99,
+        "round2_paid_lakh": 1.3,
+        "round2_value_cr": 0.02,
+        "fair_value_cr": 0.22,
+        "fair_xirr_pct": 12.56
+      },
+      "high_start": {
+        "months_invested": 105,
+        "months": 118,
+        "round1_xirr_pct": 8.22,
+        "round2_paid_lakh": 10.5,
+        "round2_value_cr": 0.16,
+        "fair_value_cr": 0.18,
+        "fair_xirr_pct": 8.24
+      },
+      "pe": {
+        "months_invested": 60,
+        "months": 118,
+        "round1_xirr_pct": 8.3,
+        "round2_paid_lakh": 6.0,
+        "round2_value_cr": 0.08,
+        "fair_value_cr": 0.18,
+        "fair_xirr_pct": 8.6
+      },
+      "combos": {
+        "fixed 100%": {
+          "paid_lakh": 11.8,
+          "value_cr": 0.18,
+          "xirr_pct": 8.67
+        },
+        "fixed 75% + PE pile 25%": {
+          "paid_lakh": 11.8,
+          "value_cr": 0.18,
+          "xirr_pct": 8.66
+        },
+        "fixed 50% + PE pile 50%": {
+          "paid_lakh": 11.8,
+          "value_cr": 0.18,
+          "xirr_pct": 8.64
+        },
+        "fixed 25% + PE pile 75%": {
+          "paid_lakh": 11.8,
+          "value_cr": 0.18,
+          "xirr_pct": 8.62
+        },
+        "PE pile 100%": {
+          "paid_lakh": 11.8,
+          "value_cr": 0.18,
+          "xirr_pct": 8.6
+        },
+        "fixed 10k + extra 10k when PE cheap": {
+          "paid_lakh": 17.8,
+          "value_cr": 0.27,
+          "xirr_pct": 8.57
+        }
+      }
+    }
+  }
+}

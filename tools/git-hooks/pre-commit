@@ -1,0 +1,41 @@
+#!/bin/sh
+# Blocks commits that would publish private data. This repository is public.
+# Enable once per clone:   git config core.hooksPath tools/git-hooks
+#
+# Personal identifiers (client IDs, emails, names, account numbers) are listed
+# one per line in the git-ignored file private/denylist.txt, so this public
+# hook never contains them. Generic patterns below catch the rest.
+
+fail=0
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+[ -z "$staged" ] && exit 0
+
+# 1. Paths that must never be committed
+bad_paths=$(printf '%s\n' "$staged" | grep -E -i \
+  '^private/|(^|/)\.env($|\.)|google_oauth\.json|backend/data/|kite_session[^/]*\.json$|(^|/)auth\.json$|tradebook[^/]*\.(xlsx|xls|csv)$|(^|/)pnl-[^/]*\.(xlsx|xls|csv)$|ledger-[^/]*\.(xlsx|xls|csv)$|holdings[^/]*\.(xlsx|xls|csv)$|\.(pfx|p12|pem|key|cer|crt|jks|keystore)$|^assets/private/|^test/_real_|^dataset/store/' \
+  | grep -v -E '\.env\.example$|^assets/private/(docs/)?README\.md$')
+if [ -n "$bad_paths" ]; then
+  echo "pre-commit: refusing to commit private or credential files:" >&2
+  printf '  %s\n' $bad_paths >&2
+  fail=1
+fi
+
+# 2. Secrets and personal patterns inside staged content
+patterns='GOCSPX-[0-9A-Za-z_-]{20,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|sk-(ant-)?[A-Za-z0-9_-]{30,}|AIza[0-9A-Za-z_-]{35}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----|[A-Za-z]:[\/]+Users[\/]+[A-Za-z0-9._-]+[\/]'
+if [ -f private/denylist.txt ]; then
+  extra=$(grep -v -E '^\s*(#|$)' private/denylist.txt | sed 's/[][\.*^$+?(){}|/]/\&/g' | paste -sd'|' -)
+  [ -n "$extra" ] && patterns="$patterns|$extra"
+fi
+hits=$(git diff --cached -U0 --diff-filter=ACMR -- . ':(exclude)tools/git-hooks/pre-commit' \
+  | grep -E '^\+' | grep -v -E '^\+\+\+' | grep -E -c "$patterns")
+if [ "$hits" -gt 0 ]; then
+  echo "pre-commit: $hits added line(s) match a secret or personal pattern:" >&2
+  git diff --cached -U0 --diff-filter=ACMR --name-only -G"$patterns" -- . ':(exclude)tools/git-hooks/pre-commit' | sed 's/^/  /' >&2
+  fail=1
+fi
+
+if [ $fail -ne 0 ]; then
+  echo "Fix the files above (or move them to private/). Override only if you are sure: git commit --no-verify" >&2
+  exit 1
+fi
+exit 0

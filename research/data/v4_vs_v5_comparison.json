@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "cost_pct": 0.3,
+    "top_n": 5,
+    "exit": "v4 no-TP/2.5ATR close/20d",
+    "periods": {
+      "train": [
+        "2011-01-01",
+        "2019-12-31"
+      ],
+      "val": [
+        "2020-01-01",
+        "2022-12-31"
+      ],
+      "test": [
+        "2023-01-01",
+        "2026-12-31"
+      ]
+    },
+    "caveat": "daily, survivorship-biased, raw OHLC; lower-TF timing unverified"
+  },
+  "engines": {
+    "v4_production": {
+      "n_all": 18862,
+      "train": {
+        "n": 10905,
+        "win": 49.65,
+        "exp": 1.1434,
+        "pf": 1.335,
+        "top5_share": 0.011
+      },
+      "val": {
+        "n": 3657,
+        "win": 52.61,
+        "exp": 2.5724,
+        "pf": 1.622,
+        "top5_share": 0.023
+      },
+      "test": {
+        "n": 4300,
+        "win": 49.72,
+        "exp": 1.3694,
+        "pf": 1.362,
+        "top5_share": 0.019
+      },
+      "portfolio_full": {
+        "cagr_pct": 9.33,
+        "max_dd_pct": -34.03,
+        "calmar": 0.27,
+        "n_taken": 1528
+      }
+    },
+    "v5_S1_trend_pullback": {
+      "n_all": 13246,
+      "train": {
+        "n": 7176,
+        "win": 49.85,
+        "exp": 1.6242,
+        "pf": 1.428,
+        "top5_share": 0.016
+      },
+      "val": {
+        "n": 2750,
+        "win": 48.51,
+        "exp": 2.0425,
+        "pf": 1.441,
+        "top5_share": 0.032
+      },
+      "test": {
+        "n": 3320,
+        "win": 50.6,
+        "exp": 2.1318,
+        "pf": 1.504,
+        "top5_share": 0.023
+      },
+      "portfolio_full": {
+        "cagr_pct": 9.39,
+        "max_dd_pct": -12.43,
+        "calmar": 0.76,
+        "n_taken": 1165
+      }
+    },
+    "v5_S3_rs_continuation": {
+      "n_all": 13265,
+      "train": {
+        "n": 7189,
+        "win": 49.02,
+        "exp": 1.7651,
+        "pf": 1.389,
+        "top5_share": 0.013
+      },
+      "val": {
+        "n": 2754,
+        "win": 47.35,
+        "exp": 3.1106,
+        "pf": 1.536,
+        "top5_share": 0.028
+      },
+      "test": {
+        "n": 3322,
+        "win": 47.38,
+        "exp": 1.8794,
+        "pf": 1.353,
+        "top5_share": 0.023
+      },
+      "portfolio_full": {
+        "cagr_pct": 9.02,
+        "max_dd_pct": -17.46,
+        "calmar": 0.52,
+        "n_taken": 1165
+      }
+    },
+    "v5_S2_vol_contraction": {
+      "n_all": 6023,
+      "train": {
+        "n": 2590,
+        "win": 48.65,
+        "exp": 1.058,
+        "pf": 1.312,
+        "top5_share": 0.036
+      },
+      "val": {
+        "n": 1574,
+        "win": 48.79,
+        "exp": 1.8463,
+        "pf": 1.485,
+        "top5_share": 0.039
+      },
+      "test": {
+        "n": 1859,
+        "win": 47.39,
+        "exp": 1.3651,
+        "pf": 1.37,
+        "top5_share": 0.048
+      },
+      "portfolio_full": {
+        "cagr_pct": 7.3,
+        "max_dd_pct": -15.13,
+        "calmar": 0.48,
+        "n_taken": 1207
+      }
+    },
+    "v5_S6_daily_momentum": {
+      "n_all": 13280,
+      "train": {
+        "n": 7195,
+        "win": 49.95,
+        "exp": 2.5242,
+        "pf": 1.54,
+        "top5_share": 0.012
+      },
+      "val": {
+        "n": 2760,
+        "win": 48.01,
+        "exp": 2.7501,
+        "pf": 1.457,
+        "top5_share": 0.029
+      },
+      "test": {
+        "n": 3325,
+        "win": 48.72,
+        "exp": 2.1613,
+        "pf": 1.418,
+        "top5_share": 0.022
+      },
+      "portfolio_full": {
+        "cagr_pct": 9.55,
+        "max_dd_pct": -18.68,
+        "calmar": 0.51,
+        "n_taken": 1165
+      }
+    }
+  }
+}

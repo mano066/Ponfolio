@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "universe": "survivorship-free point-in-time (ISIN-keyed, incl. delisted)",
+    "prices": "RAW bhavcopy OHLCV (not CA-adjusted)",
+    "cost": 0.3
+  },
+  "engines": {
+    "v4_style_momentum": {
+      "n_all": 17160,
+      "train": {
+        "n": 9113,
+        "win": 46.76,
+        "exp": 1.9444,
+        "pf": 1.3
+      },
+      "val": {
+        "n": 3702,
+        "win": 45.03,
+        "exp": 1.7476,
+        "pf": 1.223
+      },
+      "test": {
+        "n": 4345,
+        "win": 42.26,
+        "exp": 1.4916,
+        "pf": 1.213
+      }
+    },
+    "v5_ensemble": {
+      "n_all": 13300,
+      "train": {
+        "n": 7044,
+        "win": 45.05,
+        "exp": 1.1663,
+        "pf": 1.17
+      },
+      "val": {
+        "n": 2878,
+        "win": 42.53,
+        "exp": 0.5397,
+        "pf": 1.064
+      },
+      "test": {
+        "n": 3378,
+        "win": 41.39,
+        "exp": 0.5464,
+        "pf": 1.075
+      }
+    }
+  }
+}

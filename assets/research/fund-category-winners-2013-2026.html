@@ -1,0 +1,632 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Which Fund Category Won Each Year &mdash; 2013 to 2026</title>
+<style>
+:root{
+  --ground:#F7F8F6; --surface:#FFFFFF; --surface-2:#F0F3F1; --line:#DCE3E0;
+  --ink:#10221F; --ink-2:#42544F; --ink-3:#6E807B;
+  --accent:#0B6E62; --accent-soft:#E2F0ED; --brass:#8A6A22; --nf-ink:#FFFFFF;
+  --pos:#1B7F5A; --neg:#B03A2E;
+  --shadow:0 1px 2px rgba(16,34,31,.06),0 4px 14px rgba(16,34,31,.05);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  --mono:"Cascadia Mono",Consolas,"SF Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#0E1614; --surface:#16211F; --surface-2:#1D2A27; --line:#2B3A36;
+  --ink:#E4EAE7; --ink-2:#A9B8B3; --ink-3:#7E8F8A;
+  --accent:#4FC2B0; --accent-soft:#16302C; --brass:#C9A24E; --nf-ink:#08211D;
+  --pos:#4FBE8E; --neg:#E1705C;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.3);
+}}
+:root[data-theme="dark"]{
+  --ground:#0E1614; --surface:#16211F; --surface-2:#1D2A27; --line:#2B3A36;
+  --ink:#E4EAE7; --ink-2:#A9B8B3; --ink-3:#7E8F8A;
+  --accent:#4FC2B0; --accent-soft:#16302C; --brass:#C9A24E; --nf-ink:#08211D;
+  --pos:#4FBE8E; --neg:#E1705C;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.3);
+}
+:root[data-theme="light"]{
+  --ground:#F7F8F6; --surface:#FFFFFF; --surface-2:#F0F3F1; --line:#DCE3E0;
+  --ink:#10221F; --ink-2:#42544F; --ink-3:#6E807B;
+  --accent:#0B6E62; --accent-soft:#E2F0ED; --brass:#8A6A22; --nf-ink:#FFFFFF;
+  --pos:#1B7F5A; --neg:#B03A2E;
+  --shadow:0 1px 2px rgba(16,34,31,.06),0 4px 14px rgba(16,34,31,.05);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px 96px}
+h1,h2,h3{text-wrap:balance;margin:0}
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.top-in{max-width:1240px;margin:0 auto;padding:44px 24px 30px}
+.eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:var(--serif);font-size:clamp(32px,4.6vw,50px);line-height:1.06;
+  letter-spacing:-.015em;font-weight:600;margin:10px 0 10px}
+h1 .yr{font-family:var(--mono);font-weight:400;color:var(--accent);letter-spacing:-.02em}
+.sub{color:var(--ink-2);max-width:60ch;font-size:14.5px;margin:0}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:30px 0 32px}
+.strip div{background:var(--surface);padding:14px 16px}
+.strip .k{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.strip .v{font-family:var(--mono);font-size:20px;font-weight:600;margin-top:2px}
+.caveat{border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:8px;
+  background:var(--surface);padding:16px 20px;margin:0 0 34px}
+.caveat h3{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--brass);margin-bottom:8px}
+.caveat ul{margin:0;padding-left:19px;color:var(--ink-2);font-size:13.5px}
+.caveat li{margin:5px 0}.caveat b{color:var(--ink);font-weight:600}
+section h2{font-family:var(--serif);font-size:25px;font-weight:600;letter-spacing:-.01em;margin:46px 0 4px}
+.lede{color:var(--ink-2);font-size:13.5px;margin:0 0 16px;max-width:70ch}
+.lede code{font-family:var(--mono);font-size:12px;background:var(--surface-2);
+  padding:1px 5px;border-radius:4px;color:var(--ink)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;
+  background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:13.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--surface-2);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr:last-child td{border-bottom:0}
+.num,.ret{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.ret{font-weight:600;white-space:nowrap;text-align:right}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+.r{text-align:right}
+.tag{display:inline-block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 7px;border-radius:99px;border:1px solid var(--line);color:var(--ink-3);white-space:nowrap}
+.win{font-weight:600}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 14px}
+button{font:inherit;font-size:13px;padding:7px 13px;border:1px solid var(--line);border-radius:7px;
+  background:var(--surface);color:var(--ink-2);cursor:pointer}
+button[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+select{font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:7px;background:var(--surface);color:var(--ink)}
+/* periodic table: one column per year, categories stacked best-to-worst */
+#hm table{font-size:12px;border-spacing:2px;border-collapse:separate;padding:2px}
+#hm thead th{text-align:center;font-family:var(--mono);font-size:12.5px;letter-spacing:0;
+  text-transform:none;padding:8px 4px;min-width:104px;border-bottom:0;
+  background:transparent;color:var(--ink)}
+#hm th.rkh,#hm td.rkc{position:sticky;left:0;z-index:2;background:var(--ground);
+  min-width:26px;width:26px;padding:0 6px 0 0;text-align:right;
+  font-family:var(--mono);font-size:10px;color:var(--ink-3);border:0}
+#hm td{padding:0;border:0}
+#hm .pt{display:flex;align-items:baseline;justify-content:space-between;gap:6px;
+  padding:5px 7px;border-radius:4px;line-height:1.3;cursor:pointer;
+  transition:opacity .12s ease, transform .12s ease}
+#hm .pt .nm{font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis;letter-spacing:.01em}
+#hm .pt .vv{font-family:var(--mono);font-variant-numeric:tabular-nums;
+  font-size:11.5px;font-weight:700;white-space:nowrap}
+#hm .pt.nf{background:var(--accent);color:var(--nf-ink);
+  box-shadow:0 0 0 2px var(--ground),0 0 0 3px var(--accent)}
+#hm .pt.nf .nm{letter-spacing:.06em}
+#hm .pt.dim{opacity:.16}
+#hm .pt.hl{transform:scale(1.04);box-shadow:0 0 0 2px var(--ground),0 0 0 3px var(--ink)}
+#hm .pt:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.legend{display:flex;align-items:center;gap:10px;margin:12px 0 0;font-size:12px;color:var(--ink-3);flex-wrap:wrap}
+.legend .grad{height:11px;width:190px;border-radius:3px;
+  background:linear-gradient(90deg,#0F7B4F,#5E9B31,#C29B1D,#CE7430,#B0392C)}
+.yearcard{border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  box-shadow:var(--shadow);overflow:hidden;margin-top:16px}
+.yearcard .hd{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  padding:15px 18px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.yearcard .hd h3{font-family:var(--serif);font-size:21px;font-weight:600}
+.yearcard .facts{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--ink-3)}
+.yearcard .facts b{font-family:var(--mono);font-size:13.5px;color:var(--ink);font-weight:600;
+  display:block;font-variant-numeric:tabular-nums}
+.medal{display:inline-block;width:20px;font-family:var(--mono);font-size:12px;color:var(--ink-3);text-align:right}
+.medal.m1{color:var(--brass);font-weight:700}
+/* conclusions */
+.verdicts{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px;margin:22px 0 8px}
+.vc{border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  padding:18px 20px;box-shadow:var(--shadow);border-top:3px solid var(--accent)}
+.vc.warn{border-top-color:var(--neg)}
+.vc .n{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.1em}
+.vc h3{font-family:var(--serif);font-size:19px;font-weight:600;margin:6px 0 8px;line-height:1.25}
+.vc p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.vc .big{font-family:var(--mono);font-size:27px;font-weight:700;color:var(--accent);
+  display:block;margin:10px 0 2px;letter-spacing:-.02em}
+.vc.warn .big{color:var(--neg)}
+.mix{display:flex;gap:4px;flex-wrap:wrap}
+.sl{font-family:var(--mono);font-size:11px;padding:2px 6px;border-radius:4px;
+  background:var(--accent-soft);color:var(--accent);white-space:nowrap;font-weight:600}
+tr.you{outline:2px solid var(--brass);outline-offset:-2px}
+tr.you td:first-child::after{content:"YOURS";font-family:var(--mono);font-size:9px;
+  color:var(--brass);margin-left:7px;letter-spacing:.08em;vertical-align:middle}
+.tradeoff{display:grid;gap:9px;margin-top:6px}
+.trow{display:grid;grid-template-columns:190px 1fr 78px;gap:12px;align-items:center;font-size:13px}
+.trow .lab{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trow .track{position:relative;height:22px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.trow .zero{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.trow i{position:absolute;top:4px;bottom:4px;border-radius:2px}
+.trow i.up{background:var(--pos)}.trow i.dn{background:var(--neg)}
+.trow .cap{font-family:var(--mono);font-size:12px;text-align:right;font-weight:600}
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:22px 0;
+  font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);max-width:62ch}
+@media (max-width:640px){.trow{grid-template-columns:120px 1fr 66px}}
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink-3);font-size:12.5px}
+footer code{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+@media (max-width:700px){.hide-s{display:none}.wrap{padding:0 14px 64px}.top-in{padding:30px 16px 24px}}
+</style>
+
+<header class="top"><div class="top-in">
+  <div class="eyebrow">Calendar-year category race &middot; India &middot; Direct plan, growth option</div>
+  <h1>Which fund category won<br>every year from <span class="yr">2013</span> to <span class="yr">2026</span></h1>
+  <p class="sub">Twenty SEBI categories, ranked against each other in each calendar year on the
+  median return of every Direct-plan fund in that category. Green is the winner, red is the worst,
+  and the Nifty&nbsp;50 is ranked alongside them in every year.
+  <b style="color:var(--ink)">Then the part that matters:</b> what a fixed 10,000-a-month split
+  across three to five categories would actually have earned &mdash; every possible blend, tested.</p>
+</div></header>
+
+<div class="wrap">
+  <div class="strip" id="strip"></div>
+
+  <div class="caveat">
+    <h3>What these rankings do and don't mean</h3>
+    <ul>
+      <li><b>Direct plans, as you asked</b> &mdash; and the window fits: Direct plans were created on
+      <b>1&nbsp;January&nbsp;2013</b>, so 2013 is the first year they can be measured at all. The 2013
+      column runs from each fund's Direct-plan inception (on or before 31&nbsp;Jan&nbsp;2013) to
+      31&nbsp;Dec&nbsp;2013.</li>
+      <li><b>Today's category labels, applied backwards.</b> SEBI's scheme categorisation only
+      arrived in 2017&ndash;18, and Flexi&nbsp;Cap was created in <b>November&nbsp;2020</b>. For the
+      early years a fund is sorted into the box it occupies <em>now</em>, which is not necessarily the
+      mandate it ran then.</li>
+      <li><b>Median, not average.</b> Each category-year is ranked on the median fund so one freak
+      performer can't hand a category the crown. A category needs at least <b id="minn"></b> funds
+      that year to be ranked.</li>
+      <li><b>Survivorship bias runs one way.</b> Only funds still reporting NAV today are visible.
+      Schemes merged or wound up along the way are missing, which <b>flatters</b> every historical
+      column &mdash; most of all the early ones.</li>
+      <li><b>2026 is incomplete</b> &mdash; year-to-date through <b id="asof2"></b>, not a full year.</li>
+      <li><b>Nifty 50 is a price index</b>; fund NAVs are total-return. That hands funds a roughly
+      1&ndash;1.5%/yr advantage in every "beat the Nifty" count below.</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2>The winner's board</h2>
+    <p class="lede">One line per year: the category that topped the table, what it returned, what the
+    Nifty&nbsp;50 did that year, and which category finished last. <b>No category wins twice in a row
+    on any consistent basis</b> &mdash; that is the single most useful thing on this page.</p>
+    <div class="scroll"><table>
+      <thead><tr>
+        <th>Year</th><th>Winning category</th><th class="r">Median</th>
+        <th class="r">Nifty 50</th><th class="r">Spread</th>
+        <th class="hide-s">Best fund that year</th>
+        <th class="hide-s">Last place</th><th class="r hide-s">Median</th>
+      </tr></thead><tbody id="board"></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>The full grid</h2>
+    <p class="lede">One column per year. Read each column top to bottom: the winner sits at the
+    top, last place at the bottom. <b>Figures are the category's median return in per&nbsp;cent</b>
+    &mdash; <code>3.73</code> means +3.73%, <code>-4.06</code> means a loss. The
+    <b style="color:var(--accent)">Nifty&nbsp;50</b> is slotted into the order in every column, so
+    you can see exactly where the index finished among the categories that year.
+    <b style="color:var(--accent)">Click any tile</b> to trace that category across all fourteen
+    years &mdash; that zig-zag is the real lesson of this page.</p>
+    <div class="controls">
+      <button id="m-rank" aria-pressed="true">Colour by rank</button>
+      <button id="m-ret" aria-pressed="false">Colour by return</button>
+      <button id="m-nif" aria-pressed="false">Colour by vs&nbsp;Nifty</button>
+      <span style="flex:1"></span>
+      <span id="hllbl" style="font-size:12px;color:var(--ink-3)"></span>
+      <button id="clr-hl">Clear trace</button>
+    </div>
+    <div class="scroll" id="hm"></div>
+    <div class="legend">
+      <span id="lg-a">Rank 1 (winner)</span><span class="grad"></span><span id="lg-b">Last place</span>
+      <span style="margin-left:8px">Left-hand number is the finishing position that year.
+      Hover a tile for the full category name, fund count and that year's Nifty.</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Fourteen-year record by category</h2>
+    <p class="lede">How often each category actually took the crown, how often it finished last, and
+    its average finishing position. Note how far apart <b>wins</b> and <b>average rank</b> can sit &mdash;
+    that gap is the volatility you would have had to sit through.</p>
+    <div class="scroll"><table>
+      <thead><tr>
+        <th class="r">#</th><th>Category</th><th class="hide-s">Group</th>
+        <th class="r">Avg rank</th><th class="r">Wins</th><th class="r">Top 3</th>
+        <th class="r">Last</th><th class="r">Beat Nifty</th>
+        <th class="r hide-s">Best year</th><th class="r hide-s">Worst year</th>
+      </tr></thead><tbody id="record"></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Year in detail</h2>
+    <p class="lede">Full ranking of all categories for one year, with the single best and worst
+    individual fund inside each category.</p>
+    <div class="controls">
+      <label for="ysel" style="font-size:13px;color:var(--ink-3)">Year</label>
+      <select id="ysel"></select>
+    </div>
+    <div id="ydetail"></div>
+  </section>
+
+  <section>
+    <h2>So what do you actually do with this?</h2>
+    <p class="lede">The grid above is history. This is the part that decides where the money goes.
+    I tested <b>every possible fixed blend of three to five categories</b> for a 10,000-a-month SIP
+    &mdash; 1,832,616 of them, weights in 1,000 steps &mdash; over the same fourteen years, and asked
+    whether any of them can match the top three of each year.</p>
+    <div class="verdicts" id="verdicts"></div>
+  </section>
+
+  <section>
+    <h2>Nobody can pick next year's top three</h2>
+    <p class="lede">Every January, buy the three categories that won last year. Here is what that
+    actually earned you, year by year.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th>You bought last year's winners</th>
+        <th class="r">You got</th><th class="r">That year's top 3</th><th class="r">Shortfall</th>
+        <th class="r hide-s">Still top 3?</th></tr></thead>
+      <tbody id="chase"></tbody>
+    </table></div>
+    <p class="pull" id="pull1"></p>
+  </section>
+
+  <section>
+    <h2>What a fixed blend delivers</h2>
+    <p class="lede">Six fixed splits of 10,000 a month, never changed once, over 164&nbsp;months.
+    Because the split never changes, each sleeve is its own independent SIP &mdash; so these corpus
+    figures are exact arithmetic on the category index, not a simulation.
+    <b>Total invested: 16,40,000.</b></p>
+    <div class="scroll"><table>
+      <thead><tr><th>Blend</th><th class="hide-s">Split</th><th class="r">Return p.a.</th>
+        <th class="r">Worst year</th><th class="r hide-s">Beat Nifty</th>
+        <th class="r">Corpus</th></tr></thead>
+      <tbody id="archb"></tbody>
+    </table></div>
+    <p class="lede" style="margin-top:18px">The same six drawn to scale &mdash; return earned
+    against the worst single year you had to sit through to earn it. There is no free lunch in
+    this data: every extra point of return costs a deeper hole.</p>
+    <div class="tradeoff" id="bars"></div>
+    <div class="legend"><span><b style="display:inline-block;width:10px;height:10px;border-radius:2px;
+      background:var(--pos);margin-right:5px"></b>Average return per year</span>
+      <span><b style="display:inline-block;width:10px;height:10px;border-radius:2px;
+      background:var(--neg);margin-right:5px"></b>Worst calendar year</span></div>
+    <div id="yours"></div>
+  </section>
+
+  <footer>
+    <p><b>Method.</b> The AMFI-derived mfapi.in scheme list (37,743 schemes) was filtered to
+    Direct-plan Growth-option schemes, excluding IDCW/dividend/bonus variants &mdash; 5,028 schemes, of
+    which <span id="mf1"></span> fall in equity, hybrid, solution-oriented or index categories and
+    carry usable NAV history. For each fund and each year,
+    <code>CY return = NAV(last day &le; 31-Dec-Y) / NAV(last day &le; 31-Dec-Y&minus;1) &minus; 1</code>.
+    A year is dropped for a fund if either endpoint sits more than 10 days from the year boundary, so
+    a hole in a NAV feed can never be booked as a return. Categories are ranked within each year on
+    median fund return, minimum <span id="mf2"></span> funds. Nifty 50 calendar-year price returns
+    from Yahoo Finance (<code>^NSEI</code>), as of <span id="asof3"></span>.</p>
+    <p><b>Blend backtest.</b> 841 of those funds carry usable month-end NAV history; a category's
+    monthly index is the median month-on-month NAV move of its funds. Blends were built from the 19
+    categories with complete 2013&ndash;2026 coverage. A blend's yearly return is the
+    contribution-weighted average of its sleeves; its corpus is the exact sum of independent monthly
+    SIPs, since a split that never changes leaves each sleeve independent &mdash; no simulation is
+    involved. All 1,832,616 blends of three to five categories in 1,000 steps were enumerated over
+    164 monthly contributions, January 2013 to August 2026.</p>
+    <p>Educational analysis of public NAV data &mdash; not investment advice. A category's past calendar
+    year says nothing reliable about its next one, which is precisely what the grid above shows.</p>
+  </footer>
+</div>
+
+<script>
+const D = {"years":[2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"cats":["Mid Cap","Small Cap","Large & Mid Cap","Index Funds (passive)","Contra","Value","Multi Asset Allocation","ELSS (tax saver)","Focused","Flexi Cap","Multi Cap","Sectoral / Thematic","Aggressive Hybrid","Balanced Advantage / Dynamic AA","Large Cap","Conservative Hybrid","Arbitrage","Children's","Retirement","Equity Savings"],"grid":{"2013":{"Value":{"n":13,"median":4.21,"mean":13.98,"best":{"name":"Quantum Value Fund","amc":"Quantum","ret":166.28},"worst":{"name":"JM Value Fund (Direct) - Growth Option","amc":"JM Financial","ret":-9.48},"beat":3,"rank":12,"of":19},"ELSS (tax saver)":{"n":27,"median":6.36,"mean":11.98,"best":{"name":"Quantum ELSS Tax Saver Fund","amc":"Quantum","ret":171.23},"worst":{"name":"quant ELSS Tax Saver Fund - Growth Option","amc":"quant","ret":-10.45},"beat":11,"rank":2,"of":19},"Sectoral / Thematic":{"n":57,"median":-3.44,"mean":4.14,"best":{"name":"ICICI Prudential Technology Fund","amc":"ICICI Prudential","ret":62.71},"worst":{"name":"HSBC Infrastructure Equity Fund - Growth Direct","amc":"HSBC","ret":-20.28},"beat":20,"rank":19,"of":19},"Large Cap":{"n":26,"median":5.4,"mean":4.87,"best":{"name":"Axis Large Cap Fund","amc":"Axis","ret":12.79},"worst":{"name":"Baroda Large cap Fund - Plan B (Direct) - Growth Option","amc":"Baroda","ret":-7.36},"beat":9,"rank":7,"of":19},"Aggressive Hybrid":{"n":17,"median":6.29,"mean":5.68,"best":{"name":"JM Aggressive Hybrid Fund (Direct) - Growth Option","amc":"JM Financial","ret":11.78},"worst":{"name":"DSP Aggressive Hybrid Fund","amc":"DSP","ret":-1.35},"beat":6,"rank":3,"of":19},"Flexi Cap":{"n":15,"median":4.5,"mean":2.89,"best":{"name":"HSBC Flexi Cap Fund","amc":"HSBC","ret":7.42},"worst":{"name":"quant Flexi Cap Fund - Growth Option","amc":"quant","ret":-10.22},"beat":1,"rank":11,"of":19},"Large & Mid Cap":{"n":18,"median":5.04,"mean":4.51,"best":{"name":"Invesco India Large & Mid Cap Fund","amc":"Invesco","ret":11.28},"worst":{"name":"quant Large & Mid Cap Fund - Growth Option","amc":"quant","ret":-6.9},"beat":6,"rank":9,"of":19},"Conservative Hybrid":{"n":20,"median":5.58,"mean":514.59,"best":{"name":"Invesco India Regular Savings Fund","amc":"Invesco","ret":10194.88},"worst":{"name":"Sundaram Conservative Hybrid Fund (Formerly Known as Sundaram Debt Oriented Hybrid Fund) Direct Plan - Growth","amc":"Sundaram","ret":-0.77},"beat":4,"rank":5,"of":19},"Focused":{"n":13,"median":1.89,"mean":1.27,"best":{"name":"Franklin India Focused Equity Fund","amc":"Franklin Templeton","ret":9.09},"worst":{"name":"SBI FOCUSED FUND","amc":"SBI","ret":-8.19},"beat":3,"rank":18,"of":19},"Equity Savings":{"n":5,"median":3.5,"mean":4.16,"best":{"name":"HDFC Equity Savings Fund - Growth Option","amc":"HDFC","ret":6.82},"worst":{"name":"Principal Equity Savings Fund","amc":"Principal","ret":1.51},"beat":1,"rank":15,"of":19},"Arbitrage":{"n":9,"median":9.4,"mean":9.16,"best":{"name":"ICICI Prudential Arbitrage Fund","amc":"ICICI Prudential","ret":10.24},"worst":{"name":"UTI Arbitrage Fund","amc":"UTI","ret":7.35},"beat":9,"rank":1,"of":19},"Small Cap":{"n":9,"median":3.73,"mean":3.38,"best":{"name":"Franklin India Small Cap Fund","amc":"Franklin Templeton","ret":12.87},"worst":{"name":"Sundaram Small Cap Fund Direct Plan - Growth","amc":"Sundaram","ret":-5.78},"beat":4,"rank":14,"of":19},"Mid Cap":{"n":18,"median":5.53,"mean":3.14,"best":{"name":"SBI MIDCAP FUND","amc":"SBI","ret":12.12},"worst":{"name":"Baroda Mid-cap Fund- Plan B (Direct) - Growth Option","amc":"Baroda","ret":-16.82},"beat":6,"rank":6,"of":19},"Retirement":{"n":4,"median":3.1,"mean":3.38,"best":{"name":"Tata Retirement Savings Fund- Conservative Plan","amc":"Tata","ret":6.31},"worst":{"name":"Tata Retirement Savings Fund- Progressive Plan","amc":"Tata","ret":1.01},"beat":0,"rank":16,"of":19},"Balanced Advantage / Dynamic AA":{"n":8,"median":5.92,"mean":6.22,"best":{"name":"Invesco India Balanced Advantage Fund","amc":"Invesco","ret":18.96},"worst":{"name":"HDFC Balanced Advantage Fund - Growth Plan","amc":"HDFC","ret":-1.92},"beat":4,"rank":4,"of":19},"Multi Cap":{"n":10,"median":4.93,"mean":4.23,"best":{"name":"Invesco India Multicap Fund","amc":"Invesco","ret":10.34},"worst":{"name":"quant Multi Cap Fund-GROWTH OPTION","amc":"quant","ret":-4.52},"beat":3,"rank":10,"of":19},"Multi Asset Allocation":{"n":7,"median":5.18,"mean":4.88,"best":{"name":"ICICI Prudential Multi-Asset Fund","amc":"ICICI Prudential","ret":15.67},"worst":{"name":"UTI Multi Asset Allocation Fund","amc":"UTI","ret":-3.8},"beat":2,"rank":8,"of":19},"Children's":{"n":4,"median":2.79,"mean":2.77,"best":{"name":"LIC MF Children's Fund","amc":"LIC","ret":6.35},"worst":{"name":"SBI Children's Fund - Savings Plan","amc":"SBI","ret":-0.83},"beat":0,"rank":17,"of":19},"Balanced Hybrid":{"n":1,"median":3.98,"mean":3.98,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":3.98},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":3.98},"beat":0,"of":19},"Contra":{"n":3,"median":4.21,"mean":2.73,"best":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":6.47},"worst":{"name":"SBI CONTRA FUND","amc":"SBI","ret":-2.49},"beat":0,"rank":13,"of":19}},"2014":{"Value":{"n":13,"median":53.51,"mean":54.82,"best":{"name":"Aditya Birla Sun Life Value Fund - Growth","amc":"Aditya Birla Sun Life","ret":100.53},"worst":{"name":"Invesco India Gold ETF Fund of Fund","amc":"Invesco","ret":-8.78},"beat":12,"rank":5,"of":19},"ELSS (tax saver)":{"n":27,"median":52.05,"mean":51.54,"best":{"name":"Nippon India ELSS Tax Saver Fund","amc":"Nippon India","ret":84.37},"worst":{"name":"Taurus ELSS Tax Saver Fund","amc":"Taurus","ret":35.65},"beat":27,"rank":6,"of":19},"Sectoral / Thematic":{"n":58,"median":55.94,"mean":52.6,"best":{"name":"UTI-Transportation and Logistics Fund-Growth Option","amc":"UTI","ret":105.76},"worst":{"name":"Aditya Birla Sun Life International Equity Fund - Growth","amc":"Aditya Birla Sun Life","ret":2.19},"beat":51,"rank":3,"of":19},"Large Cap":{"n":26,"median":41.83,"mean":42.19,"best":{"name":"Nippon India Large Cap Fund","amc":"Nippon India","ret":55.7},"worst":{"name":"Groww Largecap Fund (formerly known as Indiabulls Blue Chip Fund)","amc":"Groww","ret":30.13},"beat":23,"rank":12,"of":19},"Aggressive Hybrid":{"n":18,"median":45.12,"mean":42.58,"best":{"name":"quant Aggressive Hybrid Fund-Growth Option","amc":"quant","ret":56.66},"worst":{"name":"Shriram Aggressive Hybrid Fund","amc":"Shriram","ret":27.5},"beat":16,"rank":11,"of":19},"Flexi Cap":{"n":16,"median":55.36,"mean":52.43,"best":{"name":"quant Flexi Cap Fund - Growth Option","amc":"quant","ret":69.04},"worst":{"name":"Taurus Flexi Cap Fund","amc":"Taurus","ret":38.77},"beat":16,"rank":4,"of":19},"Large & Mid Cap":{"n":18,"median":50.5,"mean":55.94,"best":{"name":"CANARA ROBECO LARGE AND MID CAP FUND","amc":"Canara Robeco","ret":97.63},"worst":{"name":"Bandhan Large & Mid Cap Fund","amc":"Bandhan","ret":29.54},"beat":17,"rank":8,"of":19},"Conservative Hybrid":{"n":20,"median":20.7,"mean":20.25,"best":{"name":"Aditya Birla Sun Life Regular Savings Fund - Growth / Payment","amc":"Aditya Birla Sun Life","ret":28.56},"worst":{"name":"Invesco India Regular Savings Fund","amc":"Invesco","ret":10.2},"beat":0,"rank":16,"of":19},"Focused":{"n":14,"median":50.48,"mean":52.43,"best":{"name":"Nippon India Focused Fund","amc":"Nippon India","ret":83.02},"worst":{"name":"Bandhan Focused Fund","amc":"Bandhan","ret":32.9},"beat":14,"rank":9,"of":19},"Equity Savings":{"n":5,"median":16.24,"mean":16.78,"best":{"name":"L&T Equity Savings Fund","amc":"L&T","ret":22.05},"worst":{"name":"Principal Equity Savings Fund","amc":"Principal","ret":13.65},"beat":0,"rank":18,"of":19},"Arbitrage":{"n":9,"median":8.91,"mean":8.82,"best":{"name":"Kotak Arbitrage Fund","amc":"Kotak Mahindra","ret":9.65},"worst":{"name":"HDFC ARBITRAGE FUND - Growth Option","amc":"HDFC","ret":8.1},"beat":0,"rank":19,"of":19},"Small Cap":{"n":11,"median":86.52,"mean":81.56,"best":{"name":"SBI Small Cap Fund","amc":"SBI","ret":112.77},"worst":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":11.89},"beat":10,"rank":1,"of":19},"Mid Cap":{"n":19,"median":76.56,"mean":70.93,"best":{"name":"UTI Mid Cap Fund-Growth Option","amc":"UTI","ret":91.78},"worst":{"name":"quant Mid Cap Fund - Growth Option","amc":"quant","ret":27.12},"beat":18,"rank":2,"of":19},"Retirement":{"n":4,"median":41.69,"mean":40.55,"best":{"name":"Tata Retirement Savings Fund- Moderate Plan","amc":"Tata","ret":56.83},"worst":{"name":"Tata Retirement Savings Fund- Conservative Plan","amc":"Tata","ret":21.99},"beat":3,"rank":13,"of":19},"Balanced Advantage / Dynamic AA":{"n":8,"median":32.57,"mean":35.43,"best":{"name":"L&T Balanced Advantage Fund","amc":"L&T","ret":50.95},"worst":{"name":"Invesco India Balanced Advantage Fund","amc":"Invesco","ret":27.07},"beat":4,"rank":14,"of":19},"Multi Cap":{"n":10,"median":50.97,"mean":51.43,"best":{"name":"Invesco India Multicap Fund","amc":"Invesco","ret":74.42},"worst":{"name":"Sundaram Multi Asset Fund Direct Growth","amc":"Sundaram","ret":18.75},"beat":9,"rank":7,"of":19},"Multi Asset Allocation":{"n":8,"median":18.34,"mean":19.4,"best":{"name":"ICICI Prudential Multi-Asset Fund","amc":"ICICI Prudential","ret":38.08},"worst":{"name":"quant Multi Asset Allocation Fund-GROWTH OPTION","amc":"quant","ret":7.4},"beat":1,"rank":17,"of":19},"Children's":{"n":4,"median":32.47,"mean":35.02,"best":{"name":"UTI Children's Equity Fund","amc":"UTI","ret":45.38},"worst":{"name":"Tata Childrens Fund","amc":"Tata","ret":29.76},"beat":3,"rank":15,"of":19},"Balanced Hybrid":{"n":1,"median":24.64,"mean":24.64,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":24.64},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":24.64},"beat":0,"of":19},"Contra":{"n":3,"median":48.49,"mean":51.35,"best":{"name":"Invesco India Contra Fund","amc":"Invesco","ret":65.14},"worst":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":40.42},"beat":3,"rank":10,"of":19}},"2015":{"Value":{"n":13,"median":3.49,"mean":2.45,"best":{"name":"L&T India Value Fund","amc":"L&T","ret":13.8},"worst":{"name":"Invesco India Gold ETF Fund of Fund","amc":"Invesco","ret":-14.91},"beat":11,"rank":11,"of":19},"ELSS (tax saver)":{"n":28,"median":3.69,"mean":3.89,"best":{"name":"Tata ELSS Fund-Growth","amc":"Tata","ret":14.96},"worst":{"name":"HDFC ELSS Tax saver - Growth Option","amc":"HDFC","ret":-5.8},"beat":27,"rank":10,"of":19},"Sectoral / Thematic":{"n":61,"median":2.86,"mean":2.6,"best":{"name":"SBI HEALTHCARE OPPORTUNITIES FUND","amc":"SBI","ret":28.73},"worst":{"name":"Taurus Banking & Financial Services Fund","amc":"Taurus","ret":-14.62},"beat":48,"rank":15,"of":19},"Large Cap":{"n":26,"median":1.68,"mean":1.89,"best":{"name":"SBI Large Cap FUND","amc":"SBI","ret":8.99},"worst":{"name":"HDFC Large Cap Fund - Growth Option","amc":"HDFC","ret":-5.48},"beat":24,"rank":17,"of":19},"Aggressive Hybrid":{"n":19,"median":3.86,"mean":4.13,"best":{"name":"L&T Hybrid Equity Fund","amc":"L&T","ret":11.06},"worst":{"name":"LIC MF Aggressive Hybrid Fund","amc":"LIC","ret":-6.14},"beat":18,"rank":9,"of":19},"Flexi Cap":{"n":17,"median":1.34,"mean":2.43,"best":{"name":"Motilal Oswal Flexi cap Fund Direct Plan-Growth Option","amc":"Motilal Oswal","ret":15.74},"worst":{"name":"LIC MF Flexi Cap Fund","amc":"LIC","ret":-7.28},"beat":14,"rank":18,"of":19},"Large & Mid Cap":{"n":19,"median":5.8,"mean":5.65,"best":{"name":"quant Large & Mid Cap Fund - Growth Option","amc":"quant","ret":18.85},"worst":{"name":"HDFC Large and Mid Cap Fund - Growth Option","amc":"HDFC","ret":-4.76},"beat":18,"rank":6,"of":19},"Conservative Hybrid":{"n":20,"median":7.1,"mean":6.65,"best":{"name":"SBI Conservative Hybrid Fund","amc":"SBI","ret":9.31},"worst":{"name":"Invesco India Regular Savings Fund","amc":"Invesco","ret":2.68},"beat":20,"rank":5,"of":19},"Focused":{"n":15,"median":2.97,"mean":3.41,"best":{"name":"quant Focused Fund - Growth Option","amc":"quant","ret":17.88},"worst":{"name":"ICICI Prudential Focused Equity Fund","amc":"ICICI Prudential","ret":-4.12},"beat":14,"rank":13,"of":19},"Equity Savings":{"n":8,"median":5.06,"mean":5.04,"best":{"name":"BANDHAN Equity Savings Fund","amc":"Bandhan","ret":7.42},"worst":{"name":"HDFC Equity Savings Fund - Growth Option","amc":"HDFC","ret":2.62},"beat":8,"rank":7,"of":19},"Arbitrage":{"n":14,"median":8.16,"mean":8.18,"best":{"name":"Groww Arbitrage Fund (formerly known as Indiabulls Arbitrage Fund)","amc":"Groww","ret":8.8},"worst":{"name":"JM Arbitrage Fund (Direct) - Growth Option","amc":"JM Financial","ret":7.82},"beat":14,"rank":4,"of":19},"Small Cap":{"n":14,"median":11.09,"mean":11.26,"best":{"name":"SBI Small Cap Fund","amc":"SBI","ret":22.29},"worst":{"name":"ICICI Prudential Smallcap Fund","amc":"ICICI Prudential","ret":0.99},"beat":14,"rank":1,"of":19},"Mid Cap":{"n":20,"median":8.43,"mean":8.54,"best":{"name":"Motilal Oswal Midcap Fund","amc":"Motilal Oswal","ret":17.92},"worst":{"name":"Baroda Mid-cap Fund- Plan B (Direct) - Growth Option","amc":"Baroda","ret":-15.05},"beat":19,"rank":3,"of":19},"Retirement":{"n":4,"median":8.57,"mean":8.32,"best":{"name":"Tata Retirement Savings Fund- Progressive Plan","amc":"Tata","ret":9.77},"worst":{"name":"Franklin India Retirement Fund","amc":"Franklin Templeton","ret":6.36},"beat":4,"rank":2,"of":19},"Balanced Advantage / Dynamic AA":{"n":12,"median":4.37,"mean":4.19,"best":{"name":"ICICI Prudential Balanced Advantage Fund","amc":"ICICI Prudential","ret":8.11},"worst":{"name":"HDFC Balanced Advantage Fund - Growth Plan","amc":"HDFC","ret":0.16},"beat":12,"rank":8,"of":19},"Multi Cap":{"n":10,"median":2.33,"mean":3.5,"best":{"name":"quant Multi Cap Fund-GROWTH OPTION","amc":"quant","ret":12.8},"worst":{"name":"Sundaram Multi Asset Fund Direct Growth","amc":"Sundaram","ret":-3.82},"beat":10,"rank":16,"of":19},"Multi Asset Allocation":{"n":8,"median":2.97,"mean":3.3,"best":{"name":"SBI MULTI ASSET ALLOCATION FUND","amc":"SBI","ret":10.86},"worst":{"name":"UTI Multi Asset Allocation Fund","amc":"UTI","ret":-3.12},"beat":8,"rank":14,"of":19},"Children's":{"n":4,"median":3.44,"mean":3.4,"best":{"name":"SBI Children's Fund - Savings Plan","amc":"SBI","ret":7.96},"worst":{"name":"UTI Children's Equity Fund","amc":"UTI","ret":-1.23},"beat":4,"rank":12,"of":19},"Balanced Hybrid":{"n":1,"median":-2.52,"mean":-2.52,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":-2.52},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":-2.52},"beat":1,"of":19},"Contra":{"n":3,"median":0.57,"mean":1.44,"best":{"name":"Invesco India Contra Fund","amc":"Invesco","ret":5.49},"worst":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":-1.74},"beat":3,"rank":19,"of":19}},"2016":{"Value":{"n":14,"median":8.09,"mean":8.79,"best":{"name":"Invesco India Gold ETF Fund of Fund","amc":"Invesco","ret":21.86},"worst":{"name":"Nippon India Value Fund","amc":"Nippon India","ret":-0.79},"beat":12,"rank":5,"of":19},"ELSS (tax saver)":{"n":34,"median":4.8,"mean":5.88,"best":{"name":"Mirae Asset ELSS Tax Saver Fund","amc":"Mirae Asset","ret":16.63},"worst":{"name":"BNP Paribas Long Term Equity Fund","amc":"BNP Paribas","ret":-5.93},"beat":24,"rank":16,"of":19},"Sectoral / Thematic":{"n":71,"median":4.29,"mean":5.76,"best":{"name":"DSP Natural Resources and New Energy Fund","amc":"DSP","ret":44.11},"worst":{"name":"Tata India Pharma & Healthcare Fund","amc":"Tata","ret":-13.15},"beat":41,"rank":18,"of":19},"Large Cap":{"n":26,"median":4.56,"mean":4.42,"best":{"name":"HDFC Large Cap Fund - Growth Option","amc":"HDFC","ret":9.3},"worst":{"name":"BNP Paribas LARGE CAP Fund","amc":"BNP Paribas","ret":-4.36},"beat":19,"rank":17,"of":19},"Aggressive Hybrid":{"n":20,"median":5.69,"mean":6.87,"best":{"name":"ICICI Prudential Equity & Debt Fund","amc":"ICICI Prudential","ret":15.23},"worst":{"name":"Edelweiss Aggressive Hybrid Fund","amc":"Edelweiss","ret":0.61},"beat":17,"rank":13,"of":19},"Flexi Cap":{"n":18,"median":5.47,"mean":5.47,"best":{"name":"Aditya Birla Sun Life Flexi Cap Fund - Growth","amc":"Aditya Birla Sun Life","ret":16.24},"worst":{"name":"BANDHAN Flexi Cap Fund","amc":"Bandhan","ret":-1.97},"beat":11,"rank":14,"of":19},"Large & Mid Cap":{"n":21,"median":7.94,"mean":7.96,"best":{"name":"LIC MF Large & Mid Cap Fund","amc":"LIC","ret":14.35},"worst":{"name":"SBI LARGE & MIDCAP FUND","amc":"SBI","ret":0.93},"beat":19,"rank":6,"of":19},"Conservative Hybrid":{"n":21,"median":10.55,"mean":10.84,"best":{"name":"Kotak Debt Hybrid - Growth","amc":"Kotak Mahindra","ret":14.47},"worst":{"name":"Axis Conservative Hybrid Fund","amc":"Axis","ret":5.77},"beat":21,"rank":1,"of":19},"Focused":{"n":15,"median":5.82,"mean":6.15,"best":{"name":"JM Focused Fund (Direct) - Growth Option","amc":"JM Financial","ret":13.11},"worst":{"name":"Sundaram Select Focus Direct Plan - Growth","amc":"Sundaram","ret":0.81},"beat":14,"rank":11,"of":19},"Equity Savings":{"n":11,"median":7.26,"mean":7.69,"best":{"name":"HDFC Equity Savings Fund - Growth Option","amc":"HDFC","ret":15.42},"worst":{"name":"Axis Equity Savings Fund","amc":"Axis","ret":3.66},"beat":11,"rank":7,"of":19},"Arbitrage":{"n":14,"median":7.18,"mean":7.28,"best":{"name":"Axis Arbitrage Fund","amc":"Axis","ret":7.84},"worst":{"name":"BANDHAN Arbitrage Fund","amc":"Bandhan","ret":6.96},"beat":14,"rank":8,"of":19},"Small Cap":{"n":14,"median":6.77,"mean":6.78,"best":{"name":"DSP Small Cap Fund","amc":"DSP","ret":13.58},"worst":{"name":"Union Small Cap Fund","amc":"Union","ret":-2.23},"beat":10,"rank":9,"of":19},"Mid Cap":{"n":20,"median":5.08,"mean":4.93,"best":{"name":"HDFC Mid Cap Fund - Growth Option","amc":"HDFC","ret":12.39},"worst":{"name":"Baroda Mid-cap Fund- Plan B (Direct) - Growth Option","amc":"Baroda","ret":-3.88},"beat":13,"rank":15,"of":19},"Retirement":{"n":9,"median":8.14,"mean":7.54,"best":{"name":"Tata Retirement Savings Fund- Conservative Plan","amc":"Tata","ret":12.09},"worst":{"name":"Nippon India Retirement Fund- Wealth Creation Scheme","amc":"Nippon India","ret":0.19},"beat":8,"rank":4,"of":19},"Balanced Advantage / Dynamic AA":{"n":13,"median":5.71,"mean":6.28,"best":{"name":"Aditya Birla Sun Life Balanced Advantage Fund","amc":"Aditya Birla Sun Life","ret":16.79},"worst":{"name":"Edelweiss Balanced Advantage Fund","amc":"Edelweiss","ret":-0.75},"beat":12,"rank":12,"of":19},"Multi Cap":{"n":10,"median":3.25,"mean":2.65,"best":{"name":"ICICI Prudential Multicap Fund","amc":"ICICI Prudential","ret":11.35},"worst":{"name":"Nippon India Multi Cap Fund","amc":"Nippon India","ret":-5.89},"beat":5,"rank":19,"of":19},"Multi Asset Allocation":{"n":8,"median":9.52,"mean":9.93,"best":{"name":"ICICI Prudential Multi-Asset Fund","amc":"ICICI Prudential","ret":13.38},"worst":{"name":"Union Asset Allocation Fund","amc":"Union","ret":7.99},"beat":8,"rank":2,"of":19},"Children's":{"n":6,"median":6.08,"mean":8.06,"best":{"name":"SBI Children's Fund - Savings Plan","amc":"SBI","ret":16.91},"worst":{"name":"Axis Children's Fund - Lock in","amc":"Axis","ret":3.82},"beat":6,"rank":10,"of":19},"Balanced Hybrid":{"n":1,"median":11.56,"mean":11.56,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":11.56},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":11.56},"beat":1,"of":19},"Contra":{"n":3,"median":8.56,"mean":6.79,"best":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":8.78},"worst":{"name":"SBI CONTRA FUND","amc":"SBI","ret":3.02},"beat":3,"rank":3,"of":19}},"2017":{"Value":{"n":14,"median":39.97,"mean":38.24,"best":{"name":"Bandhan Value Fund","amc":"Bandhan","ret":63.1},"worst":{"name":"Invesco India Gold ETF Fund of Fund","amc":"Invesco","ret":1.55},"beat":11,"rank":6,"of":19},"ELSS (tax saver)":{"n":39,"median":38.99,"mean":39.47,"best":{"name":"BANK OF INDIA ELSS Tax Saver","amc":"Bank of India","ret":59.93},"worst":{"name":"Quantum ELSS Tax Saver Fund","amc":"Quantum","ret":22.26},"beat":35,"rank":7,"of":19},"Sectoral / Thematic":{"n":71,"median":41.29,"mean":38.17,"best":{"name":"Tata India Consumer Fund","amc":"Tata","ret":76.19},"worst":{"name":"SBI HEALTHCARE OPPORTUNITIES FUND","amc":"SBI","ret":3.27},"beat":54,"rank":3,"of":19},"Large Cap":{"n":27,"median":31.62,"mean":32.04,"best":{"name":"Nippon India Large Cap Fund","amc":"Nippon India","ret":39.91},"worst":{"name":"JM Large Cap Fund (Direct) - Growth Option","amc":"JM Financial","ret":21.93},"beat":21,"rank":11,"of":19},"Aggressive Hybrid":{"n":23,"median":26.76,"mean":27.86,"best":{"name":"BANK OF INDIA MID & SMALL CAP EQUITY & DEBT FUND","amc":"Bank of India","ret":48.4},"worst":{"name":"JM Aggressive Hybrid Fund (Direct) - Growth Option","amc":"JM Financial","ret":18.55},"beat":9,"rank":12,"of":19},"Flexi Cap":{"n":19,"median":38.57,"mean":37.22,"best":{"name":"Edelweiss Flexi Cap Fund","amc":"Edelweiss","ret":47.9},"worst":{"name":"LIC MF Flexi Cap Fund","amc":"LIC","ret":26.9},"beat":17,"rank":8,"of":19},"Large & Mid Cap":{"n":22,"median":41.2,"mean":40.25,"best":{"name":"CANARA ROBECO LARGE AND MID CAP FUND","amc":"Canara Robeco","ret":54.08},"worst":{"name":"HDFC Large and Mid Cap Fund - Growth Option","amc":"HDFC","ret":29.54},"beat":22,"rank":4,"of":19},"Conservative Hybrid":{"n":22,"median":11.14,"mean":11.41,"best":{"name":"Aditya Birla Sun Life Regular Savings Fund - Growth / Payment","amc":"Aditya Birla Sun Life","ret":17.01},"worst":{"name":"LIC MF Conservative Hybrid Fund","amc":"LIC","ret":7.53},"beat":0,"rank":18,"of":19},"Focused":{"n":15,"median":37.1,"mean":38.4,"best":{"name":"Bandhan Focused Fund","amc":"Bandhan","ret":56.85},"worst":{"name":"ICICI Prudential Focused Equity Fund","amc":"ICICI Prudential","ret":24.86},"beat":14,"rank":10,"of":19},"Equity Savings":{"n":14,"median":15.82,"mean":14.24,"best":{"name":"Nippon India Equity Savings Fund","amc":"Nippon India","ret":19.11},"worst":{"name":"IDBI Equity Savings Fund Growth Option Direct","amc":"IDBI","ret":5.2},"beat":0,"rank":16,"of":19},"Arbitrage":{"n":17,"median":6.17,"mean":6.18,"best":{"name":"BNP PARIBAS ARBITRAGE FUND","amc":"BNP Paribas","ret":7.03},"worst":{"name":"Principal Arbitrage Fund","amc":"Principal","ret":5.54},"beat":0,"rank":19,"of":19},"Small Cap":{"n":14,"median":51.44,"mean":51.44,"best":{"name":"SBI Small Cap Fund","amc":"SBI","ret":80.44},"worst":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":5.26},"beat":13,"rank":1,"of":19},"Mid Cap":{"n":21,"median":44.48,"mean":43.78,"best":{"name":"L&T Mid Cap Fund","amc":"L&T","ret":53.66},"worst":{"name":"quant Mid Cap Fund - Growth Option","amc":"quant","ret":30.86},"beat":21,"rank":2,"of":19},"Retirement":{"n":12,"median":23.44,"mean":26.03,"best":{"name":"Tata Retirement Savings Fund- Progressive Plan","amc":"Tata","ret":50.99},"worst":{"name":"Nippon India Retirement Fund- Income Generation Scheme","amc":"Nippon India","ret":7.9},"beat":6,"rank":14,"of":19},"Balanced Advantage / Dynamic AA":{"n":14,"median":19.61,"mean":21.52,"best":{"name":"HDFC Balanced Advantage Fund - Growth Plan","amc":"HDFC","ret":36.3},"worst":{"name":"L&T Balanced Advantage Fund","amc":"L&T","ret":12.74},"beat":2,"rank":15,"of":19},"Multi Cap":{"n":10,"median":38.27,"mean":36.62,"best":{"name":"Principal Multi Cap Growth Fund","amc":"Principal","ret":49.83},"worst":{"name":"Principal Multi Cap Growth Fund","amc":"Principal","ret":18.97},"beat":8,"rank":9,"of":19},"Multi Asset Allocation":{"n":8,"median":12.21,"mean":13.96,"best":{"name":"ICICI Prudential Multi-Asset Fund","amc":"ICICI Prudential","ret":29.37},"worst":{"name":"quant Multi Asset Allocation Fund-GROWTH OPTION","amc":"quant","ret":1.99},"beat":1,"rank":17,"of":19},"Children's":{"n":6,"median":24.79,"mean":25.68,"best":{"name":"UTI Children's Equity Fund","amc":"UTI","ret":39.83},"worst":{"name":"LIC MF Children's Fund","amc":"LIC","ret":15.02},"beat":1,"rank":13,"of":19},"Balanced Hybrid":{"n":1,"median":22.28,"mean":22.28,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":22.28},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":22.28},"beat":0,"of":19},"Contra":{"n":3,"median":41.06,"mean":42.31,"best":{"name":"Invesco India Contra Fund","amc":"Invesco","ret":48.11},"worst":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":37.75},"beat":3,"rank":5,"of":19}},"2018":{"Value":{"n":14,"median":-8.94,"mean":-7.83,"best":{"name":"Invesco India Gold ETF Fund of Fund","amc":"Invesco","ret":6.97},"worst":{"name":"Aditya Birla Sun Life Value Fund - Growth","amc":"Aditya Birla Sun Life","ret":-22.55},"beat":1,"rank":17,"of":19},"ELSS (tax saver)":{"n":46,"median":-6.51,"mean":-7.72,"best":{"name":"Axis ELSS Tax Saver Fund","amc":"Axis","ret":3.73},"worst":{"name":"Sundaram Long Term Micro Cap Tax Advantage Fund Series IV Direct Plan - Growth","amc":"Sundaram","ret":-28.9},"beat":2,"rank":14,"of":19},"Sectoral / Thematic":{"n":72,"median":-7.53,"mean":-6.36,"best":{"name":"Tata Digital India Fund","amc":"Tata","ret":26.98},"worst":{"name":"HSBC Infrastructure Equity Fund - Growth Direct","amc":"HSBC","ret":-32.94},"beat":15,"rank":15,"of":19},"Large Cap":{"n":28,"median":-1.57,"mean":-0.84,"best":{"name":"Axis Large Cap Fund","amc":"Axis","ret":8.05},"worst":{"name":"Taurus Large Cap Fund","amc":"Taurus","ret":-5.53},"beat":2,"rank":8,"of":19},"Aggressive Hybrid":{"n":25,"median":-2.31,"mean":-2.26,"best":{"name":"Mirae Asset Aggressive Hybrid Fund","amc":"Mirae Asset","ret":2.8},"worst":{"name":"BANK OF INDIA MID & SMALL CAP EQUITY & DEBT FUND","amc":"Bank of India","ret":-13.45},"beat":0,"rank":10,"of":19},"Flexi Cap":{"n":20,"median":-4.03,"mean":-3.6,"best":{"name":"Axis Flexi Cap Fund","amc":"Axis","ret":8.84},"worst":{"name":"HSBC Flexi Cap Fund","amc":"HSBC","ret":-9.94},"beat":2,"rank":11,"of":19},"Large & Mid Cap":{"n":22,"median":-4.96,"mean":-6.36,"best":{"name":"Sundaram Large and Midcap Fund Direct Plan - Growth","amc":"Sundaram","ret":1.65},"worst":{"name":"Nippon India Vision Large & Mid Cap Fund","amc":"Nippon India","ret":-16.41},"beat":0,"rank":13,"of":19},"Conservative Hybrid":{"n":22,"median":3.61,"mean":2.98,"best":{"name":"Indiabulls Savings Income Fund","amc":"Indiabulls","ret":7.05},"worst":{"name":"DSP Regular Savings Fund","amc":"DSP","ret":-4.07},"beat":11,"rank":2,"of":19},"Focused":{"n":16,"median":-4.44,"mean":-5.17,"best":{"name":"Sundaram Select Focus Direct Plan - Growth","amc":"Sundaram","ret":2.86},"worst":{"name":"HDFC Focused Fund - Growth Option","amc":"HDFC","ret":-13.74},"beat":0,"rank":12,"of":19},"Equity Savings":{"n":15,"median":2.6,"mean":2.35,"best":{"name":"Axis Equity Savings Fund","amc":"Axis","ret":6.34},"worst":{"name":"Mahindra Manulife Equity Savings Fund","amc":"Mahindra Manulife","ret":-1.36},"beat":5,"rank":4,"of":19},"Arbitrage":{"n":17,"median":6.66,"mean":6.22,"best":{"name":"Nippon India Arbitrage Fund","amc":"Nippon India","ret":7.46},"worst":{"name":"Principal Arbitrage Fund","amc":"Principal","ret":-0.21},"beat":16,"rank":1,"of":19},"Small Cap":{"n":15,"median":-16.45,"mean":-16.39,"best":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":3.1},"worst":{"name":"Sundaram Small Cap Fund Direct Plan - Growth","amc":"Sundaram","ret":-28.63},"beat":0,"rank":19,"of":19},"Mid Cap":{"n":22,"median":-11.38,"mean":-10.6,"best":{"name":"Axis Midcap Fund","amc":"Axis","ret":4.62},"worst":{"name":"SBI MIDCAP FUND","amc":"SBI","ret":-17.05},"beat":1,"rank":18,"of":19},"Retirement":{"n":12,"median":0.38,"mean":-0.58,"best":{"name":"Nippon India Retirement Fund- Income Generation Scheme","amc":"Nippon India","ret":5.57},"worst":{"name":"Nippon India Retirement Fund- Wealth Creation Scheme","amc":"Nippon India","ret":-7.1},"beat":1,"rank":6,"of":19},"Balanced Advantage / Dynamic AA":{"n":15,"median":2.82,"mean":2.57,"best":{"name":"SBI Dynamic Asset Allocation Fund","amc":"SBI","ret":9.47},"worst":{"name":"Invesco India Balanced Advantage Fund","amc":"Invesco","ret":-3.44},"beat":6,"rank":3,"of":19},"Multi Cap":{"n":11,"median":-7.72,"mean":-5.0,"best":{"name":"Sundaram Multi Asset Fund Direct Growth","amc":"Sundaram","ret":5.54},"worst":{"name":"Invesco India Multicap Fund","amc":"Invesco","ret":-11.09},"beat":1,"rank":16,"of":19},"Multi Asset Allocation":{"n":8,"median":2.37,"mean":1.75,"best":{"name":"quant Multi Asset Allocation Fund-GROWTH OPTION","amc":"quant","ret":3.81},"worst":{"name":"HDFC Multi-Asset Fund - Growth Option","amc":"HDFC","ret":-1.29},"beat":3,"rank":5,"of":19},"Children's":{"n":6,"median":-1.22,"mean":-2.25,"best":{"name":"Axis Children's Fund - No Lock in","amc":"Axis","ret":1.89},"worst":{"name":"Tata Childrens Fund","amc":"Tata","ret":-7.8},"beat":0,"rank":7,"of":19},"Balanced Hybrid":{"n":1,"median":4.62,"mean":4.62,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":4.62},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":4.62},"beat":1,"of":19},"Contra":{"n":3,"median":-1.97,"mean":-3.92,"best":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":3.82},"worst":{"name":"SBI CONTRA FUND","amc":"SBI","ret":-13.62},"beat":1,"rank":9,"of":19}},"2019":{"Value":{"n":16,"median":4.57,"mean":4.26,"best":{"name":"Invesco India Gold ETF Fund of Fund","amc":"Invesco","ret":21.89},"worst":{"name":"Aditya Birla Sun Life Value Fund - Growth","amc":"Aditya Birla Sun Life","ret":-9.6},"beat":2,"rank":17,"of":19},"ELSS (tax saver)":{"n":56,"median":9.7,"mean":7.22,"best":{"name":"SBI Tax Advantage Fund - Series III","amc":"SBI","ret":22.62},"worst":{"name":"Sundaram Long Term Micro Cap Tax Advantage Fund Series VI Direct Plan - Growth","amc":"Sundaram","ret":-12.45},"beat":17,"rank":8,"of":19},"Sectoral / Thematic":{"n":78,"median":7.21,"mean":9.34,"best":{"name":"ICICI Prudential US Bluechip Equity Fund","amc":"ICICI Prudential","ret":35.49},"worst":{"name":"HSBC Infrastructure Equity Fund - Growth Direct","amc":"HSBC","ret":-14.36},"beat":25,"rank":13,"of":19},"Large Cap":{"n":28,"median":13.04,"mean":12.86,"best":{"name":"Axis Large Cap Fund","amc":"Axis","ret":19.97},"worst":{"name":"JM Large Cap Fund (Direct) - Growth Option","amc":"JM Financial","ret":5.91},"beat":19,"rank":1,"of":19},"Aggressive Hybrid":{"n":31,"median":10.04,"mean":9.31,"best":{"name":"BNP PARIBAS SUBSTANTIAL EQUITY HYBRID FUND","amc":"BNP Paribas","ret":17.97},"worst":{"name":"JM Aggressive Hybrid Fund (Direct) - Growth Option","amc":"JM Financial","ret":-6.84},"beat":12,"rank":6,"of":19},"Flexi Cap":{"n":23,"median":12.08,"mean":11.08,"best":{"name":"Axis Flexi Cap Fund","amc":"Axis","ret":19.04},"worst":{"name":"quant Flexi Cap Fund - Growth Option","amc":"quant","ret":-1.87},"beat":12,"rank":3,"of":19},"Large & Mid Cap":{"n":23,"median":9.87,"mean":9.65,"best":{"name":"Axis Large & Mid Cap Fund","amc":"Axis","ret":18.79},"worst":{"name":"UTI Large & Mid Cap Fund","amc":"UTI","ret":1.96},"beat":7,"rank":7,"of":19},"Conservative Hybrid":{"n":20,"median":8.86,"mean":8.1,"best":{"name":"Kotak Debt Hybrid - Growth","amc":"Kotak Mahindra","ret":12.43},"worst":{"name":"Sundaram Conservative Hybrid Fund (Formerly Known as Sundaram Debt Oriented Hybrid Fund) Direct Plan - Growth","amc":"Sundaram","ret":1.7},"beat":1,"rank":10,"of":19},"Focused":{"n":17,"median":12.75,"mean":13.06,"best":{"name":"360 ONE Focused Fund","amc":"360 ONE","ret":29.23},"worst":{"name":"ICICI Prudential Focused Equity Fund","amc":"ICICI Prudential","ret":1.4},"beat":11,"rank":2,"of":19},"Equity Savings":{"n":20,"median":8.64,"mean":7.69,"best":{"name":"Mirae Asset Equity Savings Fund","amc":"Mirae Asset","ret":12.25},"worst":{"name":"Nippon India Equity Savings Fund","amc":"Nippon India","ret":-5.56},"beat":1,"rank":12,"of":19},"Arbitrage":{"n":21,"median":6.59,"mean":6.41,"best":{"name":"Tata Arbitrage Fund","amc":"Tata","ret":7.2},"worst":{"name":"Principal Arbitrage Fund","amc":"Principal","ret":4.17},"beat":0,"rank":15,"of":19},"Small Cap":{"n":18,"median":0.01,"mean":-0.32,"best":{"name":"Axis Small Cap Fund","amc":"Axis","ret":20.84},"worst":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":-23.24},"beat":1,"rank":19,"of":19},"Mid Cap":{"n":23,"median":4.51,"mean":4.19,"best":{"name":"Axis Midcap Fund","amc":"Axis","ret":12.8},"worst":{"name":"Aditya Birla Sun Life Midcap Fund - Growth","amc":"Aditya Birla Sun Life","ret":-2.86},"beat":1,"rank":18,"of":19},"Retirement":{"n":12,"median":8.73,"mean":7.65,"best":{"name":"Tata Retirement Savings Fund- Progressive Plan","amc":"Tata","ret":13.54},"worst":{"name":"Principal Retirement Savings Fund - Conservative Plan","amc":"Principal","ret":2.98},"beat":1,"rank":11,"of":19},"Balanced Advantage / Dynamic AA":{"n":17,"median":9.57,"mean":8.85,"best":{"name":"Kotak Balanced Advantage Fund","amc":"Kotak Mahindra","ret":13.24},"worst":{"name":"BANK OF INDIA BALANCED ADVANTAGE FUND DIRECT PLAN GROWTH","amc":"Bank of India","ret":-3.06},"beat":3,"rank":9,"of":19},"Multi Cap":{"n":10,"median":5.88,"mean":7.6,"best":{"name":"Mahindra Manulife Multi Cap Fund","amc":"Mahindra Manulife","ret":15.72},"worst":{"name":"Nippon India Multi Cap Fund","amc":"Nippon India","ret":2.84},"beat":2,"rank":16,"of":19},"Multi Asset Allocation":{"n":7,"median":10.79,"mean":10.41,"best":{"name":"Axis Multi Asset Allocation Fund","amc":"Axis","ret":16.59},"worst":{"name":"UTI Multi Asset Allocation Fund","amc":"UTI","ret":4.78},"beat":1,"rank":5,"of":19},"Children's":{"n":6,"median":10.86,"mean":10.09,"best":{"name":"Axis Children's Fund - No Lock in","amc":"Axis","ret":14.72},"worst":{"name":"SBI Children's Fund - Savings Plan","amc":"SBI","ret":3.5},"beat":3,"rank":4,"of":19},"Balanced Hybrid":{"n":1,"median":12.4,"mean":12.4,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":12.4},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":12.4},"beat":1,"of":19},"Contra":{"n":3,"median":7.1,"mean":6.09,"best":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":11.63},"worst":{"name":"SBI CONTRA FUND","amc":"SBI","ret":-0.47},"beat":0,"rank":14,"of":19}},"2020":{"Value":{"n":16,"median":16.1,"mean":16.55,"best":{"name":"Invesco India Gold ETF Fund of Fund","amc":"Invesco","ret":27.77},"worst":{"name":"Sundaram Value Fund Direct Plan - Growth","amc":"Sundaram","ret":10.26},"beat":9,"rank":8,"of":19},"ELSS (tax saver)":{"n":57,"median":17.94,"mean":19.13,"best":{"name":"quant ELSS Tax Saver Fund - Growth Option","amc":"quant","ret":49.66},"worst":{"name":"Nippon India ELSS Tax Saver Fund","amc":"Nippon India","ret":0.27},"beat":39,"rank":4,"of":19},"Sectoral / Thematic":{"n":86,"median":14.44,"mean":21.2,"best":{"name":"DSP Healthcare Fund","amc":"DSP","ret":79.99},"worst":{"name":"Nippon India Banking & Financial Services Fund","amc":"Nippon India","ret":-9.9},"beat":42,"rank":13,"of":19},"Large Cap":{"n":29,"median":15.03,"mean":15.16,"best":{"name":"CANARA ROBECO LARGE CAP FUND","amc":"Canara Robeco","ret":24.85},"worst":{"name":"Nippon India Large Cap Fund","amc":"Nippon India","ret":5.85},"beat":18,"rank":10,"of":19},"Aggressive Hybrid":{"n":33,"median":14.83,"mean":15.68,"best":{"name":"quant Aggressive Hybrid Fund-Growth Option","amc":"quant","ret":37.28},"worst":{"name":"Nippon India Aggressive Hybrid Fund","amc":"Nippon India","ret":-4.55},"beat":16,"rank":12,"of":19},"Flexi Cap":{"n":23,"median":16.49,"mean":19.0,"best":{"name":"quant Flexi Cap Fund - Growth Option","amc":"quant","ret":49.11},"worst":{"name":"Taurus Flexi Cap Fund","amc":"Taurus","ret":6.76},"beat":13,"rank":7,"of":19},"Large & Mid Cap":{"n":26,"median":15.85,"mean":17.41,"best":{"name":"quant Large & Mid Cap Fund - Growth Option","amc":"quant","ret":28.97},"worst":{"name":"Sundaram Large and Midcap Fund Direct Plan - Growth","amc":"Sundaram","ret":9.1},"beat":16,"rank":9,"of":19},"Conservative Hybrid":{"n":20,"median":10.77,"mean":10.27,"best":{"name":"Kotak Debt Hybrid - Growth","amc":"Kotak Mahindra","ret":15.18},"worst":{"name":"Nippon India Conservative Hybrid Fund","amc":"Nippon India","ret":-7.95},"beat":3,"rank":18,"of":19},"Focused":{"n":21,"median":16.94,"mean":17.09,"best":{"name":"ICICI Prudential Focused Equity Fund","amc":"ICICI Prudential","ret":26.0},"worst":{"name":"HDFC Focused Fund - Growth Option","amc":"HDFC","ret":5.2},"beat":13,"rank":6,"of":19},"Equity Savings":{"n":23,"median":11.03,"mean":10.38,"best":{"name":"Principal Equity Savings Fund","amc":"Principal","ret":15.95},"worst":{"name":"Nippon India Equity Savings Fund","amc":"Nippon India","ret":-5.19},"beat":2,"rank":17,"of":19},"Arbitrage":{"n":24,"median":4.71,"mean":4.42,"best":{"name":"Tata Arbitrage Fund","amc":"Tata","ret":5.79},"worst":{"name":"Navi Arbitrage Fund","amc":"Navi","ret":1.15},"beat":0,"rank":19,"of":19},"Small Cap":{"n":21,"median":30.34,"mean":32.34,"best":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":76.13},"worst":{"name":"L&T Emerging Businesses Fund","amc":"L&T","ret":16.76},"beat":21,"rank":1,"of":19},"Mid Cap":{"n":25,"median":25.32,"mean":25.76,"best":{"name":"PGIM India Midcap Fund","amc":"PGIM India","ret":51.13},"worst":{"name":"Motilal Oswal Midcap Fund","amc":"Motilal Oswal","ret":10.67},"beat":23,"rank":2,"of":19},"Retirement":{"n":23,"median":13.63,"mean":13.45,"best":{"name":"HDFC Retirement Savings Fund - Equity Plan - Growth Option","amc":"HDFC","ret":19.76},"worst":{"name":"Nippon India Retirement Fund- Wealth Creation Scheme","amc":"Nippon India","ret":1.72},"beat":10,"rank":16,"of":19},"Balanced Advantage / Dynamic AA":{"n":20,"median":13.92,"mean":14.48,"best":{"name":"Baroda BNP Paribas Balanced Advantage Fund","amc":"Baroda BNP Paribas","ret":27.86},"worst":{"name":"BANK OF INDIA BALANCED ADVANTAGE FUND DIRECT PLAN GROWTH","amc":"Bank of India","ret":7.34},"beat":7,"rank":14,"of":19},"Multi Cap":{"n":12,"median":13.89,"mean":15.5,"best":{"name":"quant Multi Cap Fund-GROWTH OPTION","amc":"quant","ret":44.93},"worst":{"name":"Nippon India Multi Cap Fund","amc":"Nippon India","ret":0.77},"beat":5,"rank":15,"of":19},"Multi Asset Allocation":{"n":7,"median":14.95,"mean":17.52,"best":{"name":"quant Multi Asset Allocation Fund-GROWTH OPTION","amc":"quant","ret":27.08},"worst":{"name":"ICICI Prudential Multi-Asset Fund","amc":"ICICI Prudential","ret":10.66},"beat":4,"rank":11,"of":19},"Children's":{"n":7,"median":17.04,"mean":17.49,"best":{"name":"Tata Childrens Fund","amc":"Tata","ret":22.27},"worst":{"name":"LIC MF Children's Fund","amc":"LIC","ret":13.52},"beat":6,"rank":5,"of":19},"Balanced Hybrid":{"n":1,"median":11.52,"mean":11.52,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":11.52},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":11.52},"beat":0,"of":19},"Contra":{"n":3,"median":22.63,"mean":23.57,"best":{"name":"SBI CONTRA FUND","amc":"SBI","ret":31.37},"worst":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":16.71},"beat":3,"rank":3,"of":19}},"2021":{"Value":{"n":17,"median":35.28,"mean":34.46,"best":{"name":"Bandhan Value Fund","amc":"Bandhan","ret":66.24},"worst":{"name":"Invesco India Gold ETF Fund of Fund","amc":"Invesco","ret":-5.15},"beat":16,"rank":7,"of":19},"ELSS (tax saver)":{"n":53,"median":36.05,"mean":40.07,"best":{"name":"Sundaram Long Term Micro Cap Tax Advantage Fund Series VI Direct Plan - Growth","amc":"Sundaram","ret":80.54},"worst":{"name":"Aditya Birla Sun Life Tax Plan","amc":"Aditya Birla Sun Life","ret":12.68},"beat":47,"rank":5,"of":19},"Sectoral / Thematic":{"n":96,"median":32.66,"mean":36.17,"best":{"name":"quant Infrastructure Fund - Growth Option","amc":"quant","ret":84.2},"worst":{"name":"Franklin Asian Equity Fund","amc":"Franklin Templeton","ret":-5.16},"beat":72,"rank":9,"of":19},"Large Cap":{"n":32,"median":27.71,"mean":27.34,"best":{"name":"Invesco India Largecap Fund","amc":"Invesco","ret":34.42},"worst":{"name":"Taurus Large Cap Fund","amc":"Taurus","ret":18.06},"beat":25,"rank":12,"of":19},"Aggressive Hybrid":{"n":34,"median":25.04,"mean":26.38,"best":{"name":"BANK OF INDIA MID & SMALL CAP EQUITY & DEBT FUND","amc":"Bank of India","ret":55.77},"worst":{"name":"Nippon India Equity Hybrid Fund - Segregated Portfolio 1","amc":"Nippon India","ret":0.0},"beat":24,"rank":13,"of":19},"Flexi Cap":{"n":24,"median":34.19,"mean":34.41,"best":{"name":"quant Flexi Cap Fund - Growth Option","amc":"quant","ret":58.27},"worst":{"name":"Motilal Oswal Flexi cap Fund Direct Plan-Growth Option","amc":"Motilal Oswal","ret":16.33},"beat":20,"rank":8,"of":19},"Large & Mid Cap":{"n":28,"median":39.38,"mean":39.09,"best":{"name":"Mahindra Manulife Large & Mid Cap Fund","amc":"Mahindra Manulife","ret":48.04},"worst":{"name":"Tata Large & MId Cap Fund","amc":"Tata","ret":29.91},"beat":28,"rank":4,"of":19},"Conservative Hybrid":{"n":20,"median":10.7,"mean":9.65,"best":{"name":"Sundaram Conservative Hybrid Fund (Formerly Known as Sundaram Debt Oriented Hybrid Fund) Direct Plan - Growth","amc":"Sundaram","ret":15.39},"worst":{"name":"UTI - Regular Saving Fund (Segregated - 17022020)","amc":"UTI","ret":-15.58},"beat":0,"rank":18,"of":19},"Focused":{"n":24,"median":35.42,"mean":32.83,"best":{"name":"SBI FOCUSED FUND","amc":"SBI","ret":44.53},"worst":{"name":"Motilal Oswal Focused Fund","amc":"Motilal Oswal","ret":15.98},"beat":19,"rank":6,"of":19},"Equity Savings":{"n":23,"median":13.78,"mean":13.12,"best":{"name":"Principal Equity Savings Fund","amc":"Principal","ret":19.27},"worst":{"name":"Nippon India Equity Savings Fund - Segregated Portfolio 1","amc":"Nippon India","ret":0.0},"beat":0,"rank":17,"of":19},"Arbitrage":{"n":26,"median":4.18,"mean":4.03,"best":{"name":"Axis Arbitrage Fund","amc":"Axis","ret":4.61},"worst":{"name":"Principal Arbitrage Fund","amc":"Principal","ret":2.77},"beat":0,"rank":19,"of":19},"Small Cap":{"n":24,"median":65.66,"mean":65.53,"best":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":91.73},"worst":{"name":"ITI Small Cap Fund","amc":"ITI","ret":34.93},"beat":24,"rank":1,"of":19},"Mid Cap":{"n":26,"median":46.11,"mean":46.31,"best":{"name":"PGIM India Midcap Fund","amc":"PGIM India","ret":66.92},"worst":{"name":"DSP Midcap Fund","amc":"DSP","ret":29.58},"beat":26,"rank":2,"of":19},"Retirement":{"n":20,"median":14.18,"mean":18.27,"best":{"name":"ICICI Prudential Retirement Fund - Pure Equity","amc":"ICICI Prudential","ret":49.34},"worst":{"name":"Aditya Birla Sun Life Retirement Fund-The 50s Plus-Debt Plan","amc":"Aditya Birla Sun Life","ret":3.28},"beat":6,"rank":16,"of":19},"Balanced Advantage / Dynamic AA":{"n":21,"median":14.82,"mean":15.3,"best":{"name":"HDFC Balanced Advantage Fund - Growth Plan","amc":"HDFC","ret":27.11},"worst":{"name":"BANK OF INDIA BALANCED ADVANTAGE FUND DIRECT PLAN GROWTH","amc":"Bank of India","ret":7.7},"beat":2,"rank":15,"of":19},"Multi Cap":{"n":12,"median":41.45,"mean":41.79,"best":{"name":"quant Multi Cap Fund-GROWTH OPTION","amc":"quant","ret":58.68},"worst":{"name":"ITI Multi Cap Fund","amc":"ITI","ret":21.85},"beat":11,"rank":3,"of":19},"Multi Asset Allocation":{"n":10,"median":21.53,"mean":23.73,"best":{"name":"quant Multi Asset Allocation Fund-GROWTH OPTION","amc":"quant","ret":56.97},"worst":{"name":"Motilal Oswal Multi Asset Fund","amc":"Motilal Oswal","ret":5.92},"beat":4,"rank":14,"of":19},"Children's":{"n":8,"median":28.16,"mean":31.82,"best":{"name":"SBI Children's Fund - Investment Plan","amc":"SBI","ret":80.01},"worst":{"name":"ADITYA BIRLA SUN LIFE BAL BHAVISHYA YOJNA DIRECT GROWTH","amc":"Aditya Birla Sun Life","ret":14.24},"beat":5,"rank":11,"of":19},"Balanced Hybrid":{"n":1,"median":28.76,"mean":28.76,"best":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":28.76},"worst":{"name":"Sundaram Equity Hybrid Fund Direct Plan - Growth","amc":"Sundaram","ret":28.76},"beat":1,"of":19},"Contra":{"n":3,"median":31.94,"mean":38.06,"best":{"name":"SBI CONTRA FUND","amc":"SBI","ret":50.98},"worst":{"name":"Invesco India Contra Fund","amc":"Invesco","ret":31.26},"beat":3,"rank":10,"of":19}},"2022":{"Value":{"n":20,"median":5.71,"mean":7.38,"best":{"name":"Quant Value Fund - Growth Option","amc":"quant","ret":17.29},"worst":{"name":"DSP Value Fund","amc":"DSP","ret":-1.8},"beat":16,"rank":3,"of":20},"ELSS (tax saver)":{"n":49,"median":3.96,"mean":3.45,"best":{"name":"quant ELSS Tax Saver Fund - Growth Option","amc":"quant","ret":14.18},"worst":{"name":"Axis ELSS Tax Saver Fund","amc":"Axis","ret":-11.23},"beat":23,"rank":10,"of":20},"Sectoral / Thematic":{"n":104,"median":5.12,"mean":4.15,"best":{"name":"Aditya Birla Sun Life PSU Equity Fund","amc":"Aditya Birla Sun Life","ret":30.52},"worst":{"name":"Nippon India Taiwan Equity Fund","amc":"Nippon India","ret":-33.29},"beat":54,"rank":5,"of":20},"Large Cap":{"n":28,"median":3.13,"mean":3.05,"best":{"name":"Nippon India Large Cap Fund","amc":"Nippon India","ret":12.3},"worst":{"name":"Axis Large Cap Fund","amc":"Axis","ret":-4.62},"beat":9,"rank":14,"of":20},"Aggressive Hybrid":{"n":29,"median":3.78,"mean":3.79,"best":{"name":"quant Aggressive Hybrid Fund-Growth Option","amc":"quant","ret":15.26},"worst":{"name":"Axis Aggressive Hybrid Fund","amc":"Axis","ret":-3.95},"beat":14,"rank":12,"of":20},"Flexi Cap":{"n":27,"median":0.74,"mean":1.39,"best":{"name":"HDFC Flexi Cap Fund - Growth Option","amc":"HDFC","ret":19.09},"worst":{"name":"UTI - Flexi Cap Fund-Growth Option","amc":"UTI","ret":-12.68},"beat":7,"rank":19,"of":20},"Large & Mid Cap":{"n":26,"median":2.97,"mean":2.92,"best":{"name":"quant Large & Mid Cap Fund - Growth Option","amc":"quant","ret":15.02},"worst":{"name":"Aditya Birla Sun Life Large & Mid Cap Fund - Growth","amc":"Aditya Birla Sun Life","ret":-12.23},"beat":9,"rank":15,"of":20},"Conservative Hybrid":{"n":17,"median":4.75,"mean":4.41,"best":{"name":"Parag Parikh Conservative Hybrid Fund","amc":"PPFAS","ret":7.87},"worst":{"name":"BANDHAN Conservative Hybrid Fund","amc":"Bandhan","ret":1.09},"beat":9,"rank":7,"of":20},"Focused":{"n":22,"median":2.29,"mean":2.48,"best":{"name":"HDFC Focused Fund - Growth Option","amc":"HDFC","ret":19.93},"worst":{"name":"Axis Focused Fund","amc":"Axis","ret":-13.56},"beat":8,"rank":18,"of":20},"Equity Savings":{"n":20,"median":4.17,"mean":3.81,"best":{"name":"Kotak Equity Savings Fund","amc":"Kotak Mahindra","ret":7.9},"worst":{"name":"Nippon India Equity Savings Fund - Segregated Portfolio 1","amc":"Nippon India","ret":0.0},"beat":8,"rank":9,"of":20},"Arbitrage":{"n":22,"median":4.76,"mean":4.61,"best":{"name":"Invesco India Arbitrage Fund","amc":"Invesco","ret":5.85},"worst":{"name":"ITI Arbitrage Fund","amc":"ITI","ret":3.23},"beat":17,"rank":6,"of":20},"Small Cap":{"n":22,"median":2.38,"mean":2.73,"best":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":11.2},"worst":{"name":"Aditya Birla Sun Life Small Cap Fund - Growth","amc":"Aditya Birla Sun Life","ret":-5.48},"beat":8,"rank":17,"of":20},"Mid Cap":{"n":23,"median":3.95,"mean":3.74,"best":{"name":"quant Mid Cap Fund - Growth Option","amc":"quant","ret":19.94},"worst":{"name":"Aditya Birla Sun Life Midcap Fund - Growth","amc":"Aditya Birla Sun Life","ret":-4.47},"beat":8,"rank":11,"of":20},"Retirement":{"n":24,"median":2.77,"mean":2.71,"best":{"name":"HDFC Retirement Savings Fund - Equity Plan - Growth Option","amc":"HDFC","ret":9.95},"worst":{"name":"Axis Retirement Fund - Aggressive Plan","amc":"Axis","ret":-5.62},"beat":8,"rank":16,"of":20},"Balanced Advantage / Dynamic AA":{"n":21,"median":4.57,"mean":5.2,"best":{"name":"HDFC Balanced Advantage Fund - Growth Plan","amc":"HDFC","ret":19.56},"worst":{"name":"ITI Balanced Advantage Fund","amc":"ITI","ret":-1.18},"beat":11,"rank":8,"of":20},"Multi Cap":{"n":12,"median":5.29,"mean":5.94,"best":{"name":"Nippon India Multi Cap Fund","amc":"Nippon India","ret":14.97},"worst":{"name":"Baroda BNP Paribas MULTI CAP FUND","amc":"Baroda BNP Paribas","ret":-2.04},"beat":7,"rank":4,"of":20},"Multi Asset Allocation":{"n":9,"median":5.77,"mean":6.84,"best":{"name":"ICICI Prudential Multi-Asset Fund","amc":"ICICI Prudential","ret":17.61},"worst":{"name":"Axis Multi Asset Allocation Fund","amc":"Axis","ret":-4.31},"beat":7,"rank":2,"of":20},"Children's":{"n":8,"median":0.69,"mean":-0.43,"best":{"name":"SBI Children's Fund - Investment Plan","amc":"SBI","ret":6.24},"worst":{"name":"Axis Children's Fund - Lock in","amc":"Axis","ret":-6.22},"beat":1,"rank":20,"of":20},"Contra":{"n":3,"median":8.88,"mean":9.2,"best":{"name":"SBI CONTRA FUND","amc":"SBI","ret":13.63},"worst":{"name":"Invesco India Contra Fund","amc":"Invesco","ret":5.09},"beat":3,"rank":1,"of":20},"Index Funds (passive)":{"n":3,"median":3.49,"mean":-2.42,"best":{"name":"Aditya Birla Sun Life Nifty 50 Equal Weight Index Fund","amc":"Aditya Birla Sun Life","ret":7.31},"worst":{"name":"Aditya Birla Sun Life Nifty Smallcap 50 Index Fund","amc":"Aditya Birla Sun Life","ret":-18.06},"beat":1,"rank":13,"of":20}},"2023":{"Value":{"n":21,"median":34.3,"mean":33.42,"best":{"name":"JM Value Fund (Direct) - Growth Option","amc":"JM Financial","ret":48.68},"worst":{"name":"Aditya Birla Sun Life Silver ETF FOF","amc":"Aditya Birla Sun Life","ret":7.35},"beat":19,"rank":5,"of":20},"ELSS (tax saver)":{"n":53,"median":28.87,"mean":31.35,"best":{"name":"Sundaram Long Term Tax Advantage Fund Series IV Direct Plan - Growth","amc":"Sundaram","ret":51.0},"worst":{"name":"SBI Long Term Advantage Fund - Series V","amc":"SBI","ret":17.08},"beat":51,"rank":11,"of":20},"Sectoral / Thematic":{"n":115,"median":32.8,"mean":34.07,"best":{"name":"Aditya Birla Sun Life PSU Equity Fund","amc":"Aditya Birla Sun Life","ret":61.5},"worst":{"name":"Franklin Asian Equity Fund","amc":"Franklin Templeton","ret":1.67},"beat":109,"rank":7,"of":20},"Large Cap":{"n":30,"median":24.57,"mean":25.26,"best":{"name":"Nippon India Large Cap Fund","amc":"Nippon India","ret":33.23},"worst":{"name":"LIC MF Large Cap Fund","amc":"LIC","ret":18.06},"beat":27,"rank":12,"of":20},"Aggressive Hybrid":{"n":31,"median":21.95,"mean":22.01,"best":{"name":"JM Aggressive Hybrid Fund (Direct) - Growth Option","amc":"JM Financial","ret":35.47},"worst":{"name":"Nippon India Equity Hybrid Fund - Segregated Portfolio 1","amc":"Nippon India","ret":0.0},"beat":21,"rank":15,"of":20},"Flexi Cap":{"n":32,"median":29.46,"mean":29.77,"best":{"name":"JM Flexicap Fund (Direct) - Growth Option","amc":"JM Financial","ret":41.55},"worst":{"name":"UTI - Flexi Cap Fund-Growth Option","amc":"UTI","ret":20.73},"beat":32,"rank":10,"of":20},"Large & Mid Cap":{"n":26,"median":31.3,"mean":31.43,"best":{"name":"Motilal Oswal Large and Midcap Fund","amc":"Motilal Oswal","ret":40.01},"worst":{"name":"Tata Large & MId Cap Fund","amc":"Tata","ret":24.18},"beat":26,"rank":8,"of":20},"Conservative Hybrid":{"n":18,"median":12.1,"mean":11.75,"best":{"name":"Kotak Debt Hybrid - Growth","amc":"Kotak Mahindra","ret":15.4},"worst":{"name":"LIC MF Conservative Hybrid Fund","amc":"LIC","ret":8.26},"beat":0,"rank":19,"of":20},"Focused":{"n":25,"median":29.82,"mean":28.03,"best":{"name":"Invesco India Focused Fund","amc":"Invesco","ret":36.29},"worst":{"name":"Axis Focused Fund","amc":"Axis","ret":18.36},"beat":23,"rank":9,"of":20},"Arbitrage":{"n":25,"median":7.78,"mean":7.63,"best":{"name":"Invesco India Arbitrage Fund","amc":"Invesco","ret":8.07},"worst":{"name":"Mahindra Manulife Arbitrage Fund","amc":"Mahindra Manulife","ret":6.65},"beat":0,"rank":20,"of":20},"Equity Savings":{"n":21,"median":14.67,"mean":13.87,"best":{"name":"SBI Equity Savings Fund","amc":"SBI","ret":18.13},"worst":{"name":"Nippon India Equity Savings Fund - Segregated Portfolio 1","amc":"Nippon India","ret":0.0},"beat":0,"rank":18,"of":20},"Small Cap":{"n":23,"median":42.98,"mean":43.19,"best":{"name":"Mahindra Manulife Small Cap Fund","amc":"Mahindra Manulife","ret":60.03},"worst":{"name":"PGIM India Small Cap Fund","amc":"PGIM India","ret":25.85},"beat":23,"rank":1,"of":20},"Mid Cap":{"n":28,"median":39.25,"mean":38.73,"best":{"name":"Nippon India Growth Mid Cap Fund","amc":"Nippon India","ret":49.76},"worst":{"name":"PGIM India Midcap Fund","amc":"PGIM India","ret":22.47},"beat":28,"rank":2,"of":20},"Retirement":{"n":25,"median":21.49,"mean":21.32,"best":{"name":"ICICI Prudential Retirement Fund - Pure Equity","amc":"ICICI Prudential","ret":39.85},"worst":{"name":"Aditya Birla Sun Life Retirement Fund-The 50s Plus-Debt Plan","amc":"Aditya Birla Sun Life","ret":6.4},"beat":14,"rank":16,"of":20},"Balanced Advantage / Dynamic AA":{"n":26,"median":19.5,"mean":20.12,"best":{"name":"HDFC Balanced Advantage Fund - Growth Plan","amc":"HDFC","ret":32.13},"worst":{"name":"LIC MF Balanced Advantage Fund","amc":"LIC","ret":15.21},"beat":11,"rank":17,"of":20},"Multi Cap":{"n":16,"median":33.58,"mean":34.48,"best":{"name":"HDFC Multi Cap Fund - Growth Option","amc":"HDFC","ret":41.93},"worst":{"name":"SBI Multicap Fund","amc":"SBI","ret":23.63},"beat":16,"rank":6,"of":20},"Multi Asset Allocation":{"n":10,"median":24.28,"mean":22.41,"best":{"name":"UTI Multi Asset Allocation Fund","amc":"UTI","ret":30.21},"worst":{"name":"Axis Multi Asset Allocation Fund","amc":"Axis","ret":14.36},"beat":7,"rank":13,"of":20},"Children's":{"n":8,"median":23.64,"mean":22.28,"best":{"name":"SBI Children's Fund - Investment Plan","amc":"SBI","ret":31.47},"worst":{"name":"Axis Children's Fund - Lock in","amc":"Axis","ret":14.72},"beat":5,"rank":14,"of":20},"Contra":{"n":3,"median":36.86,"mean":35.56,"best":{"name":"SBI CONTRA FUND","amc":"SBI","ret":39.53},"worst":{"name":"Invesco India Contra Fund","amc":"Invesco","ret":30.29},"beat":3,"rank":4,"of":20},"Index Funds (passive)":{"n":4,"median":37.24,"mean":41.08,"best":{"name":"Aditya Birla Sun Life Nifty Smallcap 50 Index Fund","amc":"Aditya Birla Sun Life","ret":63.34},"worst":{"name":"Aditya Birla Sun Life Nifty Next 50 Index Fund","amc":"Aditya Birla Sun Life","ret":26.49},"beat":4,"rank":3,"of":20}},"2024":{"Value":{"n":23,"median":20.65,"mean":21.19,"best":{"name":"LIC MF Value Fund","amc":"LIC","ret":30.38},"worst":{"name":"Sundaram Value Fund Direct Plan - Growth","amc":"Sundaram","ret":12.66},"beat":23,"rank":8,"of":20},"ELSS (tax saver)":{"n":55,"median":19.94,"mean":20.79,"best":{"name":"Motilal Oswal ELSS Tax Saver Fund","amc":"Motilal Oswal","ret":49.5},"worst":{"name":"NAVI ELSS TAX SAVER NIFTY 50 INDEX FUND","amc":"Navi","ret":9.73},"beat":55,"rank":9,"of":20},"Sectoral / Thematic":{"n":145,"median":22.14,"mean":23.52,"best":{"name":"HDFC Pharma and Healthcare Fund - Growth Option","amc":"HDFC","ret":52.22},"worst":{"name":"ICICI Prudential FMCG Fund","amc":"ICICI Prudential","ret":1.57},"beat":139,"rank":7,"of":20},"Large Cap":{"n":30,"median":16.31,"mean":16.47,"best":{"name":"WhiteOak Capital Large Cap Fund Direct Plan Growth","amc":"WhiteOak Capital","ret":22.98},"worst":{"name":"PGIM India Large Cap Fund","amc":"PGIM India","ret":11.08},"beat":30,"rank":14,"of":20},"Aggressive Hybrid":{"n":30,"median":17.48,"mean":18.15,"best":{"name":"JM Aggressive Hybrid Fund (Direct) - Growth Option","amc":"JM Financial","ret":29.28},"worst":{"name":"Nippon India Equity Hybrid Fund - Segregated Portfolio 1","amc":"Nippon India","ret":0.0},"beat":29,"rank":12,"of":20},"Flexi Cap":{"n":38,"median":19.44,"mean":21.98,"best":{"name":"Motilal Oswal Flexi cap Fund Direct Plan-Growth Option","amc":"Motilal Oswal","ret":46.96},"worst":{"name":"Samco Flexi Cap Fund","amc":"Samco","ret":6.08},"beat":37,"rank":11,"of":20},"Large & Mid Cap":{"n":27,"median":25.11,"mean":25.18,"best":{"name":"Motilal Oswal Large and Midcap Fund","amc":"Motilal Oswal","ret":48.05},"worst":{"name":"Aditya Birla Sun Life Large & Mid Cap Fund - Growth","amc":"Aditya Birla Sun Life","ret":16.52},"beat":27,"rank":3,"of":20},"Conservative Hybrid":{"n":17,"median":11.48,"mean":11.28,"best":{"name":"HSBC Conservative Hybrid Fund","amc":"HSBC","ret":16.93},"worst":{"name":"Nippon India Conservative Hybrid Fund","amc":"Nippon India","ret":8.5},"beat":15,"rank":19,"of":20},"Focused":{"n":27,"median":19.79,"mean":21.04,"best":{"name":"Invesco India Focused Fund","amc":"Invesco","ret":45.09},"worst":{"name":"Nippon India Focused Fund","amc":"Nippon India","ret":10.86},"beat":27,"rank":10,"of":20},"Arbitrage":{"n":27,"median":8.22,"mean":8.07,"best":{"name":"Kotak Arbitrage Fund","amc":"Kotak Mahindra","ret":8.47},"worst":{"name":"Mahindra Manulife Arbitrage Fund","amc":"Mahindra Manulife","ret":6.97},"beat":0,"rank":20,"of":20},"Equity Savings":{"n":22,"median":11.61,"mean":11.59,"best":{"name":"HSBC Equity Savings Fund","amc":"HSBC","ret":25.17},"worst":{"name":"Nippon India Equity Savings Fund - Segregated Portfolio 1","amc":"Nippon India","ret":0.0},"beat":18,"rank":18,"of":20},"Small Cap":{"n":27,"median":26.72,"mean":28.44,"best":{"name":"Motilal Oswal Small Cap Fund","amc":"Motilal Oswal","ret":48.16},"worst":{"name":"ICICI Prudential Smallcap Fund","amc":"ICICI Prudential","ret":16.89},"beat":27,"rank":2,"of":20},"Mid Cap":{"n":29,"median":30.45,"mean":30.59,"best":{"name":"Motilal Oswal Midcap Fund","amc":"Motilal Oswal","ret":58.85},"worst":{"name":"Taurus Mid Cap Fund","amc":"Taurus","ret":11.76},"beat":29,"rank":1,"of":20},"Retirement":{"n":26,"median":14.07,"mean":15.73,"best":{"name":"Axis Retirement Fund - Dynamic Plan","amc":"Axis","ret":25.87},"worst":{"name":"Aditya Birla Sun Life Retirement Fund-The 50s Plus-Debt Plan","amc":"Aditya Birla Sun Life","ret":7.41},"beat":24,"rank":17,"of":20},"Balanced Advantage / Dynamic AA":{"n":30,"median":14.32,"mean":14.39,"best":{"name":"quant Dynamic Asset Allocation Fund - Growth Option","amc":"quant","ret":22.05},"worst":{"name":"BANK OF INDIA BALANCED ADVANTAGE FUND DIRECT PLAN GROWTH","amc":"Bank of India","ret":7.53},"beat":29,"rank":16,"of":20},"Multi Cap":{"n":23,"median":24.03,"mean":25.27,"best":{"name":"LIC MF Multi Cap Fund","amc":"LIC","ret":34.47},"worst":{"name":"quant Multi Cap Fund-GROWTH OPTION","amc":"quant","ret":13.05},"beat":23,"rank":5,"of":20},"Multi Asset Allocation":{"n":16,"median":16.78,"mean":16.24,"best":{"name":"quant Multi Asset Allocation Fund-GROWTH OPTION","amc":"quant","ret":27.58},"worst":{"name":"Motilal Oswal Multi Asset Fund","amc":"Motilal Oswal","ret":3.8},"beat":14,"rank":13,"of":20},"Children's":{"n":9,"median":16.02,"mean":19.36,"best":{"name":"SBI Children's Fund - Investment Plan","amc":"SBI","ret":40.18},"worst":{"name":"Tata Childrens Fund","amc":"Tata","ret":13.11},"beat":9,"rank":15,"of":20},"Contra":{"n":3,"median":23.74,"mean":25.11,"best":{"name":"Invesco India Contra Fund","amc":"Invesco","ret":31.65},"worst":{"name":"SBI CONTRA FUND","amc":"SBI","ret":19.94},"beat":3,"rank":6,"of":20},"Index Funds (passive)":{"n":5,"median":24.41,"mean":20.69,"best":{"name":"Aditya Birla Sun Life Nifty Next 50 Index Fund","amc":"Aditya Birla Sun Life","ret":27.54},"worst":{"name":"Aditya Birla Sun Life Nifty 50 Equal Weight Index Fund","amc":"Aditya Birla Sun Life","ret":10.24},"beat":5,"rank":4,"of":20},"Balanced Hybrid":{"n":2,"median":17.52,"mean":17.52,"best":{"name":"360 ONE Balanced Hybrid Fund","amc":"360 ONE","ret":17.85},"worst":{"name":"WhiteOak Capital Balanced Hybrid Fund Direct Plan Growth","amc":"WhiteOak Capital","ret":17.18},"beat":2,"of":20}},"2025":{"Value":{"n":26,"median":7.05,"mean":17.01,"best":{"name":"Aditya Birla Sun Life Silver ETF FOF","amc":"Aditya Birla Sun Life","ret":156.54},"worst":{"name":"LIC MF Value Fund","amc":"LIC","ret":-5.73},"beat":6,"rank":5,"of":20},"ELSS (tax saver)":{"n":52,"median":4.61,"mean":4.03,"best":{"name":"NAVI ELSS TAX SAVER NIFTY 50 INDEX FUND","amc":"Navi","ret":11.64},"worst":{"name":"Samco ELSS Tax Saver Fund","amc":"Samco","ret":-11.39},"beat":6,"rank":15,"of":20},"Sectoral / Thematic":{"n":198,"median":4.37,"mean":5.29,"best":{"name":"Nippon India Taiwan Equity Fund","amc":"Nippon India","ret":52.84},"worst":{"name":"Shriram Multi Sector Rotation Fund","amc":"Shriram","ret":-17.99},"beat":49,"rank":16,"of":20},"Large Cap":{"n":32,"median":8.97,"mean":8.47,"best":{"name":"ICICI Prudential Large Cap Fund (erstwhile Bluechip Fund)","amc":"ICICI Prudential","ret":11.95},"worst":{"name":"Union Largecap Fund","amc":"Union","ret":5.23},"beat":3,"rank":2,"of":20},"Aggressive Hybrid":{"n":29,"median":7.01,"mean":6.76,"best":{"name":"ICICI Prudential Equity & Debt Fund","amc":"ICICI Prudential","ret":13.99},"worst":{"name":"JM Aggressive Hybrid Fund (Direct) - Growth Option","amc":"JM Financial","ret":-1.55},"beat":4,"rank":7,"of":20},"Flexi Cap":{"n":39,"median":4.71,"mean":4.22,"best":{"name":"HDFC Flexi Cap Fund - Growth Option","amc":"HDFC","ret":12.16},"worst":{"name":"Samco Flexi Cap Fund","amc":"Samco","ret":-17.5},"beat":4,"rank":14,"of":20},"Large & Mid Cap":{"n":31,"median":5.88,"mean":5.38,"best":{"name":"ICICI Prudential Large & Mid Cap Fund","amc":"ICICI Prudential","ret":15.38},"worst":{"name":"Motilal Oswal Large and Midcap Fund","amc":"Motilal Oswal","ret":-3.12},"beat":2,"rank":11,"of":20},"Conservative Hybrid":{"n":17,"median":6.85,"mean":6.99,"best":{"name":"Nippon India Conservative Hybrid Fund","amc":"Nippon India","ret":10.59},"worst":{"name":"HSBC Conservative Hybrid Fund","amc":"HSBC","ret":2.77},"beat":1,"rank":9,"of":20},"Focused":{"n":28,"median":5.62,"mean":6.04,"best":{"name":"ICICI Prudential Focused Equity Fund","amc":"ICICI Prudential","ret":16.75},"worst":{"name":"Invesco India Focused Fund","amc":"Invesco","ret":-5.69},"beat":5,"rank":12,"of":20},"Arbitrage":{"n":31,"median":6.99,"mean":6.89,"best":{"name":"Motilal Oswal Arbitrage Fund","amc":"Motilal Oswal","ret":7.46},"worst":{"name":"Samco Arbitrage Fund","amc":"Samco","ret":5.27},"beat":0,"rank":8,"of":20},"Equity Savings":{"n":21,"median":7.33,"mean":7.25,"best":{"name":"Mirae Asset Equity Savings Fund","amc":"Mirae Asset","ret":9.77},"worst":{"name":"HSBC Equity Savings Fund","amc":"HSBC","ret":1.76},"beat":0,"rank":3,"of":20},"Small Cap":{"n":29,"median":-2.81,"mean":-3.32,"best":{"name":"QUANTUM SMALL CAP FUND","amc":"Quantum","ret":5.34},"worst":{"name":"LIC MF Small Cap Fund","amc":"LIC","ret":-12.15},"beat":0,"rank":20,"of":20},"Mid Cap":{"n":29,"median":2.89,"mean":3.05,"best":{"name":"ICICI Prudential MidCap Fund","amc":"ICICI Prudential","ret":11.94},"worst":{"name":"Motilal Oswal Midcap Fund","amc":"Motilal Oswal","ret":-11.36},"beat":1,"rank":18,"of":20},"Retirement":{"n":28,"median":6.21,"mean":6.43,"best":{"name":"ICICI Prudential Retirement Fund - Pure Equity","amc":"ICICI Prudential","ret":15.56},"worst":{"name":"Tata Retirement Savings Fund- Progressive Plan","amc":"Tata","ret":0.24},"beat":2,"rank":10,"of":20},"Balanced Advantage / Dynamic AA":{"n":34,"median":7.07,"mean":6.72,"best":{"name":"ICICI Prudential Balanced Advantage Fund","amc":"ICICI Prudential","ret":12.87},"worst":{"name":"Motilal Oswal Balanced Advantage Fund (MOFDYNAMIC)","amc":"Motilal Oswal","ret":-5.86},"beat":3,"rank":4,"of":20},"Multi Cap":{"n":29,"median":4.33,"mean":3.61,"best":{"name":"Mirae Asset Multicap Fund","amc":"Mirae Asset","ret":9.84},"worst":{"name":"Samco Multi Cap Fund","amc":"Samco","ret":-6.91},"beat":0,"rank":17,"of":20},"Multi Asset Allocation":{"n":26,"median":19.52,"mean":17.84,"best":{"name":"DSP Multi Asset Allocation Fund","amc":"DSP","ret":24.73},"worst":{"name":"Edelweiss Multi Asset Allocation Fund","amc":"Edelweiss","ret":7.24},"beat":23,"rank":1,"of":20},"Children's":{"n":10,"median":5.46,"mean":5.14,"best":{"name":"Baroda BNP Paribas Children's Fund","amc":"Baroda BNP Paribas","ret":13.89},"worst":{"name":"LIC MF Children's Fund","amc":"LIC","ret":-4.19},"beat":1,"rank":13,"of":20},"Contra":{"n":3,"median":7.02,"mean":6.7,"best":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":8.82},"worst":{"name":"Invesco India Contra Fund","amc":"Invesco","ret":4.26},"beat":0,"rank":6,"of":20},"Index Funds (passive)":{"n":9,"median":2.4,"mean":3.96,"best":{"name":"Aditya Birla Sun Life Nifty India Defence Index Fund","amc":"Aditya Birla Sun Life","ret":19.16},"worst":{"name":"Groww Nifty Smallcap 250 Index Fund","amc":"Groww","ret":-5.83},"beat":2,"rank":19,"of":20},"Balanced Hybrid":{"n":2,"median":6.66,"mean":6.66,"best":{"name":"WhiteOak Capital Balanced Hybrid Fund Direct Plan Growth","amc":"WhiteOak Capital","ret":8.21},"worst":{"name":"360 ONE Balanced Hybrid Fund","amc":"360 ONE","ret":5.11},"beat":0,"of":20}},"2026":{"Value":{"n":35,"median":1.94,"mean":3.81,"best":{"name":"Groww Nifty India Defence ETF FOF","amc":"Groww","ret":25.01},"worst":{"name":"ICICI Prudential Value Fund (erstwhile Value Discovery Fund)","amc":"ICICI Prudential","ret":-5.59},"beat":35,"rank":17,"of":20},"ELSS (tax saver)":{"n":53,"median":1.96,"mean":2.15,"best":{"name":"Sundaram Long Term Tax Advantage Fund Series III Direct Plan - Growth","amc":"Sundaram","ret":12.15},"worst":{"name":"Navi ELSS Tax Saver Fund","amc":"Navi","ret":-7.44},"beat":49,"rank":16,"of":20},"Sectoral / Thematic":{"n":235,"median":4.56,"mean":6.28,"best":{"name":"Nippon India Taiwan Equity Fund","amc":"Nippon India","ret":85.78},"worst":{"name":"Tata Digital India Fund","amc":"Tata","ret":-12.16},"beat":227,"rank":5,"of":20},"Large Cap":{"n":33,"median":-1.23,"mean":-0.87,"best":{"name":"quant Large Cap Fund - Growth Option","amc":"quant","ret":6.73},"worst":{"name":"UTI Large Cap Fund","amc":"UTI","ret":-4.23},"beat":33,"rank":20,"of":20},"Aggressive Hybrid":{"n":29,"median":1.22,"mean":1.89,"best":{"name":"BANK OF INDIA MID & SMALL CAP EQUITY & DEBT FUND","amc":"Bank of India","ret":10.65},"worst":{"name":"Invesco India Aggressive Hybrid Fund","amc":"Invesco","ret":-3.58},"beat":29,"rank":18,"of":20},"Flexi Cap":{"n":44,"median":3.3,"mean":3.39,"best":{"name":"Abakkus Flexi Cap Fund","amc":"Abakkus","ret":12.71},"worst":{"name":"Sundaram Flexicap Fund Direct Growth","amc":"Sundaram","ret":-3.09},"beat":44,"rank":8,"of":20},"Large & Mid Cap":{"n":33,"median":3.01,"mean":3.77,"best":{"name":"Invesco India Large & Mid Cap Fund","amc":"Invesco","ret":11.87},"worst":{"name":"Samco Large & Mid Cap Fund","amc":"Samco","ret":-2.8},"beat":33,"rank":11,"of":20},"Conservative Hybrid":{"n":17,"median":2.34,"mean":2.54,"best":{"name":"HSBC Conservative Hybrid Fund","amc":"HSBC","ret":5.04},"worst":{"name":"Sundaram Conservative Hybrid Fund (Formerly Known as Sundaram Debt Oriented Hybrid Fund) Direct Plan - Growth","amc":"Sundaram","ret":-0.58},"beat":17,"rank":14,"of":20},"Focused":{"n":28,"median":3.06,"mean":3.75,"best":{"name":"Motilal Oswal Focused Fund","amc":"Motilal Oswal","ret":18.91},"worst":{"name":"Franklin India Focused Equity Fund","amc":"Franklin Templeton","ret":-6.01},"beat":27,"rank":9,"of":20},"Arbitrage":{"n":36,"median":3.86,"mean":3.81,"best":{"name":"quant Arbitrage Fund - Growth Option","amc":"quant","ret":4.51},"worst":{"name":"HDFC ARBITRAGE FUND - Growth Option","amc":"HDFC","ret":2.4},"beat":36,"rank":7,"of":20},"Equity Savings":{"n":24,"median":2.47,"mean":2.66,"best":{"name":"HSBC Equity Savings Fund","amc":"HSBC","ret":7.77},"worst":{"name":"Tata Equity Savings Fund","amc":"Tata","ret":-0.3},"beat":24,"rank":13,"of":20},"Small Cap":{"n":32,"median":13.82,"mean":14.09,"best":{"name":"BANK OF INDIA Small Cap Fund Direct Plan Growth","amc":"Bank of India","ret":27.07},"worst":{"name":"HDFC Small Cap Fund - Growth Option","amc":"HDFC","ret":3.86},"beat":32,"rank":1,"of":20},"Mid Cap":{"n":31,"median":7.53,"mean":7.67,"best":{"name":"HSBC Midcap Fund","amc":"HSBC","ret":16.1},"worst":{"name":"Franklin India Mid Cap Fund","amc":"Franklin Templeton","ret":2.95},"beat":31,"rank":2,"of":20},"Retirement":{"n":28,"median":2.65,"mean":2.81,"best":{"name":"Aditya Birla Sun Life Retirement Fund-The 30s Plan","amc":"Aditya Birla Sun Life","ret":12.25},"worst":{"name":"HDFC Retirement Savings Fund - Hybrid-Equity Plan - Growth Option","amc":"HDFC","ret":-3.54},"beat":28,"rank":12,"of":20},"Balanced Advantage / Dynamic AA":{"n":35,"median":2.22,"mean":1.66,"best":{"name":"Unifi Dynamic Asset Allocation Fund","amc":"Unifi","ret":4.99},"worst":{"name":"Invesco India Balanced Advantage Fund","amc":"Invesco","ret":-1.69},"beat":35,"rank":15,"of":20},"Multi Cap":{"n":32,"median":6.87,"mean":6.3,"best":{"name":"Groww Multicap Fund","amc":"Groww","ret":14.07},"worst":{"name":"Samco Multi Cap Fund","amc":"Samco","ret":-0.11},"beat":32,"rank":3,"of":20},"Multi Asset Allocation":{"n":33,"median":4.22,"mean":4.16,"best":{"name":"The Wealth Company Multi Asset Allocation Fund","amc":"The Wealth Company","ret":8.29},"worst":{"name":"Quantum Multi Asset Allocation Fund","amc":"Quantum","ret":-0.24},"beat":33,"rank":6,"of":20},"Children's":{"n":10,"median":3.06,"mean":3.07,"best":{"name":"SBI Children's Fund - Investment Plan","amc":"SBI","ret":13.64},"worst":{"name":"Tata Childrens Fund","amc":"Tata","ret":-6.8},"beat":9,"rank":10,"of":20},"Contra":{"n":3,"median":0.14,"mean":-1.0,"best":{"name":"Kotak Contra Fund","amc":"Kotak Mahindra","ret":0.67},"worst":{"name":"SBI CONTRA FUND","amc":"SBI","ret":-3.81},"beat":3,"rank":19,"of":20},"Index Funds (passive)":{"n":15,"median":4.79,"mean":4.43,"best":{"name":"Aditya Birla Sun Life Nifty India Defence Index Fund","amc":"Aditya Birla Sun Life","ret":24.88},"worst":{"name":"Groww Nifty India Railways PSU Index Fund","amc":"Groww","ret":-16.29},"beat":14,"rank":4,"of":20},"Balanced Hybrid":{"n":2,"median":4.04,"mean":4.04,"best":{"name":"360 ONE Balanced Hybrid Fund","amc":"360 ONE","ret":5.48},"worst":{"name":"WhiteOak Capital Balanced Hybrid Fund Direct Plan Growth","amc":"WhiteOak Capital","ret":2.59},"beat":2,"of":20}}},"record":{"Aggressive Hybrid":{"grp":"Hybrid","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":10.93,"beat_nifty":7,"best_year":[2014,45.12],"worst_year":[2018,-2.31]},"Arbitrage":{"grp":"Hybrid","years":14,"wins":2,"top3":2,"lasts":6,"avg_rank":11.86,"beat_nifty":6,"best_year":[2013,9.4],"worst_year":[2026,3.86]},"Balanced Advantage / Dynamic AA":{"grp":"Hybrid","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":11,"beat_nifty":6,"best_year":[2014,32.57],"worst_year":[2026,2.22]},"Children's":{"grp":"Solution","years":14,"wins":0,"top3":0,"lasts":1,"avg_rank":11.86,"beat_nifty":8,"best_year":[2014,32.47],"worst_year":[2018,-1.22]},"Conservative Hybrid":{"grp":"Hybrid","years":14,"wins":1,"top3":2,"lasts":0,"avg_rank":11.5,"beat_nifty":6,"best_year":[2014,20.7],"worst_year":[2026,2.34]},"Contra":{"grp":"Equity","years":14,"wins":1,"top3":3,"lasts":1,"avg_rank":8.71,"beat_nifty":10,"best_year":[2014,48.49],"worst_year":[2018,-1.97]},"ELSS (tax saver)":{"grp":"Equity","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":9.5,"beat_nifty":9,"best_year":[2014,52.05],"worst_year":[2018,-6.51]},"Equity Savings":{"grp":"Hybrid","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":12.43,"beat_nifty":4,"best_year":[2014,16.24],"worst_year":[2026,2.47]},"Flexi Cap":{"grp":"Equity","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":10.43,"beat_nifty":10,"best_year":[2014,55.36],"worst_year":[2018,-4.03]},"Focused":{"grp":"Equity","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":10.36,"beat_nifty":10,"best_year":[2014,50.48],"worst_year":[2018,-4.44]},"Index Funds (passive)":{"grp":"Passive","years":5,"wins":0,"top3":1,"lasts":0,"avg_rank":8.6,"beat_nifty":3,"best_year":[2023,37.24],"worst_year":[2025,2.4]},"Large & Mid Cap":{"grp":"Equity","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":8.14,"beat_nifty":9,"best_year":[2014,50.5],"worst_year":[2018,-4.96]},"Large Cap":{"grp":"Equity","years":14,"wins":1,"top3":2,"lasts":1,"avg_rank":11.21,"beat_nifty":10,"best_year":[2014,41.83],"worst_year":[2018,-1.57]},"Mid Cap":{"grp":"Equity","years":14,"wins":1,"top3":8,"lasts":0,"avg_rank":7.29,"beat_nifty":9,"best_year":[2014,76.56],"worst_year":[2018,-11.38]},"Multi Asset Allocation":{"grp":"Hybrid","years":14,"wins":1,"top3":3,"lasts":0,"avg_rank":9.14,"beat_nifty":8,"best_year":[2023,24.28],"worst_year":[2018,2.37]},"Multi Cap":{"grp":"Equity","years":14,"wins":0,"top3":2,"lasts":1,"avg_rank":10.43,"beat_nifty":9,"best_year":[2014,50.97],"worst_year":[2018,-7.72]},"Retirement":{"grp":"Solution","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":12.07,"beat_nifty":6,"best_year":[2014,41.69],"worst_year":[2018,0.38]},"Sectoral / Thematic":{"grp":"Equity","years":14,"wins":0,"top3":2,"lasts":1,"avg_rank":10.57,"beat_nifty":9,"best_year":[2014,55.94],"worst_year":[2018,-7.53]},"Small Cap":{"grp":"Equity","years":14,"wins":7,"top3":8,"lasts":3,"avg_rank":7.64,"beat_nifty":9,"best_year":[2014,86.52],"worst_year":[2018,-16.45]},"Value":{"grp":"Equity","years":14,"wins":0,"top3":1,"lasts":0,"avg_rank":9,"beat_nifty":10,"best_year":[2014,53.51],"worst_year":[2018,-8.94]}},"winners":{"2013":{"win":"Arbitrage","win_med":9.4,"win_best":{"name":"ICICI Prudential Arbitrage Fund","amc":"ICICI Prudential","ret":10.24},"lose":"Sectoral / Thematic","lose_med":-3.44,"nifty":6.76,"n_cats":19,"beat":1,"funds":283},"2014":{"win":"Small Cap","win_med":86.52,"win_best":{"name":"SBI Small Cap Fund","amc":"SBI","ret":112.77},"lose":"Arbitrage","lose_med":8.91,"nifty":31.39,"n_cats":19,"beat":15,"funds":291},"2015":{"win":"Small Cap","win_med":11.09,"win_best":{"name":"SBI Small Cap Fund","amc":"SBI","ret":22.29},"lose":"Contra","lose_med":0.57,"nifty":-4.06,"n_cats":19,"beat":19,"funds":315},"2016":{"win":"Conservative Hybrid","win_med":10.55,"win_best":{"name":"Kotak Debt Hybrid - Growth","amc":"Kotak Mahindra","ret":14.47},"lose":"Multi Cap","lose_med":3.25,"nifty":3.01,"n_cats":19,"beat":19,"funds":348},"2017":{"win":"Small Cap","win_med":51.44,"win_best":{"name":"SBI Small Cap Fund","amc":"SBI","ret":80.44},"lose":"Arbitrage","lose_med":6.17,"nifty":28.65,"n_cats":19,"beat":11,"funds":371},"2018":{"win":"Arbitrage","win_med":6.66,"win_best":{"name":"Nippon India Arbitrage Fund","amc":"Nippon India","ret":7.46},"lose":"Small Cap","lose_med":-16.45,"nifty":3.15,"n_cats":19,"beat":2,"funds":389},"2019":{"win":"Large Cap","win_med":13.04,"win_best":{"name":"Axis Large Cap Fund","amc":"Axis","ret":19.97},"lose":"Small Cap","lose_med":0.01,"nifty":12.02,"n_cats":19,"beat":3,"funds":429},"2020":{"win":"Small Cap","win_med":30.34,"win_best":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":76.13},"lose":"Arbitrage","lose_med":4.71,"nifty":14.9,"n_cats":19,"beat":11,"funds":476},"2021":{"win":"Small Cap","win_med":65.66,"win_best":{"name":"quant Small Cap Fund - Growth Option","amc":"quant","ret":91.73},"lose":"Arbitrage","lose_med":4.18,"nifty":24.12,"n_cats":19,"beat":13,"funds":501},"2022":{"win":"Contra","win_med":8.88,"win_best":{"name":"SBI CONTRA FUND","amc":"SBI","ret":13.63},"lose":"Children's","lose_med":0.69,"nifty":4.33,"n_cats":20,"beat":8,"funds":489},"2023":{"win":"Small Cap","win_med":42.98,"win_best":{"name":"Mahindra Manulife Small Cap Fund","amc":"Mahindra Manulife","ret":60.03},"lose":"Arbitrage","lose_med":7.78,"nifty":20.03,"n_cats":20,"beat":16,"funds":540},"2024":{"win":"Mid Cap","win_med":30.45,"win_best":{"name":"Motilal Oswal Midcap Fund","amc":"Motilal Oswal","ret":58.85},"lose":"Arbitrage","lose_med":8.22,"nifty":8.8,"n_cats":20,"beat":19,"funds":609},"2025":{"win":"Multi Asset Allocation","win_med":19.52,"win_best":{"name":"DSP Multi Asset Allocation Fund","amc":"DSP","ret":24.73},"lose":"Small Cap","lose_med":-2.81,"nifty":10.51,"n_cats":20,"beat":1,"funds":701},"2026":{"win":"Small Cap","win_med":13.82,"win_best":{"name":"BANK OF INDIA Small Cap Fund Direct Plan Growth","amc":"Bank of India","ret":27.07},"lose":"Large Cap","lose_med":-1.23,"nifty":-5.92,"n_cats":20,"beat":20,"funds":786}},"nifty":{"2013":6.76,"2014":31.39,"2015":-4.06,"2016":3.01,"2017":28.65,"2018":3.15,"2019":12.02,"2020":14.9,"2021":24.12,"2022":4.33,"2023":20.03,"2024":8.8,"2025":10.51,"2026":-5.92},"asof":"2026-08-07","n_funds":877,"min_n":3};
+const YEARS = D.years, CATS = D.cats, GRID = D.grid, REC = D.record, WIN = D.winners, NIFTY = D.nifty;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pc = v => (v >= 0 ? '+' : '') + Number(v).toFixed(2) + '%';
+const num = v => Number(v).toFixed(2);          // bare grid figure: 3.73, -4.06
+// Short row labels for the grid only; full names stay everywhere else.
+const SHORT = {
+  'Small Cap':'Small', 'Mid Cap':'Mid', 'Large Cap':'Large', 'Large & Mid Cap':'Large & Mid',
+  'Multi Cap':'Multi', 'Flexi Cap':'Flexi', 'Sectoral / Thematic':'Sectoral',
+  'ELSS (tax saver)':'ELSS', 'Balanced Advantage / Dynamic AA':'Bal Adv',
+  'Multi Asset Allocation':'Multi Asset', 'Aggressive Hybrid':'Aggr Hybrid',
+  'Conservative Hybrid':'Cons Hybrid', 'Balanced Hybrid':'Bal Hybrid',
+  'Equity Savings':'Eq Savings', 'Index Funds (passive)':'Index', "Children's":'Children',
+};
+const shortCat = c => SHORT[c] || c;
+const sgn = v => v >= 0 ? 'pos' : 'neg';
+const g = (y, c) => (GRID[y] || {})[c];
+
+['minn'].forEach(id => document.getElementById(id).textContent = D.min_n);
+['mf2'].forEach(id => document.getElementById(id).textContent = D.min_n);
+document.getElementById('mf1').textContent = D.n_funds;
+const asofTxt = new Date(D.asof + 'T00:00:00').toLocaleDateString('en-GB',
+  {day:'numeric',month:'long',year:'numeric'});
+document.getElementById('asof2').textContent = asofTxt;
+document.getElementById('asof3').textContent = asofTxt;
+
+// -- stat strip --
+const winCount = {};
+YEARS.forEach(y => { const w = WIN[y].win; if (w) winCount[w] = (winCount[w]||0)+1; });
+const topWinner = Object.keys(winCount).sort((a,b)=>winCount[b]-winCount[a])[0];
+document.getElementById('strip').innerHTML = [
+  ['Years ranked', YEARS.length],
+  ['Categories', CATS.length],
+  ['Direct funds', D.n_funds],
+  ['Most wins', `${esc(topWinner)} <span style="font-size:12px;color:var(--ink-3)">&times;${winCount[topWinner]}</span>`],
+  ['Different winners', Object.keys(winCount).length],
+  ['2026 YTD to', asofTxt.replace(/ \d{4}$/,'')]
+].map(([k,v]) => `<div><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+
+// -- colour scale: green -> red --
+const STOPS = [[0,[15,123,79]],[0.25,[94,155,49]],[0.5,[194,155,29]],[0.75,[206,116,48]],[1,[176,57,44]]];
+function scale(t){
+  t = Math.max(0, Math.min(1, t));
+  for (let i=0;i<STOPS.length-1;i++){
+    const [p0,c0]=STOPS[i], [p1,c1]=STOPS[i+1];
+    if (t<=p1){ const k=(t-p0)/(p1-p0);
+      return c0.map((v,j)=>Math.round(v+(c1[j]-v)*k)); }
+  }
+  return STOPS[STOPS.length-1][1];
+}
+const textOn = ([r,gg,b]) => (0.2126*r+0.7152*gg+0.0722*b) > 150 ? '#141a12' : '#FFFFFF';
+
+let MODE = 'rank';
+
+// -- periodic table: each year is a column, sorted best (top) to worst (bottom),
+// with the Nifty 50 slotted into the ordering as its own tile --
+const NIF = '__nifty__';
+function colData(y){
+  const list = CATS.map(c => { const s = g(y,c); return s && s.rank ? {cat:c, v:s.median, s} : null; })
+                   .filter(Boolean);
+  list.push({cat:NIF, v:NIFTY[y], nifty:true});
+  list.sort((a,b) => b.v - a.v);
+  list.forEach((e,i) => { e.pos = i; });
+  return list;
+}
+const COLS = {};
+YEARS.forEach(y => { COLS[y] = colData(y); });
+const NROWS = Math.max(...YEARS.map(y => COLS[y].length));
+const TILE_LO = Math.min(...YEARS.flatMap(y => COLS[y].map(e => e.v)));
+const TILE_HI = Math.max(...YEARS.flatMap(y => COLS[y].map(e => e.v)));
+
+function tileColor(y, e){
+  const n = COLS[y].length;
+  if (MODE === 'rank') return scale(n > 1 ? e.pos/(n-1) : 0);
+  if (MODE === 'ret')  return scale(1 - (e.v - TILE_LO)/(TILE_HI - TILE_LO));
+  const d = e.v - NIFTY[y];
+  return scale(1 - (Math.max(-25, Math.min(25, d)) + 25)/50);
+}
+
+function drawHeat(){
+  let h = '<table><thead><tr><th class="rkh"></th>' +
+    YEARS.map(y => `<th>${y}${y===2026?'<br><span style="font-size:9px;opacity:.7">YTD</span>':''}</th>`).join('') +
+    '</tr></thead><tbody>';
+  for (let i = 0; i < NROWS; i++){
+    h += `<tr><td class="rkc">${i+1}</td>`;
+    for (const y of YEARS){
+      const e = COLS[y][i];
+      if (!e){ h += '<td></td>'; continue; }
+      if (e.nifty){
+        h += `<td><div class="pt nf" data-cat="${NIF}" tabindex="0" role="button"
+          title="Nifty 50 in ${y}: ${pc(e.v)} price return, finishing ${e.pos+1} of ${COLS[y].length}">
+          <span class="nm">NIFTY 50</span><span class="vv">${num(e.v)}</span></div></td>`;
+        continue;
+      }
+      const rgb = tileColor(y,e);
+      h += `<td><div class="pt" data-cat="${esc(e.cat)}" tabindex="0" role="button"
+        style="background:rgb(${rgb.join(',')});color:${textOn(rgb)}"
+        title="${esc(e.cat)} in ${y} &mdash; median ${pc(e.v)}, ${e.pos+1} of ${COLS[y].length}, ${e.s.n} funds, ${e.s.beat} of them beat the Nifty (${pc(NIFTY[y])})">
+        <span class="nm">${esc(shortCat(e.cat))}</span><span class="vv">${num(e.v)}</span></div></td>`;
+    }
+    h += '</tr>';
+  }
+  document.getElementById('hm').innerHTML = h + '</tbody></table>';
+  applyHL();
+}
+
+// click a tile to trace one category down the years
+let HL = null;
+function applyHL(){
+  document.querySelectorAll('#hm .pt').forEach(el => {
+    el.classList.toggle('dim', !!HL && el.dataset.cat !== HL);
+    el.classList.toggle('hl',  !!HL && el.dataset.cat === HL);
+  });
+  const lbl = document.getElementById('hllbl');
+  if (!HL){ lbl.textContent = ''; return; }
+  if (HL === NIF){ lbl.textContent = 'Tracing Nifty 50'; return; }
+  const r = REC[HL];
+  lbl.innerHTML = `Tracing <b style="color:var(--ink)">${esc(HL)}</b> &middot; won ${r.wins}, ` +
+    `last ${r.lasts}, beat Nifty ${r.beat_nifty}/${r.years}`;
+}
+function pickTile(el){ HL = (HL === el.dataset.cat) ? null : el.dataset.cat; applyHL(); }
+document.getElementById('hm').addEventListener('click', e => {
+  const t = e.target.closest('.pt'); if (t) pickTile(t);
+});
+document.getElementById('hm').addEventListener('keydown', e => {
+  const t = e.target.closest('.pt');
+  if (t && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); pickTile(t); }
+});
+document.getElementById('clr-hl').addEventListener('click', () => { HL = null; applyHL(); });
+
+const LG = {rank:['Rank 1 (winner)','Last place'], ret:['Highest return','Lowest return'],
+            nif:['Beat Nifty by 25pp+','Lagged Nifty by 25pp+']};
+const MODES = {'m-rank':'rank','m-ret':'ret','m-nif':'nif'};
+Object.keys(MODES).forEach(id => document.getElementById(id).addEventListener('click', () => {
+  MODE = MODES[id];
+  Object.keys(MODES).forEach(o => document.getElementById(o).setAttribute('aria-pressed', o===id));
+  document.getElementById('lg-a').textContent = LG[MODE][0];
+  document.getElementById('lg-b').textContent = LG[MODE][1];
+  drawHeat();
+}));
+drawHeat();
+
+// -- winner's board --
+document.getElementById('board').innerHTML = YEARS.map(y => {
+  const w = WIN[y], sp = w.win_med - w.nifty;
+  return `<tr>
+    <td class="num" style="font-weight:600">${y}${y===2026?' <span class="tag">YTD</span>':''}</td>
+    <td class="win" style="color:var(--pos)">${esc(w.win)}</td>
+    <td class="ret ${sgn(w.win_med)}">${pc(w.win_med)}</td>
+    <td class="ret ${sgn(w.nifty)}" style="opacity:.75">${pc(w.nifty)}</td>
+    <td class="ret ${sgn(sp)}">${(sp>=0?'+':'')}${sp.toFixed(2)}pp</td>
+    <td class="hide-s" style="font-size:12.5px">${esc(w.win_best.name)}
+      <span style="color:var(--ink-3)">${pc(w.win_best.ret)}</span></td>
+    <td class="hide-s" style="color:var(--neg)">${esc(w.lose)}</td>
+    <td class="ret hide-s ${sgn(w.lose_med)}">${pc(w.lose_med)}</td></tr>`;
+}).join('');
+
+// -- record table --
+document.getElementById('record').innerHTML = CATS.map((c,i) => {
+  const r = REC[c];
+  return `<tr>
+    <td class="num" style="color:var(--ink-3)">${i+1}</td>
+    <td style="font-weight:500">${esc(c)}</td>
+    <td class="hide-s"><span class="tag">${esc(r.grp)}</span></td>
+    <td class="ret">${r.avg_rank.toFixed(2)}</td>
+    <td class="ret" style="color:${r.wins?'var(--pos)':'var(--ink-3)'}">${r.wins}</td>
+    <td class="ret">${r.top3}</td>
+    <td class="ret" style="color:${r.lasts?'var(--neg)':'var(--ink-3)'}">${r.lasts}</td>
+    <td class="ret">${r.beat_nifty}<span style="color:var(--ink-3);font-weight:400">/${r.years}</span></td>
+    <td class="ret hide-s pos">${r.best_year[0]} ${pc(r.best_year[1])}</td>
+    <td class="ret hide-s ${sgn(r.worst_year[1])}">${r.worst_year[0]} ${pc(r.worst_year[1])}</td></tr>`;
+}).join('');
+
+// -- year detail --
+const ysel = document.getElementById('ysel');
+ysel.innerHTML = YEARS.slice().reverse().map(y => `<option value="${y}">${y}${y===2026?' (YTD)':''}</option>`).join('');
+function drawYear(){
+  const y = +ysel.value, w = WIN[y];
+  const list = CATS.map(c => [c, g(y,c)]).filter(([c,s]) => s && s.rank).sort((a,b)=>a[1].rank-b[1].rank);
+  const rows = list.map(([c,s]) => {
+    const rgb = scale(s.of>1 ? (s.rank-1)/(s.of-1) : 0);
+    return `<tr>
+      <td><span class="medal${s.rank===1?' m1':''}">${s.rank}</span></td>
+      <td><span style="display:inline-block;width:9px;height:9px;border-radius:2px;
+        background:rgb(${rgb.join(',')});margin-right:8px"></span><b>${esc(c)}</b></td>
+      <td class="ret ${sgn(s.median)}">${pc(s.median)}</td>
+      <td class="ret" style="color:var(--ink-3)">${(s.median-NIFTY[y]>=0?'+':'')}${(s.median-NIFTY[y]).toFixed(2)}pp</td>
+      <td class="num r" style="color:var(--ink-3)">${s.n}</td>
+      <td class="num r hide-s" style="color:var(--ink-3)">${s.beat}/${s.n}</td>
+      <td class="hide-s" style="font-size:12.5px">${esc(s.best.name)}
+        <span class="ret pos" style="font-weight:600">${pc(s.best.ret)}</span></td>
+      <td class="hide-s" style="font-size:12.5px;color:var(--ink-3)">${esc(s.worst.name)}
+        <span class="ret ${sgn(s.worst.ret)}">${pc(s.worst.ret)}</span></td></tr>`;
+  }).join('');
+  document.getElementById('ydetail').innerHTML = `<div class="yearcard">
+    <div class="hd"><h3>${y}${y===2026?' &middot; year to date':''}</h3><div class="facts">
+      <div>Winner<b style="color:var(--pos)">${esc(w.win)}</b></div>
+      <div>Nifty 50<b class="${sgn(w.nifty)}">${pc(w.nifty)}</b></div>
+      <div>Categories beating Nifty<b>${w.beat}/${w.n_cats}</b></div>
+      <div>Funds<b>${w.funds}</b></div>
+      <div>Last place<b style="color:var(--neg)">${esc(w.lose)}</b></div>
+    </div></div>
+    <div class="scroll" style="border:0;border-radius:0;box-shadow:none"><table>
+      <thead><tr><th class="r">#</th><th>Category</th><th class="r">Median</th>
+        <th class="r">vs Nifty</th><th class="r">Funds</th><th class="r hide-s">Beat Nifty</th>
+        <th class="hide-s">Best fund</th><th class="hide-s">Worst fund</th></tr></thead>
+      <tbody>${rows}</tbody></table></div></div>`;
+}
+ysel.addEventListener('change', drawYear);
+ysel.value = 2026; drawYear();
+
+// -- conclusions: fixed-blend backtest. Scoped in an IIFE so none of its
+// identifiers collide with the grid code above. --
+(function(){
+const C = {"years":[2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"top3":[7.35,73.01,9.36,9.54,45.74,4.36,12.62,26.1,51.07,6.79,39.7,27.43,11.94,9.41],"nifty":[6.76,31.39,-4.06,3.01,28.65,3.15,12.02,14.9,24.12,4.33,20.03,8.8,10.51,-5.92],"arch":[{"name":"Max-return (optimiser's pick)","mix":[{"cat":"Small Cap","k":8},{"cat":"Mid Cap","k":1},{"cat":"Contra","k":1}],"by_year":[3.96,81.72,9.77,6.78,49.71,-14.49,1.17,29.07,60.33,3.19,41.99,26.79,-1.26,11.82],"mean_ret":22.18,"vol":26.39,"mean_gap":-1.7,"worst_ret":-14.49,"worst_year":2018,"neg_years":2,"within3":9,"beat_top3":7,"beat_nifty":9,"corpus":6900316},{"name":"Aggressive growth","mix":[{"cat":"Small Cap","k":4},{"cat":"Mid Cap","k":4},{"cat":"Flexi Cap","k":2}],"by_year":[4.6,76.3,8.08,5.83,46.08,-11.94,4.22,25.56,51.55,2.68,38.78,26.76,0.97,9.2],"mean_ret":20.62,"vol":23.75,"mean_gap":-3.27,"worst_ret":-11.94,"worst_year":2018,"neg_years":1,"within3":9,"beat_top3":3,"beat_nifty":9,"corpus":6305043},{"name":"Growth core","mix":[{"cat":"Small Cap","k":3},{"cat":"Mid Cap","k":3},{"cat":"Flexi Cap","k":3},{"cat":"Large Cap","k":1}],"by_year":[4.67,69.72,6.43,5.65,43.51,-9.71,6.28,23.15,46.56,2.43,35.96,24.61,2.33,7.27],"mean_ret":19.2,"vol":21.52,"mean_gap":-4.68,"worst_ret":-9.71,"worst_year":2018,"neg_years":1,"within3":6,"beat_top3":0,"beat_nifty":9,"corpus":5852099},{"name":"Balanced core-satellite","mix":[{"cat":"Flexi Cap","k":5},{"cat":"Mid Cap","k":2},{"cat":"Small Cap","k":2},{"cat":"Large Cap","k":1}],"by_year":[4.64,64.48,4.74,5.56,41.63,-7.74,8.25,20.88,42.22,1.95,33.63,22.79,3.27,5.8],"mean_ret":18.01,"vol":19.77,"mean_gap":-5.88,"worst_ret":-7.74,"worst_year":2018,"neg_years":1,"within3":1,"beat_top3":0,"beat_nifty":9,"corpus":5446676},{"name":"Your example","mix":[{"cat":"Flexi Cap","k":5},{"cat":"Multi Cap","k":2},{"cat":"Small Cap","k":2},{"cat":"Arbitrage","k":1}],"by_year":[4.92,56.07,4.17,5.46,37.84,-6.18,7.88,17.56,38.93,2.38,30.82,20.69,3.36,6.17],"mean_ret":16.43,"vol":17.37,"mean_gap":-7.45,"worst_ret":-6.18,"worst_year":2018,"neg_years":1,"within3":1,"beat_top3":0,"beat_nifty":9,"corpus":5087951},{"name":"Defensive","mix":[{"cat":"Flexi Cap","k":3},{"cat":"Large Cap","k":3},{"cat":"Balanced Advantage / Dynamic AA","k":2},{"cat":"Arbitrage","k":2}],"by_year":[6.03,37.45,3.41,5.59,26.21,0.22,10.77,13.18,22.37,3.03,21.66,15.23,6.92,1.84],"mean_ret":12.42,"vol":10.56,"mean_gap":-11.46,"worst_ret":0.22,"worst_year":2018,"neg_years":0,"within3":2,"beat_top3":0,"beat_nifty":6,"corpus":3903800}],"chase":[{"year":2014,"bought":["Arbitrage","ELSS (tax saver)","Aggressive Hybrid"],"got":35.36,"top3":73.01},{"year":2015,"bought":["Small Cap","Mid Cap","Sectoral / Thematic"],"got":7.46,"top3":9.36},{"year":2016,"bought":["Small Cap","Retirement","Mid Cap"],"got":6.66,"top3":9.54},{"year":2017,"bought":["Conservative Hybrid","Multi Asset Allocation","Contra"],"got":21.47,"top3":45.74},{"year":2018,"bought":["Small Cap","Mid Cap","Sectoral / Thematic"],"got":-11.79,"top3":4.36},{"year":2019,"bought":["Arbitrage","Conservative Hybrid","Balanced Advantage / Dynamic AA"],"got":8.34,"top3":12.62},{"year":2020,"bought":["Large Cap","Focused","Flexi Cap"],"got":16.15,"top3":26.1},{"year":2021,"bought":["Small Cap","Mid Cap","Contra"],"got":47.9,"top3":51.07},{"year":2022,"bought":["Small Cap","Mid Cap","Multi Cap"],"got":3.87,"top3":6.79},{"year":2023,"bought":["Contra","Multi Asset Allocation","Value"],"got":31.81,"top3":39.7},{"year":2024,"bought":["Small Cap","Mid Cap","Contra"],"got":26.97,"top3":27.43},{"year":2025,"bought":["Mid Cap","Small Cap","Large & Mid Cap"],"got":1.99,"top3":11.94},{"year":2026,"bought":["Multi Asset Allocation","Large Cap","Equity Savings"],"got":1.82,"top3":9.41}],"chase_mean":15.23,"persist":[0,2,0,0,0,0,0,2,0,1,2,0,0],"oos":{"mix":[{"cat":"Mid Cap","k":1},{"cat":"Small Cap","k":8},{"cat":"Large & Mid Cap","k":1}],"in_gap":-3.23,"out_gap":-0.18},"months":164,"refs":{"Small Cap":{"mix":[{"cat":"Small Cap","k":10}],"by_year":[3.73,86.52,11.09,6.77,51.44,-16.45,0.01,30.34,65.66,2.38,42.98,26.72,-2.81,13.82],"gap":[-3.62,13.51,1.73,-2.77,5.7,-20.81,-12.61,4.24,14.59,-4.41,3.28,-0.71,-14.75,4.41],"mean_ret":23.01,"mean_gap":-0.87,"worst_gap":-20.81,"worst_year":2018,"worst_ret":-16.45,"beat_top3":7,"within3":9,"beat_nifty":9,"corpus":7169353},"Mid Cap":{"mix":[{"cat":"Mid Cap","k":10}],"by_year":[5.53,76.56,8.43,5.08,44.48,-11.38,4.51,25.32,46.11,3.95,39.25,30.45,2.89,7.53],"gap":[-1.82,3.55,-0.93,-4.46,-1.26,-15.74,-8.11,-0.78,-4.96,-2.84,-0.45,3.02,-9.05,-1.88],"mean_ret":20.62,"mean_gap":-3.26,"worst_gap":-15.74,"worst_year":2018,"worst_ret":-11.38,"beat_top3":2,"within3":9,"beat_nifty":9,"corpus":6251580},"Flexi Cap":{"mix":[{"cat":"Flexi Cap","k":10}],"by_year":[4.5,55.36,1.34,5.47,38.57,-4.03,12.08,16.49,34.19,0.74,29.46,19.44,4.71,3.3],"gap":[-2.85,-17.65,-8.02,-4.07,-7.17,-8.39,-0.54,-9.61,-16.88,-6.05,-10.24,-7.99,-7.23,-6.11],"mean_ret":15.83,"mean_gap":-8.06,"worst_gap":-17.65,"worst_year":2018,"worst_ret":-4.03,"beat_top3":0,"within3":2,"beat_nifty":10,"corpus":4683348},"Large Cap":{"mix":[{"cat":"Large Cap","k":10}],"by_year":[5.4,41.83,1.68,4.56,31.62,-1.57,13.04,15.03,27.71,3.13,24.57,16.31,8.97,-1.23],"gap":[-1.95,-31.18,-7.68,-4.98,-14.12,-5.93,0.42,-11.07,-23.36,-3.66,-15.13,-11.12,-2.97,-10.64],"mean_ret":13.65,"mean_gap":-10.24,"worst_gap":-31.18,"worst_year":2018,"worst_ret":-1.57,"beat_top3":1,"within3":3,"beat_nifty":10,"corpus":4208150},"Arbitrage":{"mix":[{"cat":"Arbitrage","k":10}],"by_year":[9.4,8.91,8.16,7.18,6.17,6.66,6.59,4.71,4.18,4.76,7.78,8.22,6.99,3.86],"gap":[2.05,-64.1,-1.2,-2.36,-39.57,2.3,-6.03,-21.39,-46.89,-2.03,-31.92,-19.21,-4.95,-5.55],"mean_ret":6.68,"mean_gap":-17.2,"worst_gap":-64.1,"worst_year":2026,"worst_ret":3.86,"beat_top3":2,"within3":5,"beat_nifty":6,"corpus":2570876}},"best":{"mix":[{"cat":"Mid Cap","k":1},{"cat":"Small Cap","k":8},{"cat":"Contra","k":1}],"by_year":[3.96,81.72,9.77,6.78,49.71,-14.49,1.17,29.07,60.33,3.19,41.99,26.8,-1.26,11.82],"gap":[-3.39,8.71,0.41,-2.76,3.97,-18.86,-11.45,2.97,9.26,-3.6,2.3,-0.63,-13.2,2.42],"mean_ret":22.18,"mean_gap":-1.7,"worst_gap":-18.86,"worst_year":2018,"worst_ret":-14.49,"beat_top3":7,"within3":9,"beat_nifty":9,"corpus":6900316}};
+const YRS = C.years, TOP3 = C.top3, NIF = C.nifty, ARCH = C.arch,
+      CHASE = C.chase, PERSIST = C.persist, REFS = C.refs;
+const e2 = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const p2 = v => (v>=0?'+':'') + Number(v).toFixed(2) + '%';
+const s2 = v => v>=0 ? 'pos':'neg';
+const inr = n => { n = Math.round(n); const s = String(n), l = s.length;
+  return l>3 ? s.slice(0,l-3).replace(/\B(?=(\d{2})+(?!\d))/g,',') + ',' + s.slice(l-3) : s; };
+const lakh = n => (n/100000).toFixed(1) + 'L';
+
+const zero = PERSIST.filter(p => p===0).length;
+const carry = (PERSIST.reduce((a,b)=>a+b,0)/PERSIST.length).toFixed(2);
+document.getElementById('verdicts').innerHTML = [
+  ['01','Last year\'s winners almost never repeat',
+   `<span class="big">${zero} of ${PERSIST.length}</span> years saw <b>none</b> of the previous
+    year's top three stay in the top three. Average carry-over: ${carry} of 3.`,'warn'],
+  ['02','Chasing them costs real money',
+   `<span class="big">${C.chase_mean}%</span> a year from buying last year's top three every
+    January &mdash; against <b>${ARCH[0].mean_ret}%</b> from holding one fixed blend and never
+    touching it.`,'warn'],
+  ['03','A fixed blend gets most of the way',
+   `<span class="big">${lakh(ARCH[0].corpus)}</span> from 16.4L invested on the best fixed split
+    &mdash; versus ${lakh(REFS['Flexi Cap'].corpus)} on flexi cap alone and
+    ${lakh(REFS['Arbitrage'].corpus)} on arbitrage.`,''],
+].map(([n,h,p,cls]) => `<div class="vc ${cls}"><div class="n">${n}</div><h3>${h}</h3><p>${p}</p></div>`).join('');
+
+document.getElementById('chase').innerHTML = CHASE.map((c,i) => `
+  <tr><td class="num" style="font-weight:600">${c.year}</td>
+    <td style="font-size:12.5px">${c.bought.map(e2).join(' &middot; ')}</td>
+    <td class="ret ${s2(c.got)}">${p2(c.got)}</td>
+    <td class="ret" style="color:var(--ink-3)">${p2(c.top3)}</td>
+    <td class="ret neg">${(c.got-c.top3).toFixed(2)}pp</td>
+    <td class="ret hide-s" style="color:${PERSIST[i]?'var(--ink-2)':'var(--neg)'}">${PERSIST[i]} of 3</td></tr>`).join('');
+document.getElementById('pull1').textContent =
+  `Chasing winners handed you ${C.chase_mean}% a year. Buying one fixed blend in 2013 and never ` +
+  `looking at it again handed you ${ARCH[0].mean_ret}%.`;
+
+const isYou = a => a.name === 'Your example';
+document.getElementById('archb').innerHTML = ARCH.map(a => `
+  <tr class="${isYou(a)?'you':''}">
+    <td style="font-weight:600">${e2(a.name)}</td>
+    <td class="hide-s"><div class="mix">${a.mix.map(m=>`<span class="sl">${m.k}k ${e2(m.cat)}</span>`).join('')}</div></td>
+    <td class="ret pos">${a.mean_ret.toFixed(2)}%</td>
+    <td class="ret ${s2(a.worst_ret)}">${a.worst_ret.toFixed(2)}%<span style="color:var(--ink-3);font-weight:400;font-size:11px"> ${a.worst_year}</span></td>
+    <td class="ret hide-s">${a.beat_nifty}/14</td>
+    <td class="ret" style="font-weight:700">${inr(a.corpus)}</td></tr>`).join('');
+
+const MAXR = Math.max(...ARCH.map(a=>a.mean_ret));
+const MAXD = Math.max(...ARCH.map(a=>Math.abs(Math.min(0,a.worst_ret))));
+const SPAN = MAXR + MAXD, Z = MAXD/SPAN*100;
+document.getElementById('bars').innerHTML = ARCH.map(a => {
+  const up = a.mean_ret/SPAN*100, dn = Math.abs(Math.min(0,a.worst_ret))/SPAN*100;
+  return `<div class="trow"><div class="lab">${e2(a.name)}</div>
+    <div class="track"><span class="zero" style="left:${Z}%"></span>
+      <i class="up" style="left:${Z}%;width:${up}%"></i>
+      <i class="dn" style="left:${Z-dn}%;width:${dn}%"></i></div>
+    <div class="cap ${s2(a.mean_ret)}">${a.mean_ret.toFixed(1)}%</div></div>`;
+}).join('');
+
+const you = ARCH.find(isYou), best = ARCH[0], core = ARCH[2];
+document.getElementById('yours').innerHTML = `
+  <h2>Your example, scored</h2>
+  <p class="lede">You proposed <b>5k flexi cap, 2k multi cap, 2k small cap, 1k arbitrage</b>.
+  It is a coherent, low-drama portfolio &mdash; it lost money in only one of fourteen years and its
+  worst year was just ${you.worst_ret.toFixed(2)}%. But against your own stated goal of matching the
+  top three, it never got there in fourteen attempts.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Metric</th><th class="r">Your blend</th><th class="r">Growth core</th>
+      <th class="r">Max return</th></tr></thead><tbody>
+    ${[['Return a year', a=>a.mean_ret.toFixed(2)+'%'],
+       ['Worst calendar year', a=>a.worst_ret.toFixed(2)+'% ('+a.worst_year+')'],
+       ['Years within 3pp of top 3', a=>a.within3+' of 14'],
+       ['Years beating the Nifty', a=>a.beat_nifty+' of 14'],
+       ['Final corpus on 16.4L in', a=>inr(a.corpus)]
+      ].map(([k,f]) => `<tr><td>${k}</td><td class="ret" style="font-weight:700">${f(you)}</td>
+        <td class="ret">${f(core)}</td><td class="ret">${f(best)}</td></tr>`).join('')}
+    </tbody></table></div>
+  <p class="lede" style="margin-top:16px"><b>The one change worth making:</b> the 1k arbitrage sleeve
+  earned ${REFS['Arbitrage'].mean_ret}% a year over this period. Arbitrage is a place to park money
+  you need soon, not a sleeve in a fourteen-year SIP. Move that 1k into mid cap and shift 1k of flexi
+  into small, and you get the <b>Growth core</b> row: ${core.mean_ret.toFixed(2)}% a year and
+  ${inr(core.corpus)} instead of ${inr(you.corpus)} &mdash; while your worst year moves only from
+  ${you.worst_ret.toFixed(2)}% to ${core.worst_ret.toFixed(2)}%.</p>
+  <div class="caveat"><h3>Before you act on any of it</h3><ul>
+    <li><b>Fourteen years is one regime, not a law.</b> Every blend tested did <em>better</em> in
+    2020&ndash;26 than in 2013&ndash;19. That is not proof small and mid caps are robust &mdash; it
+    means the whole period favoured them. A different decade inverts this table.</li>
+    <li><b>You cannot buy a median.</b> Every figure assumes you held the middle fund of the
+    category; a bottom-quartile fund costs you several points a year against these numbers.</li>
+    <li><b>The top-3 benchmark is unbuyable by construction</b> &mdash; it is chosen after the year
+    ends. No fixed blend beats it; the best possible falls ${Math.abs(C.best.mean_gap).toFixed(2)}pp
+    short, and needs 80% in small caps to get there.</li>
+    <li><b>Calendar years understate the pain.</b> The max-return blend lost 14.5% in 2018 and
+    finished last of all categories in both 2018 and 2025; intra-year drawdowns were far deeper.</li>
+  </ul></div>`;
+})();
+</script>
+
+</body></html>

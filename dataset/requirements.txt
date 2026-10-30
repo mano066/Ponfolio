@@ -1,0 +1,6 @@
+# Deliberately does NOT include `openchart`: that package POSTs JSON to an
+# endpoint that only answers GET, so it returns silently-empty frames for every
+# symbol. nse_charting.py speaks the real contract instead.
+pandas>=2.0
+pyarrow>=14.0
+requests>=2.31

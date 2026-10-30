@@ -1,0 +1,12 @@
+checks run : 2114
+failed     : 0
+
+archive          71 passed      0 failed
+cross-check      10 passed      0 failed
+tax               7 passed      0 failed
+365-day rule      1 passed      0 failed
+accounting      175 passed      0 failed
+ledger         1810 passed      0 failed
+xirr             10 passed      0 failed
+json             15 passed      0 failed
+reproducible     15 passed      0 failed

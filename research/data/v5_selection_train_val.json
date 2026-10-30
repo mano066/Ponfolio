@@ -1,0 +1,94 @@
+{
+  "protocol": {
+    "cost_pct": 0.3,
+    "top_n": 5,
+    "hold_sessions": 20,
+    "stop_atr": 2.5,
+    "exit": "no-TP, 2.5xATR close-evaluated (production v4)",
+    "train": [
+      "2011-01-01",
+      "2019-12-31"
+    ],
+    "val": [
+      "2020-01-01",
+      "2022-12-31"
+    ],
+    "test_status": "FROZEN (>= 2023-01-01, not computed here)",
+    "universe": "today's ~750 names back to 2010 (survivorship-biased)",
+    "intraday_used": false
+  },
+  "train": {
+    "baseline_v4": {
+      "n": 10964,
+      "win": 49.46,
+      "exp": 1.1296,
+      "med": -0.1169,
+      "pf": 1.332
+    },
+    "vol_contraction<=0.40": {
+      "n": 3000,
+      "win": 47.1,
+      "exp": 0.8553,
+      "med": -0.6215,
+      "pf": 1.263
+    },
+    "vol_contraction<=0.25": {
+      "n": 1847,
+      "win": 47.21,
+      "exp": 0.8021,
+      "med": -0.6201,
+      "pf": 1.249
+    },
+    "liquid_turn>=5cr": {
+      "n": 7187,
+      "win": 49.02,
+      "exp": 0.6503,
+      "med": -0.1788,
+      "pf": 1.189
+    },
+    "coiled+liquid": {
+      "n": 1875,
+      "win": 46.29,
+      "exp": 0.3669,
+      "med": -0.8984,
+      "pf": 1.109
+    }
+  },
+  "val": {
+    "baseline_v4": {
+      "n": 3658,
+      "win": 52.93,
+      "exp": 2.6544,
+      "med": 0.7495,
+      "pf": 1.651
+    },
+    "vol_contraction<=0.40": {
+      "n": 851,
+      "win": 51.7,
+      "exp": 1.9563,
+      "med": 0.4225,
+      "pf": 1.521
+    },
+    "vol_contraction<=0.25": {
+      "n": 487,
+      "win": 51.54,
+      "exp": 1.9224,
+      "med": 0.2896,
+      "pf": 1.528
+    },
+    "liquid_turn>=5cr": {
+      "n": 3248,
+      "win": 52.86,
+      "exp": 2.4705,
+      "med": 0.7216,
+      "pf": 1.619
+    },
+    "coiled+liquid": {
+      "n": 729,
+      "win": 51.03,
+      "exp": 1.5413,
+      "med": 0.1402,
+      "pf": 1.416
+    }
+  }
+}

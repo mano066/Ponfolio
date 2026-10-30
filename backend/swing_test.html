@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swing Trading — Kite MCP Test</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #e2e8f0; min-height: 100vh; }
+
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1420 100%); border-bottom: 1px solid #1e293b; padding: 20px 32px; display: flex; align-items: center; gap: 16px; }
+  .header h1 { font-size: 20px; font-weight: 800; background: linear-gradient(135deg, #818cf8, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header .badge { font-size: 10px; padding: 3px 10px; border-radius: 20px; background: rgba(99,102,241,0.15); color: #818cf8; border: 1px solid rgba(99,102,241,0.3); font-weight: 600; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+  /* Status Card */
+  .status-card { background: #111827; border: 1px solid #1e293b; border-radius: 16px; padding: 20px 24px; margin-bottom: 20px; }
+  .status-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .status-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .status-dot.green { background: #10b981; box-shadow: 0 0 8px #10b981; }
+  .status-dot.red { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+  .status-dot.yellow { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+  .status-text { font-size: 14px; font-weight: 600; }
+  .status-sub { font-size: 11px; color: #64748b; }
+  .spacer { flex: 1; }
+
+  /* Buttons */
+  .btn { padding: 10px 20px; border-radius: 10px; border: none; font-family: 'Inter'; font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-primary { background: linear-gradient(135deg, #6366f1, #818cf8); color: white; box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
+  .btn-primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(99,102,241,0.4); }
+  .btn-success { background: linear-gradient(135deg, #10b981, #34d399); color: white; box-shadow: 0 4px 12px rgba(16,185,129,0.3); }
+  .btn-danger { background: linear-gradient(135deg, #ef4444, #f87171); color: white; }
+  .btn-outline { background: transparent; color: #818cf8; border: 1px solid #334155; }
+  .btn-outline:hover:not(:disabled) { background: rgba(99,102,241,0.1); }
+
+  /* Progress */
+  .progress-wrap { margin: 16px 0; }
+  .progress-bar { height: 6px; background: #1e293b; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #6366f1, #818cf8); border-radius: 3px; transition: width 0.3s; }
+  .progress-text { font-size: 11px; color: #64748b; margin-top: 6px; display: flex; justify-content: space-between; }
+
+  /* Log */
+  .log-card { background: #0d1117; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; margin-top: 16px; max-height: 200px; overflow-y: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.6; }
+  .log-line { color: #64748b; }
+  .log-line.ok { color: #10b981; }
+  .log-line.err { color: #ef4444; }
+  .log-line.info { color: #818cf8; }
+  .log-line.warn { color: #f59e0b; }
+
+  /* Picks Table */
+  .picks-card { background: #111827; border: 1px solid #1e293b; border-radius: 16px; padding: 20px 24px; margin-top: 20px; }
+  .picks-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .picks-title .count { background: rgba(99,102,241,0.15); color: #818cf8; padding: 2px 10px; border-radius: 20px; font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #475569; padding: 8px 12px; border-bottom: 1px solid #1e293b; }
+  td { padding: 12px; border-bottom: 1px solid rgba(30,41,59,0.5); font-size: 13px; }
+  tr:hover td { background: rgba(99,102,241,0.04); }
+  .score { font-weight: 800; font-size: 16px; }
+  .score.high { color: #10b981; }
+  .score.mid { color: #f59e0b; }
+  .score.low { color: #ef4444; }
+  .setup-badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 10px; font-weight: 600; background: rgba(99,102,241,0.1); color: #818cf8; border: 1px solid rgba(99,102,241,0.2); }
+  .src-badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 9px; font-weight: 600; }
+  .src-kite { background: rgba(16,185,129,0.1); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+  .src-yf { background: rgba(99,102,241,0.1); color: #818cf8; border: 1px solid rgba(99,102,241,0.3); }
+  .empty { text-align: center; padding: 40px; color: #475569; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>⚡ Swing Trading — Kite MCP Test</h1>
+  <span class="badge">NIFTY 50 &bull; MCP ONLY &bull; Top 5 Picks</span>
+</div>
+
+<div class="container">
+  <!-- Status -->
+  <div class="status-card">
+    <div class="status-row">
+      <div class="status-dot" id="statusDot"></div>
+      <span class="status-text" id="statusText">Checking...</span>
+      <span class="status-sub" id="statusSub"></span>
+      <div class="spacer"></div>
+      <button class="btn btn-primary" id="loginBtn" onclick="doLogin()">🔑 Login Zerodha</button>
+      <button class="btn btn-success" id="scanBtn" onclick="doScan()" disabled>🔍 Scan Now</button>
+      <button class="btn btn-outline" onclick="checkStatus()">↻ Refresh</button>
+    </div>
+    <div class="progress-wrap" id="progressWrap" style="display:none;">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-text">
+        <span id="progressLabel">Scanning...</span>
+        <span id="progressPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Log -->
+  <div class="log-card" id="logBox"></div>
+
+  <!-- Picks -->
+  <div class="picks-card" id="picksCard" style="display:none;">
+    <div class="picks-title">🎯 Today's Swing Picks <span class="count" id="picksCount">0</span></div>
+    <table>
+      <thead><tr>
+        <th>#</th><th>Stock</th><th>Score</th><th>Setup</th><th>Price</th>
+        <th>Entry</th><th>Stop Loss</th><th>Target 1</th><th>R:R</th><th>RSI</th><th>Source</th>
+      </tr></thead>
+      <tbody id="picksBody"></tbody>
+    </table>
+    <div class="empty" id="emptyMsg" style="display:none;">No swing setups found. Try scanning again.</div>
+  </div>
+</div>
+
+<script>
+const API = 'http://localhost:8182/api';
+let pollTimer = null;
+
+function log(msg, cls = '') {
+  const box = document.getElementById('logBox');
+  const line = document.createElement('div');
+  line.className = 'log-line ' + cls;
+  line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+  box.appendChild(line);
+  box.scrollTop = box.scrollHeight;
+}
+
+async function checkStatus() {
+  try {
+    const r = await fetch(`${API}/kite/status`).then(r => r.json());
+    const dot = document.getElementById('statusDot');
+    const text = document.getElementById('statusText');
+    const sub = document.getElementById('statusSub');
+    const scanBtn = document.getElementById('scanBtn');
+    const loginBtn = document.getElementById('loginBtn');
+
+    if (r.connected && r.mcp_available) {
+      dot.className = 'status-dot green';
+      text.textContent = `✅ Connected — ${r.user_name} (${r.user_id})`;
+      sub.textContent = `MCP: ${r.mcp_url}`;
+      scanBtn.disabled = false;
+      loginBtn.style.display = 'none';
+      log(`Kite MCP connected: ${r.user_name} (${r.user_id})`, 'ok');
+    } else if (r.mcp_available) {
+      dot.className = 'status-dot yellow';
+      text.textContent = '⚠️ MCP Available — Login Required';
+      sub.textContent = r.last_error || 'Click Login to authenticate';
+      scanBtn.disabled = true;
+      loginBtn.style.display = '';
+      log('MCP available but not authenticated', 'warn');
+    } else {
+      dot.className = 'status-dot red';
+      text.textContent = '❌ MCP Not Available';
+      sub.textContent = r.last_error || 'Kite MCP server unreachable';
+      scanBtn.disabled = true;
+      loginBtn.style.display = '';
+      log(`MCP error: ${r.last_error || 'unreachable'}`, 'err');
+    }
+  } catch (e) {
+    log(`Backend error: ${e.message}`, 'err');
+  }
+}
+
+async function doLogin() {
+  log('Getting login URL...', 'info');
+  try {
+    const r = await fetch(`${API}/kite/login`).then(r => r.json());
+    if (r.already_connected) {
+      log(`Already connected as ${r.user_name}`, 'ok');
+      checkStatus();
+      return;
+    }
+    if (r.login_url) {
+      log('Opening Zerodha login...', 'info');
+      window.open(r.login_url, '_blank');
+      // Poll for connection
+      let attempts = 0;
+      const poller = setInterval(async () => {
+        attempts++;
+        if (attempts > 60) { clearInterval(poller); log('Login timeout', 'err'); return; }
+        try {
+          const c = await fetch(`${API}/kite/check`, { method: 'POST' }).then(r => r.json());
+          if (c.connected) {
+            clearInterval(poller);
+            log(`Logged in as ${c.user_name} (${c.user_id})`, 'ok');
+            checkStatus();
+          }
+        } catch (_) {}
+      }, 3000);
+    }
+  } catch (e) {
+    log(`Login error: ${e.message}`, 'err');
+  }
+}
+
+async function doScan() {
+  log('Starting MCP-only scan...', 'info');
+  document.getElementById('scanBtn').disabled = true;
+  document.getElementById('progressWrap').style.display = '';
+  document.getElementById('picksCard').style.display = 'none';
+
+  try {
+    await fetch(`${API}/swing/daily-picks?force=true`).then(r => r.json());
+    // Poll progress
+    pollTimer = setInterval(async () => {
+      try {
+        const r = await fetch(`${API}/swing/daily-picks`).then(r => r.json());
+        const pct = r.total > 0 ? Math.round((r.progress / r.total) * 100) : 0;
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressPct').textContent = pct + '%';
+        document.getElementById('progressLabel').textContent =
+          r.scanning ? `Scanning ${r.current_stock || '...'} (${r.progress}/${r.total})` : 'Done!';
+
+        if (r.progress > 0 && r.progress % 10 === 0) {
+          log(`Progress: ${r.progress}/${r.total} — ${r.current_stock}`, 'info');
+        }
+
+        if (!r.scanning) {
+          clearInterval(pollTimer);
+          document.getElementById('scanBtn').disabled = false;
+          showPicks(r.picks || []);
+          log(`Scan complete: ${(r.picks || []).length} picks found`, r.picks?.length > 0 ? 'ok' : 'warn');
+        }
+      } catch (e) {
+        log(`Poll error: ${e.message}`, 'err');
+      }
+    }, 2000);
+  } catch (e) {
+    log(`Scan error: ${e.message}`, 'err');
+    document.getElementById('scanBtn').disabled = false;
+  }
+}
+
+function showPicks(picks) {
+  const card = document.getElementById('picksCard');
+  const body = document.getElementById('picksBody');
+  const empty = document.getElementById('emptyMsg');
+  const count = document.getElementById('picksCount');
+  card.style.display = '';
+  count.textContent = picks.length;
+  body.innerHTML = '';
+
+  if (picks.length === 0) {
+    empty.style.display = '';
+    return;
+  }
+  empty.style.display = 'none';
+
+  picks.forEach((p, i) => {
+    const scoreClass = p.score >= 85 ? 'high' : p.score >= 70 ? 'mid' : 'low';
+    const srcClass = p.data_source === 'Kite MCP' ? 'src-kite' : 'src-yf';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${i + 1}</td>
+      <td><strong>${p.name || p.symbol}</strong><br><span style="font-size:10px;color:#64748b">${p.symbol}</span></td>
+      <td><span class="score ${scoreClass}">${p.score}</span></td>
+      <td><span class="setup-badge">${p.setup}</span></td>
+      <td>₹${Number(p.price).toFixed(2)}</td>
+      <td>₹${Number(p.entry).toFixed(2)}</td>
+      <td style="color:#ef4444">₹${Number(p.stop_loss).toFixed(2)}</td>
+      <td style="color:#10b981">₹${Number(p.target1).toFixed(2)}</td>
+      <td>${p.risk_reward || '-'}</td>
+      <td>${Number(p.rsi).toFixed(1)}</td>
+      <td><span class="${srcClass} src-badge">${p.data_source}</span></td>
+    `;
+    body.appendChild(tr);
+  });
+}
+
+// Init
+checkStatus();
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+{
+  "_meta": {
+    "generated": "2026-07-25",
+    "measured_scope": "daily resolution, survivorship-biased current ~708-name universe, raw OHLC, ~13 known unadjusted corporate-action rows",
+    "unverified_scope": "every lower-timeframe (60m..1m) entry-timing condition — no per-stock intraday history exists to backtest it; design-only, for forward paper shadow mode",
+    "common_costs": {"round_trip_pct": 0.30, "slippage_tested_bps": [0, 5, 10, 20]},
+    "common_safety": {
+      "min_upside_pct": 2.0, "min_reward_risk": 1.5, "gap_max_entry_pct": 4.0,
+      "require_finite_positive_target": true, "require_current_below_target": true,
+      "require_target_above_max_entry": true, "no_retrospective_fill": true
+    }
+  },
+  "strategies": [
+    {
+      "strategy_id": "S1_trend_pullback",
+      "version": "v5.0-daily",
+      "status": "SHORTLISTED_PRIMARY",
+      "required_timeframes": {"measured": ["1d"], "design_only_unverified": ["60m", "15m"]},
+      "regime_filters": {"nifty_daily": "BULL (close>EMA200 and EMA50>EMA200)"},
+      "universe_filter": "NSE EQ, survivorship-biased current members (LABELED)",
+      "liquidity_filter": {"min_price": 5.0, "min_turnover_20d_inr": 10000000},
+      "entry_conditions": {
+        "trend": "close>EMA50>EMA200 and EMA50 rising (>EMA50[t-5])",
+        "setup": "pullback to EMA20 (low<=EMA20*1.02 or |close/EMA20-1|<=2%) AND close>EMA20 (reclaim)",
+        "momentum": "RSI14 in [40,62]",
+        "candle": "close>open (close-strength)",
+        "entry_trigger_measured": "next-session open, skip gap>4%",
+        "entry_trigger_design_only": "15m higher-low or EMA20 reclaim (UNVERIFIED)"
+      },
+      "exit_conditions": {
+        "primary_measured": "v4: no take-profit, stop 2.5xATR on daily close, exit next open if breached, time-exit 20 sessions",
+        "alt_tested": "target +3xATR / stop -1.5xATR, stop-first if both touched"
+      },
+      "target_methodology": "research target = entry + 3xATR (finite, positive); used for actionability/upside/RR gating",
+      "stop_methodology": "entry - 2.5xATR (v4 unit)",
+      "sizing_methodology": "equal-weight, <=8 concurrent, cap/8 per position",
+      "expiry": {"stale_signal_days": 3, "max_holding_sessions": 20},
+      "missed_entry_behaviour": "if next-open gap>4% or price above buy zone -> MISSED_ENTRY/WAIT, no fill",
+      "required_data_fields": ["open", "high", "low", "close", "volume(daily)"],
+      "unsupported_data_conditions": ["no per-stock intraday -> 15m/60m triggers not evaluated"],
+      "measured_results": {"train_exp": 1.847, "val_exp": 2.052, "test_exp": 2.063, "val_pf": 1.442, "port_cagr_pct": 9.19, "port_maxdd_pct": -12.43, "top5_profit_share": 0.033}
+    },
+    {
+      "strategy_id": "S3_rs_continuation",
+      "version": "v5.0-daily",
+      "status": "SHORTLISTED",
+      "required_timeframes": {"measured": ["1d"], "design_only_unverified": ["60m"]},
+      "regime_filters": {"nifty_daily": "BULL"},
+      "liquidity_filter": {"min_price": 5.0, "min_turnover_20d_inr": 10000000},
+      "entry_conditions": {
+        "trend": "close>EMA50>EMA200",
+        "relative_strength": "stock ret20>NIFTY ret20 AND ret63>NIFTY ret63 AND ret120>NIFTY ret120 (ablation: this triple filter slightly LOWERS expectancy, mainly cuts trades — consider relaxing to ret63 only)",
+        "setup": "shallow: close>=20d-high[t-1]*0.92",
+        "trigger_measured": "renewed strength: close>close[t-1] AND close>EMA20; next-open"
+      },
+      "exit_conditions": {"primary_measured": "v4 no-TP / 2.5xATR close / 20 sessions"},
+      "target_methodology": "entry + 3xATR",
+      "stop_methodology": "entry - 2.5xATR",
+      "sizing_methodology": "equal-weight, <=8 concurrent",
+      "expiry": {"stale_signal_days": 3, "max_holding_sessions": 20},
+      "missed_entry_behaviour": "gap>4% or above zone -> MISSED_ENTRY/WAIT",
+      "required_data_fields": ["open", "high", "low", "close", "volume(daily)"],
+      "unsupported_data_conditions": ["sector-relative strength NOT computed (no sector map wired) — uses NIFTY-relative only"],
+      "measured_results": {"train_exp": 2.017, "val_exp": 2.725, "test_exp": 1.727, "val_pf": 1.459, "port_cagr_pct": 10.55, "port_maxdd_pct": -17.2, "degradation_note": "val->test expectancy drops 2.73->1.73"}
+    },
+    {
+      "strategy_id": "S2_vol_contraction_breakout",
+      "version": "v5.0-daily-novolume",
+      "status": "SHORTLISTED_DIVERSIFIER",
+      "required_timeframes": {"measured": ["1d"], "design_only_unverified": ["15m"]},
+      "regime_filters": {"nifty_daily": "BULL or SIDEWAYS"},
+      "liquidity_filter": {"min_price": 5.0, "min_turnover_20d_inr": 10000000},
+      "entry_conditions": {
+        "trend": "close>EMA50>EMA200",
+        "contraction": "BB width <= its 100d 25th percentile",
+        "breakout": "close>20d-high[t-1]",
+        "not_extended": "close<=EMA20*1.15",
+        "volume_filter": "DROP — ablation showed relative-volume>=1.2 REDUCES expectancy (+0.32 when removed)",
+        "trigger_measured": "next-open, skip gap>4%"
+      },
+      "exit_conditions": {"primary_measured": "v4 no-TP / 2.5xATR close / 20 sessions"},
+      "target_methodology": "entry + 3xATR",
+      "stop_methodology": "entry - 2.5xATR",
+      "sizing_methodology": "equal-weight, <=8 concurrent",
+      "expiry": {"stale_signal_days": 3, "max_holding_sessions": 20},
+      "missed_entry_behaviour": "gap>4% or above zone -> MISSED_ENTRY/WAIT",
+      "required_data_fields": ["open", "high", "low", "close"],
+      "unsupported_data_conditions": ["intraday retest confirmation not evaluated"],
+      "measured_results": {"train_exp": 1.111, "val_exp": 1.552, "test_exp": 1.380, "val_pf": 1.399, "port_cagr_pct": 6.64, "port_maxdd_pct": -18.93, "regime": "only strategy positive in BOTH bull(1.32) and sideways(1.27)"}
+    },
+    {
+      "strategy_id": "S6_daily_momentum",
+      "version": "v5.0-daily-no-lowertf",
+      "status": "SHORTLISTED_WITH_MODIFICATION",
+      "required_timeframes": {"measured": ["1d"]},
+      "regime_filters": {"nifty_daily": "BULL"},
+      "liquidity_filter": {"min_price": 5.0, "min_turnover_20d_inr": 10000000},
+      "entry_conditions": {
+        "trend": "close>EMA50>EMA200",
+        "momentum": "EMA12>EMA26 (MACD-up) AND RSI14 in [45,70)",
+        "lower_tf_alignment": "REMOVE — ablation: the multi-horizon alignment gate (ret5>0 & ret10>0 & ret20>0) LOWERS expectancy by 0.70%/trade; keep only as design-only intraday confirmation in shadow mode",
+        "trigger_measured": "next-open, skip gap>4%"
+      },
+      "exit_conditions": {"primary_measured": "v4 no-TP / 2.5xATR close / 20 sessions"},
+      "target_methodology": "entry + 3xATR",
+      "stop_methodology": "entry - 2.5xATR",
+      "sizing_methodology": "equal-weight, <=8 concurrent",
+      "expiry": {"stale_signal_days": 3, "max_holding_sessions": 20},
+      "missed_entry_behaviour": "gap>4% or above zone -> MISSED_ENTRY/WAIT",
+      "required_data_fields": ["open", "high", "low", "close"],
+      "unsupported_data_conditions": ["true 5h/2h/60m alignment unbacktestable — shadow mode only"],
+      "measured_results": {"train_exp": 1.449, "val_exp": 1.863, "test_exp": 2.132, "val_pf": 1.351, "no_lower_tf_val_exp": 2.566, "port_cagr_pct": 8.55, "port_maxdd_pct": -28.15}
+    }
+  ],
+  "rejected": [
+    {"strategy_id": "S4_failed_breakdown_meanrev", "reason": "marginal expectancy (val +0.21), turns negative at +20bps slippage (-0.19), portfolio maxDD -37.6%"},
+    {"strategy_id": "S5_gap_and_hold", "reason": "negative/near-zero expectancy (val -0.01, PF 0.998), negative in both regimes, portfolio sim blew up (-212% DD). Daily proxy cannot capture the intraday gap-hold structure the strategy actually needs"},
+    {"strategy_id": "S7_regime_defensive", "reason": "as an overlay on S1 it is a NO-OP — S1 already gates BULL-only, so results are identical to S1. Regime defense is retained as a PORTFOLIO-level rule, not a standalone strategy"}
+  ]
+}

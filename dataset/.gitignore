@@ -1,0 +1,15 @@
+# The parquet stores under store/ ARE versioned, by choice -- git is the
+# off-machine copy of data that cannot be re-fetched.
+#
+# Measured churn per harvest: 1,500 files / ~204 MB genuinely change (750 daily
+# + 750 current-month intraday), because one new bar recompresses a whole
+# parquet file. Closed months are rewritten byte-identically and cost nothing.
+# Committing every run would be ~51 GB/year, so run_daily.ps1 delegates to
+# snapshot_store.ps1, which commits monthly (~2.5 GB/year).
+#
+# store/intraday/ is the irreplaceable part: once a session falls outside NSE's
+# ~20-session window it cannot be re-fetched at any price. store/daily/ can be
+# rebuilt any time with `python backfill_eod.py`.
+
+__pycache__/
+*.pyc

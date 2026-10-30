@@ -1,0 +1,285 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>v4 → v5 Rollout Plan</title>
+<style>
+  :root {
+    --bg: #EEF2F7; --surface: #FFFFFF; --surface-2: #F6F9FC;
+    --ink: #0F1B2D; --muted: #56697F; --line: #D4DDE7;
+    --v4: #9A6A12; --v4-soft: #F3E7CE;
+    --v5: #0C8F63; --v5-soft: #D6F0E4;
+    --gate: #B23A31; --gate-soft: #F5DCD9;
+    --accent: var(--v5);
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --r: 12px; --shadow: 0 1px 2px rgba(15,27,45,.06), 0 8px 24px rgba(15,27,45,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #09111C; --surface: #111E2E; --surface-2: #0D1826;
+      --ink: #E9EFF6; --muted: #93A6BB; --line: #223141;
+      --v4: #E0A44A; --v4-soft: #2C2415;
+      --v5: #35C692; --v5-soft: #0E2A20;
+      --gate: #E67368; --gate-soft: #2E1917;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #EEF2F7; --surface: #FFFFFF; --surface-2: #F6F9FC;
+    --ink: #0F1B2D; --muted: #56697F; --line: #D4DDE7;
+    --v4: #9A6A12; --v4-soft: #F3E7CE; --v5: #0C8F63; --v5-soft: #D6F0E4;
+    --gate: #B23A31; --gate-soft: #F5DCD9;
+    --shadow: 0 1px 2px rgba(15,27,45,.06), 0 8px 24px rgba(15,27,45,.05);
+  }
+  :root[data-theme="dark"] {
+    --bg: #09111C; --surface: #111E2E; --surface-2: #0D1826;
+    --ink: #E9EFF6; --muted: #93A6BB; --line: #223141;
+    --v4: #E0A44A; --v4-soft: #2C2415; --v5: #35C692; --v5-soft: #0E2A20;
+    --gate: #E67368; --gate-soft: #2E1917;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .wrap {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    min-height: 100vh; padding: 48px 20px 72px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .col { max-width: 880px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 12px;
+  }
+  h1 {
+    font-size: clamp(28px, 4.5vw, 42px); line-height: 1.08; margin: 0 0 16px;
+    letter-spacing: -.02em; text-wrap: balance; font-weight: 800;
+  }
+  h1 .hl { color: var(--accent); }
+  .lede {
+    font-size: 18px; color: var(--muted); margin: 0 0 8px; max-width: 62ch;
+  }
+  .lede strong { color: var(--ink); font-weight: 650; }
+
+  /* evidence strip */
+  .evidence {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin: 32px 0 40px;
+  }
+  @media (max-width: 640px) { .evidence { grid-template-columns: repeat(2, 1fr); } }
+  .stat {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--r); padding: 16px 16px 14px; box-shadow: var(--shadow);
+  }
+  .stat .k {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 10px;
+  }
+  .cmp { display: flex; align-items: baseline; gap: 8px; font-family: var(--mono); }
+  .cmp .old { color: var(--v4); font-size: 15px; text-decoration: line-through; text-decoration-thickness: 1px; opacity: .8; }
+  .cmp .arw { color: var(--muted); font-size: 13px; }
+  .cmp .new { color: var(--v5); font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat .note { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+
+  .section-label {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--muted);
+    display: flex; align-items: center; gap: 12px; margin: 8px 0 22px;
+  }
+  .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  /* flow */
+  .flow { display: flex; flex-direction: column; align-items: stretch; }
+  .node {
+    position: relative; background: var(--surface); border: 1px solid var(--line);
+    border-left: 4px solid var(--nodec, var(--line)); border-radius: var(--r);
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .node .tag {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--nodec, var(--muted)); font-weight: 600;
+    display: block; margin-bottom: 4px;
+  }
+  .node .nt { font-size: 17px; font-weight: 700; margin: 0 0 4px; letter-spacing: -.01em; }
+  .node .nd { font-size: 14px; color: var(--muted); margin: 0; }
+  .node .pill {
+    display: inline-block; margin-top: 10px; font-family: var(--mono);
+    font-size: 11px; letter-spacing: .04em; padding: 3px 9px; border-radius: 999px;
+    background: var(--v5-soft); color: var(--v5); border: 1px solid color-mix(in srgb, var(--v5) 30%, transparent);
+  }
+  .n-start { --nodec: var(--muted); }
+  .n-keep  { --nodec: var(--v4); }
+  .n-shadow, .n-validate { --nodec: var(--v5); }
+  .n-gate  { --nodec: var(--gate); border-left-width: 4px; }
+  .n-promote { --nodec: var(--v5); background: linear-gradient(180deg, var(--v5-soft), var(--surface)); }
+  .n-fallback { --nodec: var(--v4); }
+
+  .link {
+    width: 2px; height: 26px; background: var(--line); margin: 0 auto;
+    position: relative;
+  }
+  .link::after {
+    content: ""; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
+    width: 7px; height: 7px; border-right: 2px solid var(--line);
+    border-bottom: 2px solid var(--line); rotate: 45deg;
+  }
+
+  /* parallel track attached beside a stage */
+  .withside { display: grid; grid-template-columns: 1fr 260px; gap: 14px; align-items: stretch; }
+  @media (max-width: 720px) { .withside { grid-template-columns: 1fr; } }
+  .side {
+    background: var(--surface-2); border: 1px dashed var(--line); border-radius: var(--r);
+    padding: 14px 16px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .side .tag { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+  .side .st { font-weight: 700; font-size: 15px; margin: 0 0 3px; }
+  .side .sd { font-size: 13px; color: var(--muted); margin: 0; }
+
+  /* branch */
+  .branch { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .branch { grid-template-columns: 1fr; } }
+  .branch-head {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 8px;
+  }
+  @media (max-width: 640px) { .branch-head { grid-template-columns: 1fr 1fr; } }
+  .bl {
+    text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px; border-radius: 8px;
+  }
+  .bl.no  { color: var(--gate); background: var(--gate-soft); }
+  .bl.yes { color: var(--v5); background: var(--v5-soft); }
+
+  .gates {
+    margin-top: 40px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--r); padding: 22px 24px; box-shadow: var(--shadow);
+  }
+  .gates h3 { margin: 0 0 14px; font-size: 15px; font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .gates ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .gates li { display: flex; gap: 11px; font-size: 14.5px; align-items: flex-start; }
+  .gates li .ck { color: var(--v5); font-weight: 800; flex: none; font-family: var(--mono); }
+
+  .caveat {
+    margin-top: 28px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line);
+    padding-top: 18px; line-height: 1.6;
+  }
+  .caveat b { color: var(--ink); font-weight: 650; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .node, .stat, .side { animation: rise .5s cubic-bezier(.2,.7,.3,1) both; }
+    .flow .link { animation: grow .4s ease both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes grow { from { opacity: 0; } }
+  }
+</style>
+
+<div class="wrap">
+  <div class="col">
+    <p class="eyebrow">NSE Swing Engine · Rollout Recommendation</p>
+    <h1>Ship <span class="hl">v5</span> — but make it earn the default.</h1>
+    <p class="lede"><strong>v5 is the better engine on the evidence — same return, roughly half the drawdown.</strong>
+      But every number is backtest on a survivorship-biased universe. So run it in shadow mode, prove it forward, then promote. Keep v4 live until it does.</p>
+
+    <div class="evidence" role="list">
+      <div class="stat" role="listitem">
+        <p class="k">Max drawdown</p>
+        <div class="cmp"><span class="old">−34%</span><span class="arw">→</span><span class="new">−19%</span></div>
+        <p class="note">v4 → v5 · full period</p>
+      </div>
+      <div class="stat" role="listitem">
+        <p class="k">Calmar · test</p>
+        <div class="cmp"><span class="old">0.27</span><span class="arw">→</span><span class="new">0.73</span></div>
+        <p class="note">~2.7× risk-adjusted, out-of-sample</p>
+      </div>
+      <div class="stat" role="listitem">
+        <p class="k">CAGR</p>
+        <div class="cmp"><span class="old">9.3%</span><span class="arw">→</span><span class="new">~9%</span></div>
+        <p class="note">comparable return</p>
+      </div>
+      <div class="stat" role="listitem">
+        <p class="k">Test expectancy</p>
+        <div class="cmp"><span class="old">1.37</span><span class="arw">→</span><span class="new">~2.0</span></div>
+        <p class="note">net %/trade, 2023–26</p>
+      </div>
+    </div>
+
+    <p class="section-label">Staged rollout</p>
+
+    <div class="flow">
+      <div class="node n-start">
+        <span class="tag">Now</span>
+        <p class="nt">v4 running in production</p>
+        <p class="nd">The battle-tested engine. Momentum selection, no regime gate — the source of its −34% drawdown.</p>
+      </div>
+      <div class="link"></div>
+
+      <div class="node n-keep">
+        <span class="tag">Stage 1 · Hold</span>
+        <p class="nt">Keep v4 as the live default</p>
+        <p class="nd">No user-facing change. Nothing ships to production behavior yet.</p>
+      </div>
+      <div class="link"></div>
+
+      <div class="node n-shadow">
+        <span class="tag">Stage 2 · Build</span>
+        <p class="nt">Implement v5 ensemble behind a feature flag — shadow mode</p>
+        <p class="nd">Regime-adaptive ensemble with volatility-target sizing. Logs signals & simulated fills against live prices, side-by-side with v4.</p>
+        <span class="pill">no production surface change</span>
+      </div>
+      <div class="link"></div>
+
+      <div class="withside">
+        <div class="node n-validate">
+          <span class="tag">Stage 3 · Prove</span>
+          <p class="nt">Forward paper validation · 3–6 months</p>
+          <p class="nd">Does v5 beat v4 on live-forward data, after costs, while holding its lower-drawdown profile?</p>
+        </div>
+        <div class="side">
+          <span class="tag">In parallel</span>
+          <p class="st">Rebuild survivorship-free universe</p>
+          <p class="sd">Re-run the comparison bias-free — the one result that makes the case decisive.</p>
+        </div>
+      </div>
+      <div class="link"></div>
+
+      <div class="node n-gate">
+        <span class="tag">Decision gate</span>
+        <p class="nt">Did v5 clear every promotion criterion?</p>
+        <p class="nd">Both tracks must pass — forward-live outperformance <em>and</em> the bias-free re-run.</p>
+      </div>
+      <div class="link"></div>
+
+      <div class="branch-head">
+        <div class="bl no">If v5 falls short</div>
+        <div class="bl yes">If v5 proves out</div>
+      </div>
+      <div class="branch">
+        <div class="node n-fallback">
+          <span class="tag">Outcome A</span>
+          <p class="nt">Keep v4</p>
+          <p class="nd">Document why, retain the v5 research, revisit after the universe rebuild.</p>
+        </div>
+        <div class="node n-promote">
+          <span class="tag">Outcome B</span>
+          <p class="nt">Promote v5 to default</p>
+          <p class="nd">Flip the flag. v4 stays wired as an instant fallback.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="gates">
+      <h3>Promotion criteria — all must hold</h3>
+      <ul>
+        <li><span class="ck">✓</span><span>Beats v4 on live-forward paper data <b>after costs</b> — not just in backtest.</span></li>
+        <li><span class="ck">✓</span><span>Holds <b>lower or comparable max drawdown</b> through the validation window.</span></li>
+        <li><span class="ck">✓</span><span>Edge survives the <b>survivorship-free</b> re-run (bias removed).</span></li>
+        <li><span class="ck">✓</span><span>Sufficient independent trades; no dependence on a few outliers.</span></li>
+        <li><span class="ck">✓</span><span>v4 remains an <b>instant fallback</b> the moment v5 misbehaves.</span></li>
+      </ul>
+    </div>
+
+    <p class="caveat">
+      <b>Why staged, not a straight swap:</b> v5's edge is <b>risk management</b> (volatility-target sizing + regime gating), not better stock-picking — the robust kind of edge, but still unvalidated live. All metrics are measured on a <b>survivorship-biased daily universe</b>, so absolute returns are overstated; only the <b>relative</b> v4→v5 improvement (drawdown, Calmar) is trustworthy until the rebuild. v5 is bull-gated — proven to <i>stand aside</i> in bad regimes, not proven to trade them. Research-only; no production code, paper history, or git state changes until the gate is cleared.
+    </p>
+  </div>
+</div>
+
+</body></html>

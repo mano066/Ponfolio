@@ -94,7 +94,7 @@ BEGIN
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "Ponfolio" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 AIEI Technologies. All rights reserved." "\0"
-            VALUE "OriginalFilename", "aiei_wealth.exe" "\0"
+            VALUE "OriginalFilename", "ponfolio.exe" "\0"
             VALUE "ProductName", "Ponfolio" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END

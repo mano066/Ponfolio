@@ -5,11 +5,11 @@
 ; â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 #define MyAppName "Ponfolio"
-#define MyAppVersion "1.7.0"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "AIEI Technologies"
 #define MyAppURL "https://aiei.tech"
-#define MyAppExeName "aiei_wealth.exe"
-#define MyAppId "{{B7A4E2D1-9F3C-4A5B-8E6D-1C2F3A4B5C6D}"
+#define MyAppExeName "ponfolio.exe"
+#define MyAppId "{{B0F37F2A-6992-4FEF-82F9-0CA00F2DF545}"
 
 [Setup]
 AppId={#MyAppId}
@@ -24,7 +24,7 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 OutputDir=installer_output
-OutputBaseFilename=Ponfolio_Setup_v{#MyAppVersion}
+OutputBaseFilename=Ponfolio_v{#MyAppVersion}
 SetupIconFile=windows\runner\resources\app_icon.ico
 Compression=lzma2/ultra64
 SolidCompression=yes
@@ -100,7 +100,7 @@ begin
   // Bundled backend: any python.exe whose image path is inside our app folder.
   Exec(ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe'),
        '-NoProfile -NonInteractive -Command "Get-Process python,pythonw -ErrorAction SilentlyContinue | ' +
-       'Where-Object { $_.Path -like ''*AIEI Wealth*'' -or $_.Path -like ''*Ponfolio*'' } | Stop-Process -Force -ErrorAction SilentlyContinue; ' +
+       'Where-Object { $_.Path -like ''*\Ponfolio\*'' } | Stop-Process -Force -ErrorAction SilentlyContinue; ' +
        'Start-Sleep -Milliseconds 400"',
        '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
 end;

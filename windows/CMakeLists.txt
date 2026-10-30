@@ -4,7 +4,7 @@ project(aiei_wealth LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "aiei_wealth")
+set(BINARY_NAME "ponfolio")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

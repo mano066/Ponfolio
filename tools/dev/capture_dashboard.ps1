@@ -11,7 +11,7 @@ public class DashboardCapture {
   [DllImport("user32.dll")] public static extern bool SetWindowPos(IntPtr h, IntPtr after, int x, int y, int w, int height, uint flags);
 }
 '@
-$app = Get-Process aiei_wealth | Where-Object { $_.MainWindowHandle -ne 0 } | Select-Object -First 1
+$app = Get-Process ponfolio | Where-Object { $_.MainWindowHandle -ne 0 } | Select-Object -First 1
 if (!$app) { throw 'No visible application window found.' }
 [DashboardCapture]::SetWindowPos($app.MainWindowHandle, [IntPtr]::Zero, 20, 20, $Width, $Height, 0x0040) | Out-Null
 [DashboardCapture]::SetForegroundWindow($app.MainWindowHandle) | Out-Null

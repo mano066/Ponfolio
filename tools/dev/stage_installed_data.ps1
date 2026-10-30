@@ -1,10 +1,6 @@
 $ErrorActionPreference = 'Stop'
 $repoData = Join-Path $PSScriptRoot '..\..\backend\data'
-# New installs use 'Ponfolio'; installs from before the rename keep their old folder.
 $installed = Join-Path $env:LOCALAPPDATA 'Programs\Ponfolio\backend\data'
-if (-not (Test-Path $installed)) {
-    $installed = Join-Path $env:LOCALAPPDATA 'Programs\AIEI Wealth Terminal\backend\data'
-}
 $stamp = Get-Date -Format 'yyyyMMdd_HHmmss'
 $backup = Join-Path $env:TEMP "aiei_repo_backend_data_$stamp"
 

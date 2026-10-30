@@ -228,7 +228,7 @@ def start_callback_server():
     return server, thread
 
 # ── Google Drive Sync ──
-DRIVE_FOLDER_NAME = "AIEI_Wealth_Data"
+DRIVE_FOLDER_NAME = "Ponfolio_Data"
 SYNC_FILES = ["portfolio.json", "mf_portfolio.json", "watchlist.json", "settings.json",
               "swing_daily_picks.json", "swing_desk.json", "swing_paper.json",
               # The imported Kite P&L statements travel with the ledger they
